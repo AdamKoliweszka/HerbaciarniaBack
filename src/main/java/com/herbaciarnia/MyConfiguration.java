@@ -19,9 +19,14 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import javax.sql.DataSource;
+
 @Configuration
 @EnableWebSecurity
 public class MyConfiguration extends WebSecurityConfigurerAdapter {
+
+    @Autowired
+    DataSource dataSource;
 
     private static String REALM="MY_TEST_REALM";
 
@@ -37,8 +42,9 @@ public class MyConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("bill").password("abc123").roles("ADMIN");
-        auth.inMemoryAuthentication().withUser("tom").password("abc123").roles("USER");
+        auth.jdbcAuthentication().dataSource(dataSource);
+        //auth.inMemoryAuthentication().withUser("bill").password("abc123").authorities("ADMIN");// roles("ADMIN");
+        //auth.inMemoryAuthentication().withUser("tom").password("abc123").roles("USER");
     }
 
     @Override
@@ -49,7 +55,7 @@ public class MyConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET,"/Herbaty/Dostepne").permitAll()
                 .antMatchers(HttpMethod.POST,"/Herbaty/Dostepne").permitAll()
 
-                .antMatchers(HttpMethod.GET,"/Herbaty/Wszystkie").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET,"/Herbaty/Wszystkie").hasAuthority("PRACOWNIK")// hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST,"/Herbaty/Wszystkie").hasRole("ADMIN")
 
 
