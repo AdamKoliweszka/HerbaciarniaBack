@@ -18,84 +18,70 @@ import javax.persistence.Table;
  * @author Adam
  */
 @Entity
-@Table(name = "UZYTKOWNICY")
+@Table(name = "users")
 public class Uzytkownik implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_uzytkownika;
-    private String login;
-    private String haslo;
-    private String salt;
+    private long id;
+    private String username;
+    private String password;
+    private Boolean enabled;
 
     public long getId() {
-        return id_uzytkownika;
+        return id;
     }
 
     public void setId(long id) {
-        this.id_uzytkownika = id;
+        this.id = id;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getHaslo() {
-        return haslo;
+    public String getPassword() {
+        return password;
     }
 
-    public void setHaslo(String hash) {
-        this.haslo = hash;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setSalt(String salt){this.salt = salt;}
-    public String getSalt(){return salt;}
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Uzytkownik that = (Uzytkownik) o;
+        return id == that.id &&
+                Objects.equals(username, that.username) &&
+                Objects.equals(password, that.password) &&
+                Objects.equals(enabled, that.enabled);
+    }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 67 * hash + (int) (this.id_uzytkownika ^ (this.id_uzytkownika >>> 32));
-        hash = 67 * hash + Objects.hashCode(this.login);
-        hash = 67 * hash + Objects.hashCode(this.haslo);
-        hash = 67 * hash + Objects.hashCode(this.salt);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Uzytkownik other = (Uzytkownik) obj;
-        if (this.id_uzytkownika != other.id_uzytkownika) {
-            return false;
-        }
-        if (!Objects.equals(this.login, other.login)) {
-            return false;
-        }
-        if (!Objects.equals(this.haslo, other.haslo)) {
-            return false;
-        }
-        if (!Objects.equals(this.salt, other.salt)) {
-            return false;
-        }
-        return true;
+        return Objects.hash(id, username, password, enabled);
     }
 
     @Override
     public String toString() {
-        return "Uzytkownik{" + "id=" + id_uzytkownika + ", login=" + login + ", hash=" + haslo + ", salt=" + salt + '}';
+        return "Uzytkownik{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", enabled=" + enabled +
+                '}';
     }
-
-    
-    
 }
