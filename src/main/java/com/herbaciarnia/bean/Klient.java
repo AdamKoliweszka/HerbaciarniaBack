@@ -25,7 +25,7 @@ public class Klient {
    
     private String dataUsunieciaKonta;
     @OneToOne
-    @JoinColumn(name = "id_uzytkownika")
+    @JoinColumn(name = "username")
     private Uzytkownik uzytkownik;
 
     public long getId() {

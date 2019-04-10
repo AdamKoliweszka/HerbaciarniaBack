@@ -21,7 +21,7 @@ public class Pracownik {
     private Date DataZatrudnienia;
     private Date DataZwolnienia;
     @OneToOne
-    @JoinColumn(name = "id_uzytkownika")
+    @JoinColumn(name = "username")
     private Uzytkownik uzytkownik;
     public long getId() {
         return id_Pracownika;
@@ -121,6 +121,6 @@ public class Pracownik {
         return "Pracownik{" + "id=" + id_Pracownika + ", Imie=" + Imie + ", Nazwisko=" + Nazwisko + ", DataZatrudnienia=" + DataZatrudnienia + ", DataZwolnienia=" + DataZwolnienia + ", uzytkownik=" + uzytkownik + '}';
     }
 
-    
-    
+
+
 }

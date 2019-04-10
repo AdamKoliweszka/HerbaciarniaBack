@@ -39,7 +39,7 @@ public class KlientService{
         aktualizowanyKlient.setMiejscowosc(klient.getMiejscowosc());
         aktualizowanyKlient.setDataUsunieciaKonta(klient.getDataUsunieciaKonta());
         aktualizowanyKlient.setUlica(klient.getUlica());
-        aktualizowanyKlient.getUzytkownik().setHaslo(klient.getUzytkownik().getHaslo());
+        aktualizowanyKlient.getUzytkownik().setPassword(klient.getUzytkownik().getPassword());
         repository.save(aktualizowanyKlient);
     }
     public void insertOne(Klient klient) {
