@@ -5,12 +5,12 @@
  */
 package com.herbaciarnia.repository;
 
-import com.herbaciarnia.bean.StatusTransakcji;
+import com.herbaciarnia.bean.TransactionStatus;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StatusTransakcjiRepository extends CrudRepository<StatusTransakcji, Long> {
+public interface StatusTransakcjiRepository extends CrudRepository<TransactionStatus, Long> {
 
     
     

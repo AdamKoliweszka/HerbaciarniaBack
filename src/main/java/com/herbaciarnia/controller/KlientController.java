@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.controller;
 
-import com.herbaciarnia.bean.Klient;
+import com.herbaciarnia.bean.Customer;
 import com.herbaciarnia.service.KlientService;
 import java.util.Collection;
 import java.util.List;
@@ -28,14 +28,14 @@ public class KlientController {
     KlientService klientService;
     
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<Klient> getAllKlienci(){
-        List<Klient> gatunki = (List<Klient>) klientService.findAll();
+    public Collection<Customer> getAllKlienci(){
+        List<Customer> gatunki = (List<Customer>) klientService.findAll();
         return gatunki;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Klient getKlientById(@PathVariable("id") long id){
+    public Customer getKlientById(@PathVariable("id") long id){
         return klientService.findOne(id);
     }
     
@@ -45,13 +45,13 @@ public class KlientController {
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateKlientById(@RequestBody Klient klient){
-        klientService.updateOne(klient);
+    public void updateKlientById(@RequestBody Customer customer){
+        klientService.updateOne(customer);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertKlient(@RequestBody Klient klient){
-        klientService.insertOne(klient);
+    public void insertKlient(@RequestBody Customer customer){
+        klientService.insertOne(customer);
     }
 
 }

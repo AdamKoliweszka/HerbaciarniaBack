@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.service;
 
-import com.herbaciarnia.bean.Zakup;
+import com.herbaciarnia.bean.Purchase;
 import com.herbaciarnia.repository.ZakupRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ public class ZakupService{
     private ZakupRepository repository;
 
     
-    public List<Zakup> findAll() {
+    public List<Purchase> findAll() {
 
-        List<Zakup> zakup = (List<Zakup>) repository.findAll();
+        List<Purchase> purchase = (List<Purchase>) repository.findAll();
         
-        return zakup;
+        return purchase;
     }
-    public Zakup findOne(long id) {
+    public Purchase findOne(long id) {
 
         return repository.findOne(id);
     }
@@ -32,13 +32,13 @@ public class ZakupService{
 
         repository.delete(id);
     }
-    public void updateOne(Zakup zakup) {
-        Zakup aktualizowanaZakup = repository.findOne(zakup.getId());
+    public void updateOne(Purchase purchase) {
+        Purchase aktualizowanaPurchase = repository.findOne(purchase.getId_purchase());
         
-        repository.save(aktualizowanaZakup);
+        repository.save(aktualizowanaPurchase);
     }
-    public void insertOne(Zakup zakup) {
+    public void insertOne(Purchase purchase) {
 
-        repository.save(zakup);
+        repository.save(purchase);
     }
 }

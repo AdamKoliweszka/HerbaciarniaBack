@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.controller;
 
-import com.herbaciarnia.bean.Dostawca;
+import com.herbaciarnia.bean.Provider;
 import com.herbaciarnia.service.DostawcaService;
 import java.util.Collection;
 import java.util.List;
@@ -28,14 +28,14 @@ public class DostawcaController {
     DostawcaService dostawcaService;
     
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<Dostawca> getAllDostawcy(){
-        List<Dostawca> gatunki = (List<Dostawca>) dostawcaService.findAll();
+    public Collection<Provider> getAllDostawcy(){
+        List<Provider> gatunki = (List<Provider>) dostawcaService.findAll();
         return gatunki;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Dostawca getDostawcaById(@PathVariable("id") long id){
+    public Provider getDostawcaById(@PathVariable("id") long id){
         return dostawcaService.findOne(id);
     }
     
@@ -45,13 +45,13 @@ public class DostawcaController {
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateDostawcaById(@RequestBody Dostawca dostawca){
-        dostawcaService.updateOne(dostawca);
+    public void updateDostawcaById(@RequestBody Provider provider){
+        dostawcaService.updateOne(provider);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertDostawca(@RequestBody Dostawca dostawca){
-        dostawcaService.insertOne(dostawca);
+    public void insertDostawca(@RequestBody Provider provider){
+        dostawcaService.insertOne(provider);
     }
 
 }

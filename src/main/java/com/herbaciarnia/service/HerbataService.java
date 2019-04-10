@@ -6,7 +6,7 @@
 package com.herbaciarnia.service;
 
 import com.herbaciarnia.bean.ArgumentWyszukiwaniaHerbaty;
-import com.herbaciarnia.bean.Herbata;
+import com.herbaciarnia.bean.Tea;
 import com.herbaciarnia.repository.HerbataRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,36 +18,36 @@ public class HerbataService{
     @Autowired
     private HerbataRepository repository;
 
-    public List<Herbata> findAllDostepne()
+    public List<Tea> findAllDostepne()
     {
-        List<Herbata> herbata = (List<Herbata>) repository.findDostepneHerbaty();
-        return herbata;
+        List<Tea> tea = (List<Tea>) repository.findDostepneHerbaty();
+        return tea;
     }
-    public List<Herbata> findAllDostepneByArgument(ArgumentWyszukiwaniaHerbaty argument)
+    public List<Tea> findAllDostepneByArgument(ArgumentWyszukiwaniaHerbaty argument)
     {
-        List<Herbata> herbata = (List<Herbata>) repository.findDostepneHerbatyByArgument(argument);
-        return herbata;
+        List<Tea> tea = (List<Tea>) repository.findDostepneHerbatyByArgument(argument);
+        return tea;
     }
-    public List<Herbata> findAllWszystkieByArgument(ArgumentWyszukiwaniaHerbaty argument)
+    public List<Tea> findAllWszystkieByArgument(ArgumentWyszukiwaniaHerbaty argument)
     {
-        List<Herbata> herbaty = null;
+        List<Tea> herbaty = null;
         if(argument.isCzyDostepne() && !argument.isCzyNiedostepne())
         {
-            herbaty = (List<Herbata>) repository.findDostepneHerbatyByArgument(argument);
+            herbaty = (List<Tea>) repository.findDostepneHerbatyByArgument(argument);
         }else if(!argument.isCzyDostepne() && argument.isCzyNiedostepne())
         {
-            herbaty = (List<Herbata>) repository.findNiedostepneHerbatyByArgument(argument);
+            herbaty = (List<Tea>) repository.findNiedostepneHerbatyByArgument(argument);
         }else{
-            herbaty = (List<Herbata>) repository.findWszystkieHerbatyByArgument(argument);
+            herbaty = (List<Tea>) repository.findWszystkieHerbatyByArgument(argument);
         }
         return herbaty;
     }
-    public List<Herbata> findAll() {
+    public List<Tea> findAll() {
 
-        List<Herbata> herbata = (List<Herbata>) repository.findAll();
-        return herbata;
+        List<Tea> tea = (List<Tea>) repository.findAll();
+        return tea;
     }
-    public Herbata findOne(long id) {
+    public Tea findOne(long id) {
 
         return repository.findOne(id);
     }
@@ -55,19 +55,19 @@ public class HerbataService{
 
         repository.delete(id);
     }
-    public void updateOne(Herbata herbata) {
-        Herbata aktualizowanaHerbata = repository.findOne(herbata.getId_herbaty());
-        aktualizowanaHerbata.setNazwa_herbaty(herbata.getNazwa_herbaty());
-        aktualizowanaHerbata.setCenaDostawy(herbata.getCenaDostawy());
-        aktualizowanaHerbata.setCenaSprzedazy(herbata.getCenaSprzedazy());
-        aktualizowanaHerbata.setGatunekHerbaty(herbata.getGatunekHerbaty());
-        aktualizowanaHerbata.setIloscDostepna(herbata.getIloscDostepna());
-        aktualizowanaHerbata.setKrajPochodzenia(herbata.getKrajPochodzenia());
-        aktualizowanaHerbata.setOpis(herbata.getOpis());
-        repository.save(aktualizowanaHerbata);
+    public void updateOne(Tea tea) {
+        Tea aktualizowanaTea = repository.findOne(tea.getId_tea());
+        aktualizowanaTea.setName(tea.getName());
+        aktualizowanaTea.setPrice_of_delivery(tea.getPrice_of_delivery());
+        aktualizowanaTea.setPrice_of_selling(tea.getPrice_of_selling());
+        aktualizowanaTea.setTea_species(tea.getTea_species());
+        aktualizowanaTea.setAvailable_quantity(tea.getAvailable_quantity());
+        aktualizowanaTea.setCountry_of_origin(tea.getCountry_of_origin());
+        aktualizowanaTea.setDescription(tea.getDescription());
+        repository.save(aktualizowanaTea);
     }
-    public void insertOne(Herbata herbata) {
+    public void insertOne(Tea tea) {
 
-        repository.save(herbata);
+        repository.save(tea);
     }
 }

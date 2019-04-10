@@ -5,12 +5,12 @@
  */
 package com.herbaciarnia.repository;
 
-import com.herbaciarnia.bean.Pracownik;
+import com.herbaciarnia.bean.Employee;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PracownikRepository extends CrudRepository<Pracownik, Long> {
+public interface PracownikRepository extends CrudRepository<Employee, Long> {
 
     
     

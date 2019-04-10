@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.service;
 
-import com.herbaciarnia.bean.Dostawca;
+import com.herbaciarnia.bean.Provider;
 import com.herbaciarnia.repository.DostawcaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ public class DostawcaService{
     private DostawcaRepository repository;
 
     
-    public List<Dostawca> findAll() {
+    public List<Provider> findAll() {
 
-        List<Dostawca> dostawca = (List<Dostawca>) repository.findAll();
+        List<Provider> provider = (List<Provider>) repository.findAll();
         
-        return dostawca;
+        return provider;
     }
-    public Dostawca findOne(long id) {
+    public Provider findOne(long id) {
 
         return repository.findOne(id);
     }
@@ -32,17 +32,17 @@ public class DostawcaService{
 
         repository.delete(id);
     }
-    public void updateOne(Dostawca dostawca) {
-        Dostawca aktualizowanyDostawca = repository.findOne(dostawca.getId());
-        aktualizowanyDostawca.setImie(dostawca.getImie());
-        aktualizowanyDostawca.setNazwisko(dostawca.getNazwisko());
-        aktualizowanyDostawca.setMiejscowosc(dostawca.getMiejscowosc());
-        aktualizowanyDostawca.setNumerKonta(dostawca.getNumerKonta());
-        aktualizowanyDostawca.setUlica(dostawca.getUlica());
-        repository.save(aktualizowanyDostawca);
+    public void updateOne(Provider provider) {
+        Provider aktualizowanyProvider = repository.findOne(provider.getId_provider());
+        aktualizowanyProvider.setName(provider.getName());
+        aktualizowanyProvider.setSurname(provider.getSurname());
+        aktualizowanyProvider.setCity(provider.getCity());
+        aktualizowanyProvider.setAccount_number(provider.getAccount_number());
+        aktualizowanyProvider.setStreet(provider.getStreet());
+        repository.save(aktualizowanyProvider);
     }
-    public void insertOne(Dostawca dostawca) {
+    public void insertOne(Provider provider) {
 
-        repository.save(dostawca);
+        repository.save(provider);
     }
 }

@@ -5,17 +5,17 @@
  */
 package com.herbaciarnia.repository;
 
-import com.herbaciarnia.bean.KrajPochodzenia;
+import com.herbaciarnia.bean.CountryOfOrigin;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface KrajPochodzeniaRepository extends CrudRepository<KrajPochodzenia, Long> {
+public interface KrajPochodzeniaRepository extends CrudRepository<CountryOfOrigin, Long> {
 
-    @Query("SELECT k FROM KrajPochodzenia k WHERE k.nazwa_kraju = :#{#nazwa_kraju }")
-    Iterable<KrajPochodzenia> findKrajPochodzeniaByNazwa(@Param("nazwa_kraju") String nazwa_kraju);
+    @Query("SELECT k FROM CountryOfOrigin k WHERE k.name = :#{#nazwa_kraju }")
+    Iterable<CountryOfOrigin> findKrajPochodzeniaByNazwa(@Param("nazwa_kraju") String nazwa_kraju);
 
     
 }

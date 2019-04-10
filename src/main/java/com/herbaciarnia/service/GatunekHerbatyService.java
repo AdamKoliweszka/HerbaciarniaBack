@@ -5,8 +5,7 @@
  */
 package com.herbaciarnia.service;
 
-import com.herbaciarnia.bean.GatunekHerbaty;
-import com.herbaciarnia.bean.KrajPochodzenia;
+import com.herbaciarnia.bean.TeaSpecies;
 import com.herbaciarnia.repository.GatunekHerbatyRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +18,13 @@ public class GatunekHerbatyService{
     private GatunekHerbatyRepository repository;
 
     
-    public List<GatunekHerbaty> findAll() {
+    public List<TeaSpecies> findAll() {
 
-        List<GatunekHerbaty> gatunek = (List<GatunekHerbaty>) repository.findAll();
+        List<TeaSpecies> gatunek = (List<TeaSpecies>) repository.findAll();
         
         return gatunek;
     }
-    public GatunekHerbaty findOne(long id) {
+    public TeaSpecies findOne(long id) {
 
         return repository.findOne(id);
     }
@@ -33,13 +32,13 @@ public class GatunekHerbatyService{
 
         repository.delete(id);
     }
-    public void updateOne(GatunekHerbaty gatunek) {
-        GatunekHerbaty aktualizowanyGatunek = repository.findOne(gatunek.getId_gatunku());
-        aktualizowanyGatunek.setNazwa_gatunku(gatunek.getNazwa_gatunku());
+    public void updateOne(TeaSpecies gatunek) {
+        TeaSpecies aktualizowanyGatunek = repository.findOne(gatunek.getId_Species());
+        aktualizowanyGatunek.setName(gatunek.getName());
         repository.save(aktualizowanyGatunek);
     }
-    public void insertOne(GatunekHerbaty gatunek) {
-        List<GatunekHerbaty> lg = (List<GatunekHerbaty>)repository.findGatunekHerbatyByNazwa(gatunek.getNazwa_gatunku());
+    public void insertOne(TeaSpecies gatunek) {
+        List<TeaSpecies> lg = (List<TeaSpecies>)repository.findGatunekHerbatyByNazwa(gatunek.getName());
         if(lg.size() == 0) {
             repository.save(gatunek);
         }

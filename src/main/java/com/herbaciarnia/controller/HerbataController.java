@@ -6,7 +6,7 @@
 package com.herbaciarnia.controller;
 
 import com.herbaciarnia.bean.ArgumentWyszukiwaniaHerbaty;
-import com.herbaciarnia.bean.Herbata;
+import com.herbaciarnia.bean.Tea;
 import com.herbaciarnia.service.HerbataService;
 import java.util.Collection;
 import java.util.List;
@@ -29,34 +29,34 @@ public class HerbataController {
     HerbataService herbataService;
     
     @RequestMapping(path = "/Dostepne",method = RequestMethod.GET)
-    public Collection<Herbata> getAllDostepneHerbaty(){
-        List<Herbata> herbaty = (List<Herbata>) herbataService.findAllDostepne();
+    public Collection<Tea> getAllDostepneHerbaty(){
+        List<Tea> herbaty = (List<Tea>) herbataService.findAllDostepne();
         return herbaty;
         
     }
     
     @RequestMapping(path = "/Dostepne",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Herbata> getAllDostepneHerbatyFiltrowanie(@RequestBody ArgumentWyszukiwaniaHerbaty argument){
-        List<Herbata> herbaty = (List<Herbata>) herbataService.findAllDostepneByArgument(argument);
+    public Collection<Tea> getAllDostepneHerbatyFiltrowanie(@RequestBody ArgumentWyszukiwaniaHerbaty argument){
+        List<Tea> herbaty = (List<Tea>) herbataService.findAllDostepneByArgument(argument);
         return herbaty;
         
     }
 
     @RequestMapping(path = "/Wszystkie",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Herbata> getAllWszystkieHerbatyFiltrowanie(@RequestBody ArgumentWyszukiwaniaHerbaty argument){
-        List<Herbata> herbaty = (List<Herbata>) herbataService.findAllWszystkieByArgument(argument);
+    public Collection<Tea> getAllWszystkieHerbatyFiltrowanie(@RequestBody ArgumentWyszukiwaniaHerbaty argument){
+        List<Tea> herbaty = (List<Tea>) herbataService.findAllWszystkieByArgument(argument);
         return herbaty;
 
     }
     
     @RequestMapping(path = "/Wszystkie",method = RequestMethod.GET)
-    public Collection<Herbata> getAllHerbaty(){
-        List<Herbata> gatunki = (List<Herbata>) herbataService.findAll();
+    public Collection<Tea> getAllHerbaty(){
+        List<Tea> gatunki = (List<Tea>) herbataService.findAll();
         return gatunki;
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Herbata getHerbataById(@PathVariable("id") long id){
+    public Tea getHerbataById(@PathVariable("id") long id){
         return herbataService.findOne(id);
     }
     
@@ -66,13 +66,13 @@ public class HerbataController {
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateHerbataById(@RequestBody Herbata herbata){
-        herbataService.updateOne(herbata);
+    public void updateHerbataById(@RequestBody Tea tea){
+        herbataService.updateOne(tea);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertHerbata(@RequestBody Herbata herbata){
-        herbataService.insertOne(herbata);
+    public void insertHerbata(@RequestBody Tea tea){
+        herbataService.insertOne(tea);
     }
 
 }

@@ -19,21 +19,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "users")
-public class Uzytkownik implements Serializable{
+public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
     private String username;
     private String password;
     private Boolean enabled;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -63,23 +54,21 @@ public class Uzytkownik implements Serializable{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Uzytkownik that = (Uzytkownik) o;
-        return id == that.id &&
-                Objects.equals(username, that.username) &&
-                Objects.equals(password, that.password) &&
-                Objects.equals(enabled, that.enabled);
+        User user = (User) o;
+        return Objects.equals(username, user.username) &&
+                Objects.equals(password, user.password) &&
+                Objects.equals(enabled, user.enabled);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, username, password, enabled);
+        return Objects.hash(username, password, enabled);
     }
 
     @Override
     public String toString() {
-        return "Uzytkownik{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
+        return "User{" +
+                "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", enabled=" + enabled +
                 '}';

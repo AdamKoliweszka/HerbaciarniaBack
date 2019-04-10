@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.service;
 
-import com.herbaciarnia.bean.StatusTransakcji;
+import com.herbaciarnia.bean.TransactionStatus;
 import com.herbaciarnia.repository.StatusTransakcjiRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ public class StatusTransakcjiService{
     private StatusTransakcjiRepository repository;
 
     
-    public List<StatusTransakcji> findAll() {
+    public List<TransactionStatus> findAll() {
 
-        List<StatusTransakcji> statuse = (List<StatusTransakcji>) repository.findAll();
+        List<TransactionStatus> statuse = (List<TransactionStatus>) repository.findAll();
         
         return statuse;
     }
-    public StatusTransakcji findOne(long id) {
+    public TransactionStatus findOne(long id) {
 
         return repository.findOne(id);
     }
@@ -32,12 +32,12 @@ public class StatusTransakcjiService{
 
         repository.delete(id);
     }
-    public void updateOne(StatusTransakcji status) {
-        StatusTransakcji aktualizowanyGatunek = repository.findOne(status.getId());
-        aktualizowanyGatunek.setNazwa(status.getNazwa());
+    public void updateOne(TransactionStatus status) {
+        TransactionStatus aktualizowanyGatunek = repository.findOne(status.getId_status());
+        aktualizowanyGatunek.setName(status.getName());
         repository.save(aktualizowanyGatunek);
     }
-    public void insertOne(StatusTransakcji status) {
+    public void insertOne(TransactionStatus status) {
 
         repository.save(status);
     }

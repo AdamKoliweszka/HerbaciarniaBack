@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.service;
 
-import com.herbaciarnia.bean.Klient;
+import com.herbaciarnia.bean.Customer;
 import com.herbaciarnia.repository.KlientRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ public class KlientService{
     private KlientRepository repository;
 
     
-    public List<Klient> findAll() {
+    public List<Customer> findAll() {
 
-        List<Klient> klient = (List<Klient>) repository.findAll();
+        List<Customer> customer = (List<Customer>) repository.findAll();
         
-        return klient;
+        return customer;
     }
-    public Klient findOne(long id) {
+    public Customer findOne(long id) {
 
         return repository.findOne(id);
     }
@@ -32,18 +32,18 @@ public class KlientService{
 
         repository.delete(id);
     }
-    public void updateOne(Klient klient) {
-        Klient aktualizowanyKlient = repository.findOne(klient.getId());
-        aktualizowanyKlient.setImie(klient.getImie());
-        aktualizowanyKlient.setNazwisko(klient.getNazwisko());
-        aktualizowanyKlient.setMiejscowosc(klient.getMiejscowosc());
-        aktualizowanyKlient.setDataUsunieciaKonta(klient.getDataUsunieciaKonta());
-        aktualizowanyKlient.setUlica(klient.getUlica());
-        aktualizowanyKlient.getUzytkownik().setPassword(klient.getUzytkownik().getPassword());
-        repository.save(aktualizowanyKlient);
+    public void updateOne(Customer customer) {
+        Customer aktualizowanyCustomer = repository.findOne(customer.getId_customer());
+        aktualizowanyCustomer.setName(customer.getName());
+        aktualizowanyCustomer.setSurname(customer.getSurname());
+        aktualizowanyCustomer.setCity(customer.getCity());
+        aktualizowanyCustomer.setDateOfDeletingAccount(customer.getDateOfDeletingAccount());
+        aktualizowanyCustomer.setStreet(customer.getStreet());
+        aktualizowanyCustomer.getUser().setPassword(customer.getUser().getPassword());
+        repository.save(aktualizowanyCustomer);
     }
-    public void insertOne(Klient klient) {
+    public void insertOne(Customer customer) {
 
-        repository.save(klient);
+        repository.save(customer);
     }
 }

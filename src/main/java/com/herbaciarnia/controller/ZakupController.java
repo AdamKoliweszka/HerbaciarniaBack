@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.controller;
 
-import com.herbaciarnia.bean.Zakup;
+import com.herbaciarnia.bean.Purchase;
 import com.herbaciarnia.service.ZakupService;
 import java.util.Collection;
 import java.util.List;
@@ -28,14 +28,14 @@ public class ZakupController {
     ZakupService zakupService;
     
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<Zakup> getAllZakupy(){
-        List<Zakup> gatunki = (List<Zakup>) zakupService.findAll();
+    public Collection<Purchase> getAllZakupy(){
+        List<Purchase> gatunki = (List<Purchase>) zakupService.findAll();
         return gatunki;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Zakup getZakupById(@PathVariable("id") long id){
+    public Purchase getZakupById(@PathVariable("id") long id){
         return zakupService.findOne(id);
     }
     
@@ -45,13 +45,13 @@ public class ZakupController {
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteZakupById(@RequestBody Zakup zakup){
-        zakupService.updateOne(zakup);
+    public void deleteZakupById(@RequestBody Purchase purchase){
+        zakupService.updateOne(purchase);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertZakup(@RequestBody Zakup zakup){
-        zakupService.insertOne(zakup);
+    public void insertZakup(@RequestBody Purchase purchase){
+        zakupService.insertOne(purchase);
     }
 
 }

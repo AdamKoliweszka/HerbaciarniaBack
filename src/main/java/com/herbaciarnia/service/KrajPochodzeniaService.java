@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.service;
 
-import com.herbaciarnia.bean.KrajPochodzenia;
+import com.herbaciarnia.bean.CountryOfOrigin;
 import com.herbaciarnia.repository.KrajPochodzeniaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ public class KrajPochodzeniaService{
     private KrajPochodzeniaRepository repository;
 
     
-    public List<KrajPochodzenia> findAll() {
+    public List<CountryOfOrigin> findAll() {
 
-        List<KrajPochodzenia> kraje = (List<KrajPochodzenia>) repository.findAll();
+        List<CountryOfOrigin> kraje = (List<CountryOfOrigin>) repository.findAll();
         
         return kraje;
     }
-    public KrajPochodzenia findOne(long id) {
+    public CountryOfOrigin findOne(long id) {
 
         return repository.findOne(id);
     }
@@ -32,13 +32,13 @@ public class KrajPochodzeniaService{
 
         repository.delete(id);
     }
-    public void updateOne(KrajPochodzenia kraj) {
-        KrajPochodzenia aktualizowanyKraj = repository.findOne(kraj.getId_kraju());
-        aktualizowanyKraj.setNazwa_kraju(kraj.getNazwa_kraju());
+    public void updateOne(CountryOfOrigin kraj) {
+        CountryOfOrigin aktualizowanyKraj = repository.findOne(kraj.getId_country());
+        aktualizowanyKraj.setName(kraj.getName());
         repository.save(aktualizowanyKraj);
     }
-    public void insertOne(KrajPochodzenia kraj) {
-        List<KrajPochodzenia> lk = (List<KrajPochodzenia>)repository.findKrajPochodzeniaByNazwa(kraj.getNazwa_kraju());
+    public void insertOne(CountryOfOrigin kraj) {
+        List<CountryOfOrigin> lk = (List<CountryOfOrigin>)repository.findKrajPochodzeniaByNazwa(kraj.getName());
         if(lk.size() == 0) {
             repository.save(kraj);
         }

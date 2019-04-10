@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.controller;
 
-import com.herbaciarnia.bean.Pracownik;
+import com.herbaciarnia.bean.Employee;
 import com.herbaciarnia.service.PracownikService;
 import java.util.Collection;
 import java.util.List;
@@ -28,14 +28,14 @@ public class PracownikController {
     PracownikService pracownikService;
     
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<Pracownik> getAllPracownicy(){
-        List<Pracownik> gatunki = (List<Pracownik>) pracownikService.findAll();
+    public Collection<Employee> getAllPracownicy(){
+        List<Employee> gatunki = (List<Employee>) pracownikService.findAll();
         return gatunki;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Pracownik getPracownikById(@PathVariable("id") long id){
+    public Employee getPracownikById(@PathVariable("id") long id){
         return pracownikService.findOne(id);
     }
     
@@ -45,13 +45,13 @@ public class PracownikController {
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updatePracownikById(@RequestBody Pracownik pracownik){
-        pracownikService.updateOne(pracownik);
+    public void updatePracownikById(@RequestBody Employee employee){
+        pracownikService.updateOne(employee);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertPracownik(@RequestBody Pracownik pracownik){
-        pracownikService.insertOne(pracownik);
+    public void insertPracownik(@RequestBody Employee employee){
+        pracownikService.insertOne(employee);
     }
 
 }

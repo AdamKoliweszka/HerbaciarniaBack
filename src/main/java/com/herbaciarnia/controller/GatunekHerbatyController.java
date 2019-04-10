@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.controller;
 
-import com.herbaciarnia.bean.GatunekHerbaty;
+import com.herbaciarnia.bean.TeaSpecies;
 import com.herbaciarnia.service.GatunekHerbatyService;
 import java.util.Collection;
 import java.util.List;
@@ -29,14 +29,14 @@ public class GatunekHerbatyController {
     GatunekHerbatyService gatunekService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<GatunekHerbaty> getAllGatunki() {
-        List<GatunekHerbaty> gatunki = (List<GatunekHerbaty>) gatunekService.findAll();
+    public Collection<TeaSpecies> getAllGatunki() {
+        List<TeaSpecies> gatunki = (List<TeaSpecies>) gatunekService.findAll();
         return gatunki;
 
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public GatunekHerbaty getGatunekById(@PathVariable("id") long id) {
+    public TeaSpecies getGatunekById(@PathVariable("id") long id) {
         return gatunekService.findOne(id);
     }
 
@@ -48,14 +48,14 @@ public class GatunekHerbatyController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteGatunekById(@RequestBody GatunekHerbaty gatunek) {
-        if (gatunek.getId_gatunku() > 1) {
+    public void deleteGatunekById(@RequestBody TeaSpecies gatunek) {
+        if (gatunek.getId_Species() > 1) {
             gatunekService.updateOne(gatunek);
         }
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertGatunek(@RequestBody GatunekHerbaty gatunek) {
+    public void insertGatunek(@RequestBody TeaSpecies gatunek) {
         gatunekService.insertOne(gatunek);
     }
 

@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.controller;
 
-import com.herbaciarnia.bean.KrajPochodzenia;
+import com.herbaciarnia.bean.CountryOfOrigin;
 import com.herbaciarnia.service.KrajPochodzeniaService;
 import java.util.Collection;
 import java.util.List;
@@ -28,14 +28,14 @@ public class KrajPochodzeniaController {
     KrajPochodzeniaService krajService;
     
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<KrajPochodzenia> getAllKraje(){
-        List<KrajPochodzenia> kraje = (List<KrajPochodzenia>) krajService.findAll();
+    public Collection<CountryOfOrigin> getAllKraje(){
+        List<CountryOfOrigin> kraje = (List<CountryOfOrigin>) krajService.findAll();
         return kraje;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public KrajPochodzenia getKrajById(@PathVariable("id") long id){
+    public CountryOfOrigin getKrajById(@PathVariable("id") long id){
         return krajService.findOne(id);
     }
     
@@ -45,12 +45,12 @@ public class KrajPochodzeniaController {
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteKrajById(@RequestBody KrajPochodzenia kraj){
+    public void deleteKrajById(@RequestBody CountryOfOrigin kraj){
         krajService.updateOne(kraj);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertKraj(@RequestBody KrajPochodzenia kraj){
+    public void insertKraj(@RequestBody CountryOfOrigin kraj){
         krajService.insertOne(kraj);
     }
 

@@ -5,12 +5,12 @@
  */
 package com.herbaciarnia.repository;
 
-import com.herbaciarnia.bean.Klient;
+import com.herbaciarnia.bean.Customer;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface KlientRepository extends CrudRepository<Klient, Long> {
+public interface KlientRepository extends CrudRepository<Customer, Long> {
 
     
     

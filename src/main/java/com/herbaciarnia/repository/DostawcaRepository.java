@@ -5,12 +5,12 @@
  */
 package com.herbaciarnia.repository;
 
-import com.herbaciarnia.bean.Dostawca;
+import com.herbaciarnia.bean.Provider;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DostawcaRepository extends CrudRepository<Dostawca, Long> {
+public interface DostawcaRepository extends CrudRepository<Provider, Long> {
 
     
     

@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.controller;
 
-import com.herbaciarnia.bean.StatusTransakcji;
+import com.herbaciarnia.bean.TransactionStatus;
 import com.herbaciarnia.service.StatusTransakcjiService;
 import java.util.Collection;
 import java.util.List;
@@ -28,14 +28,14 @@ public class StatusTransakcjiController {
     StatusTransakcjiService statusService;
     
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<StatusTransakcji> getAllGatunki(){
-        List<StatusTransakcji> gatunki = (List<StatusTransakcji>) statusService.findAll();
+    public Collection<TransactionStatus> getAllGatunki(){
+        List<TransactionStatus> gatunki = (List<TransactionStatus>) statusService.findAll();
         return gatunki;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public StatusTransakcji getStatusById(@PathVariable("id") long id){
+    public TransactionStatus getStatusById(@PathVariable("id") long id){
         return statusService.findOne(id);
     }
     
@@ -45,12 +45,12 @@ public class StatusTransakcjiController {
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteStatusById(@RequestBody StatusTransakcji status){
+    public void deleteStatusById(@RequestBody TransactionStatus status){
         statusService.updateOne(status);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertStatus(@RequestBody StatusTransakcji status){
+    public void insertStatus(@RequestBody TransactionStatus status){
         statusService.insertOne(status);
     }
 

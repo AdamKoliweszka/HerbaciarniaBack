@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.service;
 
-import com.herbaciarnia.bean.Pracownik;
+import com.herbaciarnia.bean.Employee;
 import com.herbaciarnia.repository.PracownikRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +18,13 @@ public class PracownikService{
     private PracownikRepository repository;
 
     
-    public List<Pracownik> findAll() {
+    public List<Employee> findAll() {
 
-        List<Pracownik> pracownik = (List<Pracownik>) repository.findAll();
+        List<Employee> employee = (List<Employee>) repository.findAll();
         
-        return pracownik;
+        return employee;
     }
-    public Pracownik findOne(long id) {
+    public Employee findOne(long id) {
 
         return repository.findOne(id);
     }
@@ -32,17 +32,17 @@ public class PracownikService{
 
         repository.delete(id);
     }
-    public void updateOne(Pracownik pracownik) {
-        Pracownik aktualizowanyPracownik = repository.findOne(pracownik.getId());
-        aktualizowanyPracownik.setImie(pracownik.getImie());
-        aktualizowanyPracownik.setNazwisko(pracownik.getNazwisko());
-        pracownik.setDataZatrudnienia(pracownik.getDataZatrudnienia());
-        pracownik.setDataZwolnienia(pracownik.getDataZwolnienia());
-        aktualizowanyPracownik.getUzytkownik().setPassword(pracownik.getUzytkownik().getPassword());
-        repository.save(aktualizowanyPracownik);
+    public void updateOne(Employee employee) {
+        Employee aktualizowanyEmployee = repository.findOne(employee.getId_employee());
+        aktualizowanyEmployee.setName(employee.getName());
+        aktualizowanyEmployee.setSurname(employee.getSurname());
+        employee.setDate_of_employment(employee.getDate_of_employment());
+        employee.setDate_of_employment(employee.getDate_of_employment());
+        aktualizowanyEmployee.getUser().setPassword(employee.getUser().getPassword());
+        repository.save(aktualizowanyEmployee);
     }
-    public void insertOne(Pracownik pracownik) {
+    public void insertOne(Employee employee) {
 
-        repository.save(pracownik);
+        repository.save(employee);
     }
 }

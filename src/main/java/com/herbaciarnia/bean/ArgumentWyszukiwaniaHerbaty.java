@@ -5,10 +5,7 @@
  */
 package com.herbaciarnia.bean;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 
 /**
@@ -19,14 +16,14 @@ import java.util.Objects;
 public class ArgumentWyszukiwaniaHerbaty {
     private int cenaOd;
     private int cenaDo;
-    private GatunekHerbaty[] gatunki;
-    private KrajPochodzenia[] kraje;
+    private TeaSpecies[] gatunki;
+    private CountryOfOrigin[] kraje;
     private boolean czyDostepne;
     private boolean czyNiedostepne;
 
     public ArgumentWyszukiwaniaHerbaty()
     {
-        //KrajPochodzenia kraj = new KrajPochodzenia();
+        //CountryOfOrigin kraj = new CountryOfOrigin();
         //kraj.setId_kraju(4);
         //kraj.setNazwa_kraju("Brazylia");
         //kraj.setId_kraju(1);
@@ -52,19 +49,19 @@ public class ArgumentWyszukiwaniaHerbaty {
         this.cenaDo = cenaDo;
     }
 
-    public GatunekHerbaty[] getGatunki() {
+    public TeaSpecies[] getGatunki() {
         return gatunki;
     }
 
-    public void setGatunki(GatunekHerbaty[] gatunki) {
+    public void setGatunki(TeaSpecies[] gatunki) {
         this.gatunki = gatunki;
     }
 
-    public KrajPochodzenia[] getKraje() {
+    public CountryOfOrigin[] getKraje() {
         return kraje;
     }
 
-    public void setKraje(KrajPochodzenia[] kraje) {
+    public void setKraje(CountryOfOrigin[] kraje) {
         this.kraje = kraje;
     }
 

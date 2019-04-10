@@ -5,12 +5,12 @@
  */
 package com.herbaciarnia.repository;
 
-import com.herbaciarnia.bean.Zakup;
+import com.herbaciarnia.bean.Purchase;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ZakupRepository extends CrudRepository<Zakup, Long> {
+public interface ZakupRepository extends CrudRepository<Purchase, Long> {
 
     
     

@@ -5,18 +5,17 @@
  */
 package com.herbaciarnia.repository;
 
-import com.herbaciarnia.bean.GatunekHerbaty;
-import com.herbaciarnia.bean.KrajPochodzenia;
+import com.herbaciarnia.bean.TeaSpecies;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GatunekHerbatyRepository extends CrudRepository<GatunekHerbaty, Long> {
+public interface GatunekHerbatyRepository extends CrudRepository<TeaSpecies, Long> {
     
-    @Query("SELECT g FROM GatunekHerbaty g WHERE g.nazwa_gatunku = :#{#nazwa_gatunku }")
-    Iterable<GatunekHerbaty> findGatunekHerbatyByNazwa(@Param("nazwa_gatunku") String nazwa_gatunku);
+    @Query("SELECT g FROM TeaSpecies g WHERE g.name = :#{#name }")
+    Iterable<TeaSpecies> findGatunekHerbatyByNazwa(@Param("name") String name);
 
 
 
