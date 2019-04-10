@@ -38,7 +38,7 @@ public class PracownikService{
         aktualizowanyPracownik.setNazwisko(pracownik.getNazwisko());
         pracownik.setDataZatrudnienia(pracownik.getDataZatrudnienia());
         pracownik.setDataZwolnienia(pracownik.getDataZwolnienia());
-        aktualizowanyPracownik.getUzytkownik().setHaslo(pracownik.getUzytkownik().getHaslo());
+        aktualizowanyPracownik.getUzytkownik().setPassword(pracownik.getUzytkownik().getPassword());
         repository.save(aktualizowanyPracownik);
     }
     public void insertOne(Pracownik pracownik) {

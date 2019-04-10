@@ -1,13 +1,4 @@
 DROP TABLE IF EXISTS cities;
-CREATE TABLE cities(id serial PRIMARY KEY, name VARCHAR(100), population integer);
-INSERT INTO cities(name, population) VALUES('Bratislava', 432000);
-INSERT INTO cities(name, population) VALUES('Budapest', 1759000);
-INSERT INTO cities(name, population) VALUES('Prague', 1280000);
-INSERT INTO cities(name, population) VALUES('Warsaw', 1748000);
-INSERT INTO cities(name, population) VALUES('Los Angeles', 3971000);
-INSERT INTO cities(name, population) VALUES('New York', 8550000);
-INSERT INTO cities(name, population) VALUES('Edinburgh', 464000);
-INSERT INTO cities(name, population) VALUES('Berlin', 3671000);
 
 --TWORZENIE TABELI Z DOSTAWCAMI
 DROP TABLE IF EXISTS HISTORIA_ZAKUPOW;
@@ -20,25 +11,49 @@ DROP TABLE IF EXISTS UZYTKOWNICY;
 DROP TABLE IF EXISTS GATUNKI_HERBAT;
 DROP TABLE IF EXISTS STATUSY_TRANSAKCJI;
 DROP TABLE IF EXISTS KRAJE_POCHODZENIA;
+DROP TABLE IF EXISTS authorities;
+DROP TABLE IF EXISTS users;
 
---TWORZENIE TABELI Z UZYTKOWNIKAMI
-CREATE TABLE UZYTKOWNICY
-(
-id_uzytkownika SERIAL PRIMARY KEY,
-login VARCHAR(25),
-salt VARCHAR(25),
-haslo VARCHAR(5)
+
+
+create table users (
+    username varchar(50) not null primary key,
+    password varchar(120) not null,
+    enabled boolean not null
 );
-INSERT INTO UZYTKOWNICY(login,salt,haslo)VALUES('Adam1','Koliweszka','test');
-INSERT INTO UZYTKOWNICY(login,salt,haslo)VALUES('Adam2','Koliweszka','test');
-INSERT INTO UZYTKOWNICY(login,salt,haslo)VALUES('Adam3','Koliweszka','test');
-INSERT INTO UZYTKOWNICY(login,salt,haslo)VALUES('Adam4','Koliweszka','test');
-INSERT INTO UZYTKOWNICY(login,salt,haslo)VALUES('Adam5','Koliweszka','test');
-INSERT INTO UZYTKOWNICY(login,salt,haslo)VALUES('Adam6','Koliweszka','test');
-INSERT INTO UZYTKOWNICY(login,salt,haslo)VALUES('Adam7','Koliweszka','test');
-INSERT INTO UZYTKOWNICY(login,salt,haslo)VALUES('Adam8','Koliweszka','test');
-INSERT INTO UZYTKOWNICY(login,salt,haslo)VALUES('Adam9','Koliweszka','test');
-INSERT INTO UZYTKOWNICY(login,salt,haslo)VALUES('Adam10','Koliweszka','test');
+
+create table authorities (
+    username varchar(50) not null,
+    authority varchar(50) not null,
+    foreign key (username) references users (username)
+);
+
+
+insert into users(username, password, enabled)values('Jan','Kowalski',true);
+insert into users(username, password, enabled)values('Barbara','Witek',true);
+insert into users(username, password, enabled)values('Piotrek','Nowak',true);
+insert into users(username, password, enabled)values('Michal','Wygoda',true);
+insert into users(username, password, enabled)values('Magdalena','Zalewska',true);
+
+insert into users(username, password, enabled)values('bill','abc123',true);
+insert into users(username, password, enabled)values('Mateusz','Krol',true);
+insert into users(username, password, enabled)values('Piotr','Rudy',true);
+insert into users(username, password, enabled)values('Zbigniew','Bomba',true);
+insert into users(username, password, enabled)values('Janek','Pchelka',true);
+insert into users(username, password, enabled)values('Roksana','Koska',true);
+
+
+insert into authorities(username,authority)values('bill','PRACOWNIK');
+insert into authorities(username,authority)values('Mateusz','PRACOWNIK');
+insert into authorities(username,authority)values('Piotr','PRACOWNIK');
+insert into authorities(username,authority)values('Zbigniew','PRACOWNIK');
+insert into authorities(username,authority)values('Janek','PRACOWNIK');
+insert into authorities(username,authority)values('Roksana','PRACOWNIK');
+insert into authorities(username,authority)values('Jan','KLIENT');
+insert into authorities(username,authority)values('Barbara','KLIENT');
+insert into authorities(username,authority)values('Piotrek','KLIENT');
+insert into authorities(username,authority)values('Michal','KLIENT');
+insert into authorities(username,authority)values('Magdalena','KLIENT');
 
 CREATE TABLE DOSTAWCY
 (
@@ -54,8 +69,8 @@ INSERT INTO DOSTAWCY (imie, nazwisko, numer_konta,miejscowosc, ulica) VALUES ('G
 INSERT INTO DOSTAWCY (imie, nazwisko, numer_konta,miejscowosc, ulica) VALUES ('Piotr', 'Robak',2345600067891000, 'Wrocław', 'Reja');
 INSERT INTO DOSTAWCY (imie, nazwisko, numer_konta,miejscowosc, ulica) VALUES ('Robert', 'Pszczółka', 4321000040007890, 'Oława', 'Lipowa');
 INSERT INTO DOSTAWCY (imie, nazwisko, numer_konta,miejscowosc, ulica) VALUES ('Helena', 'Czech', 894500034005690, 'Wrocław', 'Opolska');
---TWORZENIE TABELI Z KLIENTAMI
 
+--TWORZENIE TABELI Z KLIENTAMI
 CREATE TABLE KLIENCI
 (
 id_klienta SERIAL PRIMARY KEY,
@@ -64,15 +79,15 @@ nazwisko VARCHAR(20),
 miejscowosc VARCHAR(20),
 ulica VARCHAR(20),
 data_usuniecia_konta DATE,
-id_uzytkownika INT,
-CONSTRAINT FK_KLIENT_UZYTKOWNIK FOREIGN KEY (id_uzytkownika)
-REFERENCES UZYTKOWNICY(id_uzytkownika)
+username varchar(50),
+CONSTRAINT FK_KLIENT_UZYTKOWNIK FOREIGN KEY (username)
+REFERENCES users(username)
 );
-INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,id_uzytkownika) VALUES ('Jan', 'Kowalski', 'Warszawa', 'Szkolna',1);
-INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,id_uzytkownika) VALUES ('Barbara', 'Witek', 'Gdańsk', 'Długa',2);
-INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,id_uzytkownika) VALUES ('Piotr', 'Nowak', 'Łódź', 'Ogrodowa',3); 
-INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,id_uzytkownika) VALUES ('Michał', 'Wygoda', 'Rzeszów', 'Polna',4); 
-INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,id_uzytkownika) VALUES ('Magdalena', 'Zalewska', 'Wrocław', 'Kołątaja',5);
+INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,username) VALUES ('Jan', 'Kowalski', 'Warszawa', 'Szkolna','Jan');
+INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,username) VALUES ('Barbara', 'Witek', 'Gdańsk', 'Długa','Barbara');
+INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,username) VALUES ('Piotrek', 'Nowak', 'Łódź', 'Ogrodowa','Piotrek');
+INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,username) VALUES ('Michał', 'Wygoda', 'Rzeszów', 'Polna','Michal');
+INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,username) VALUES ('Magdalena', 'Zalewska', 'Wrocław', 'Kołątaja','Magdalena');
 --TWORZENIE TABELI PRACOWNICY
 
 CREATE TABLE PRACOWNICY
@@ -82,15 +97,15 @@ imie VARCHAR(20),
 nazwisko VARCHAR(20),
 data_zatrudnienia DATE,
 data_zwolnienia DATE,
-id_uzytkownika INT,
-CONSTRAINT FK_PRACOWNICY_UZYTKOWNIK FOREIGN KEY (id_uzytkownika)
-REFERENCES UZYTKOWNICY(id_uzytkownika)
+username varchar(50),
+CONSTRAINT FK_PRACOWNIK_UZYTKOWNIK FOREIGN KEY (username)
+REFERENCES users(username)
 );
-INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,id_uzytkownika) VALUES ('Mateusz', 'Król',NOW() ,null,6);
-INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,id_uzytkownika) VALUES ('Piotr', 'Rudy',NOW() ,null,7);
-INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,id_uzytkownika) VALUES ('Zbigniew', 'Bomba',NOW() ,null,8);
-INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,id_uzytkownika) VALUES ('Jan', 'Pchełka',NOW(),null,9);
-INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,id_uzytkownika) VALUES ('Roksana', 'Kóska',NOW() ,null,10);
+INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,username) VALUES ('Mateusz', 'Król',NOW() ,null,'Mateusz');
+INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,username) VALUES ('Piotr', 'Rudy',NOW() ,null,'Piotr');
+INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,username) VALUES ('Zbigniew', 'Bomba',NOW() ,null,'Zbigniew');
+INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,username) VALUES ('Janek', 'Pchełka',NOW(),null,'Janek');
+INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,username) VALUES ('Roksana', 'Kóska',NOW() ,null,'Roksana');
 --TWORZENIE TABELI Z GATUNKAMI HERBAT
 
 CREATE TABLE GATUNKI_HERBAT
