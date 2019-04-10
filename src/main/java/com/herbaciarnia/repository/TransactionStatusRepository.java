@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface StatusTransakcjiRepository extends CrudRepository<TransactionStatus, Long> {
+public interface TransactionStatusRepository extends CrudRepository<TransactionStatus, Long> {
 
     
     

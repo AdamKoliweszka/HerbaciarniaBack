@@ -10,7 +10,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ZakupRepository extends CrudRepository<Purchase, Long> {
+public interface PurchaseRepository extends CrudRepository<Purchase, Long> {
 
     
     

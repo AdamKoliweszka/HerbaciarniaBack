@@ -6,7 +6,7 @@
 package com.herbaciarnia.service;
 
 import com.herbaciarnia.bean.Purchase;
-import com.herbaciarnia.repository.ZakupRepository;
+import com.herbaciarnia.repository.PurchaseRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class ZakupService{
 
     @Autowired
-    private ZakupRepository repository;
+    private PurchaseRepository repository;
 
     
     public List<Purchase> findAll() {

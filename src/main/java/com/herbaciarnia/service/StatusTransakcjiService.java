@@ -6,7 +6,7 @@
 package com.herbaciarnia.service;
 
 import com.herbaciarnia.bean.TransactionStatus;
-import com.herbaciarnia.repository.StatusTransakcjiRepository;
+import com.herbaciarnia.repository.TransactionStatusRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class StatusTransakcjiService{
 
     @Autowired
-    private StatusTransakcjiRepository repository;
+    private TransactionStatusRepository repository;
 
     
     public List<TransactionStatus> findAll() {

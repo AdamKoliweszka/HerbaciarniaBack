@@ -7,7 +7,7 @@ package com.herbaciarnia.service;
 
 import com.herbaciarnia.bean.ArgumentWyszukiwaniaHerbaty;
 import com.herbaciarnia.bean.Tea;
-import com.herbaciarnia.repository.HerbataRepository;
+import com.herbaciarnia.repository.TeaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,16 +16,16 @@ import org.springframework.stereotype.Service;
 public class HerbataService{
 
     @Autowired
-    private HerbataRepository repository;
+    private TeaRepository repository;
 
     public List<Tea> findAllDostepne()
     {
-        List<Tea> tea = (List<Tea>) repository.findDostepneHerbaty();
+        List<Tea> tea = (List<Tea>) repository.findAvaibleTea();
         return tea;
     }
     public List<Tea> findAllDostepneByArgument(ArgumentWyszukiwaniaHerbaty argument)
     {
-        List<Tea> tea = (List<Tea>) repository.findDostepneHerbatyByArgument(argument);
+        List<Tea> tea = (List<Tea>) repository.findAvaibleTeaByArgument(argument);
         return tea;
     }
     public List<Tea> findAllWszystkieByArgument(ArgumentWyszukiwaniaHerbaty argument)
@@ -33,12 +33,12 @@ public class HerbataService{
         List<Tea> herbaty = null;
         if(argument.isCzyDostepne() && !argument.isCzyNiedostepne())
         {
-            herbaty = (List<Tea>) repository.findDostepneHerbatyByArgument(argument);
+            herbaty = (List<Tea>) repository.findAvaibleTeaByArgument(argument);
         }else if(!argument.isCzyDostepne() && argument.isCzyNiedostepne())
         {
-            herbaty = (List<Tea>) repository.findNiedostepneHerbatyByArgument(argument);
+            herbaty = (List<Tea>) repository.findUnavaibleTeaByArgument(argument);
         }else{
-            herbaty = (List<Tea>) repository.findWszystkieHerbatyByArgument(argument);
+            herbaty = (List<Tea>) repository.findAllTeaByArgument(argument);
         }
         return herbaty;
     }

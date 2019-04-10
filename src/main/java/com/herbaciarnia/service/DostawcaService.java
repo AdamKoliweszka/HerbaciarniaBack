@@ -6,7 +6,7 @@
 package com.herbaciarnia.service;
 
 import com.herbaciarnia.bean.Provider;
-import com.herbaciarnia.repository.DostawcaRepository;
+import com.herbaciarnia.repository.ProviderRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class DostawcaService{
 
     @Autowired
-    private DostawcaRepository repository;
+    private ProviderRepository repository;
 
     
     public List<Provider> findAll() {

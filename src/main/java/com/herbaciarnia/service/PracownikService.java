@@ -6,7 +6,7 @@
 package com.herbaciarnia.service;
 
 import com.herbaciarnia.bean.Employee;
-import com.herbaciarnia.repository.PracownikRepository;
+import com.herbaciarnia.repository.EmployeeRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class PracownikService{
 
     @Autowired
-    private PracownikRepository repository;
+    private EmployeeRepository repository;
 
     
     public List<Employee> findAll() {

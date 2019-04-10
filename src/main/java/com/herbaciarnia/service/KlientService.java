@@ -6,7 +6,7 @@
 package com.herbaciarnia.service;
 
 import com.herbaciarnia.bean.Customer;
-import com.herbaciarnia.repository.KlientRepository;
+import com.herbaciarnia.repository.CustomerRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class KlientService{
 
     @Autowired
-    private KlientRepository repository;
+    private CustomerRepository repository;
 
     
     public List<Customer> findAll() {

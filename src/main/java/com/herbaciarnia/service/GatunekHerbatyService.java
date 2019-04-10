@@ -6,7 +6,7 @@
 package com.herbaciarnia.service;
 
 import com.herbaciarnia.bean.TeaSpecies;
-import com.herbaciarnia.repository.GatunekHerbatyRepository;
+import com.herbaciarnia.repository.TeaSpeciesRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class GatunekHerbatyService{
 
     @Autowired
-    private GatunekHerbatyRepository repository;
+    private TeaSpeciesRepository repository;
 
     
     public List<TeaSpecies> findAll() {
@@ -38,7 +38,7 @@ public class GatunekHerbatyService{
         repository.save(aktualizowanyGatunek);
     }
     public void insertOne(TeaSpecies gatunek) {
-        List<TeaSpecies> lg = (List<TeaSpecies>)repository.findGatunekHerbatyByNazwa(gatunek.getName());
+        List<TeaSpecies> lg = (List<TeaSpecies>)repository.findTeaSpeciesByName(gatunek.getName());
         if(lg.size() == 0) {
             repository.save(gatunek);
         }

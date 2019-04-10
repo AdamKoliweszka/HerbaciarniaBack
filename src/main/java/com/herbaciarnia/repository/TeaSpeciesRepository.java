@@ -12,10 +12,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GatunekHerbatyRepository extends CrudRepository<TeaSpecies, Long> {
+public interface TeaSpeciesRepository extends CrudRepository<TeaSpecies, Long> {
     
     @Query("SELECT g FROM TeaSpecies g WHERE g.name = :#{#name }")
-    Iterable<TeaSpecies> findGatunekHerbatyByNazwa(@Param("name") String name);
+    Iterable<TeaSpecies> findTeaSpeciesByName(@Param("name") String name);
 
 
 

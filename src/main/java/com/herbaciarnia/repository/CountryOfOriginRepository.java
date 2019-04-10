@@ -12,10 +12,10 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface KrajPochodzeniaRepository extends CrudRepository<CountryOfOrigin, Long> {
+public interface CountryOfOriginRepository extends CrudRepository<CountryOfOrigin, Long> {
 
-    @Query("SELECT k FROM CountryOfOrigin k WHERE k.name = :#{#nazwa_kraju }")
-    Iterable<CountryOfOrigin> findKrajPochodzeniaByNazwa(@Param("nazwa_kraju") String nazwa_kraju);
+    @Query("SELECT k FROM CountryOfOrigin k WHERE k.name = :#{#name}")
+    Iterable<CountryOfOrigin> findCountryOfOriginByName(@Param("name") String name);
 
     
 }

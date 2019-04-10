@@ -6,7 +6,7 @@
 package com.herbaciarnia.service;
 
 import com.herbaciarnia.bean.CountryOfOrigin;
-import com.herbaciarnia.repository.KrajPochodzeniaRepository;
+import com.herbaciarnia.repository.CountryOfOriginRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class KrajPochodzeniaService{
 
     @Autowired
-    private KrajPochodzeniaRepository repository;
+    private CountryOfOriginRepository repository;
 
     
     public List<CountryOfOrigin> findAll() {
@@ -38,7 +38,7 @@ public class KrajPochodzeniaService{
         repository.save(aktualizowanyKraj);
     }
     public void insertOne(CountryOfOrigin kraj) {
-        List<CountryOfOrigin> lk = (List<CountryOfOrigin>)repository.findKrajPochodzeniaByNazwa(kraj.getName());
+        List<CountryOfOrigin> lk = (List<CountryOfOrigin>)repository.findCountryOfOriginByName(kraj.getName());
         if(lk.size() == 0) {
             repository.save(kraj);
         }
