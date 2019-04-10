@@ -55,168 +55,168 @@ insert into authorities(username,authority)values('Piotrek','KLIENT');
 insert into authorities(username,authority)values('Michal','KLIENT');
 insert into authorities(username,authority)values('Magdalena','KLIENT');
 
-CREATE TABLE DOSTAWCY
+CREATE TABLE providers
 (
-id_dostawcy SERIAL PRIMARY KEY,
-imie VARCHAR(20),
-nazwisko VARCHAR(20),
-numer_konta VARCHAR(20),
-miejscowosc VARCHAR(20),
-ulica VARCHAR(20)
+idProvider SERIAL PRIMARY KEY,
+name VARCHAR(20),
+surname VARCHAR(20),
+accountNumber VARCHAR(20),
+city VARCHAR(20),
+street VARCHAR(20)
 );
-INSERT INTO DOSTAWCY (imie, nazwisko, numer_konta,miejscowosc, ulica) VALUES ('Bogdan', 'Wąsik', 1234000040001111, 'Kraków', 'Pawia');
-INSERT INTO DOSTAWCY (imie, nazwisko, numer_konta,miejscowosc, ulica) VALUES ('Grzegorz', 'Krzywy', 1111900040001234, 'Gniezno', 'Słoneczna');
-INSERT INTO DOSTAWCY (imie, nazwisko, numer_konta,miejscowosc, ulica) VALUES ('Piotr', 'Robak',2345600067891000, 'Wrocław', 'Reja');
-INSERT INTO DOSTAWCY (imie, nazwisko, numer_konta,miejscowosc, ulica) VALUES ('Robert', 'Pszczółka', 4321000040007890, 'Oława', 'Lipowa');
-INSERT INTO DOSTAWCY (imie, nazwisko, numer_konta,miejscowosc, ulica) VALUES ('Helena', 'Czech', 894500034005690, 'Wrocław', 'Opolska');
+INSERT INTO providers (name, surname, accountNumber,city, street) VALUES ('Bogdan', 'Wąsik', 1234000040001111, 'Kraków', 'Pawia');
+INSERT INTO providers (name, surname, accountNumber,city, street) VALUES ('Grzegorz', 'Krzywy', 1111900040001234, 'Gniezno', 'Słoneczna');
+INSERT INTO providers (name, surname, accountNumber,city, street) VALUES ('Piotr', 'Robak',2345600067891000, 'Wrocław', 'Reja');
+INSERT INTO providers (name, surname, accountNumber,city, street) VALUES ('Robert', 'Pszczółka', 4321000040007890, 'Oława', 'Lipowa');
+INSERT INTO providers (name, surname, accountNumber,city, street) VALUES ('Helena', 'Czech', 894500034005690, 'Wrocław', 'Opolska');
 
 --TWORZENIE TABELI Z KLIENTAMI
-CREATE TABLE KLIENCI
+CREATE TABLE customers
 (
-id_klienta SERIAL PRIMARY KEY,
-imie VARCHAR(20),
-nazwisko VARCHAR(20),
-miejscowosc VARCHAR(20),
-ulica VARCHAR(20),
-data_usuniecia_konta DATE,
+idCustomer SERIAL PRIMARY KEY,
+name VARCHAR(20),
+surname VARCHAR(20),
+city VARCHAR(20),
+street VARCHAR(20),
+dateOfDeleteAccount DATE,
 username varchar(50),
-CONSTRAINT FK_KLIENT_UZYTKOWNIK FOREIGN KEY (username)
+CONSTRAINT FK_CUSTOMERS_USERS FOREIGN KEY (username)
 REFERENCES users(username)
 );
-INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,username) VALUES ('Jan', 'Kowalski', 'Warszawa', 'Szkolna','Jan');
-INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,username) VALUES ('Barbara', 'Witek', 'Gdańsk', 'Długa','Barbara');
-INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,username) VALUES ('Piotrek', 'Nowak', 'Łódź', 'Ogrodowa','Piotrek');
-INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,username) VALUES ('Michał', 'Wygoda', 'Rzeszów', 'Polna','Michal');
-INSERT INTO KLIENCI ( imie, nazwisko, miejscowosc, ulica,username) VALUES ('Magdalena', 'Zalewska', 'Wrocław', 'Kołątaja','Magdalena');
+INSERT INTO customers ( name, surname, city, street,username) VALUES ('Jan', 'Kowalski', 'Warszawa', 'Szkolna','Jan');
+INSERT INTO customers ( name, surname, city, street,username) VALUES ('Barbara', 'Witek', 'Gdańsk', 'Długa','Barbara');
+INSERT INTO customers ( name, surname, city, street,username) VALUES ('Piotrek', 'Nowak', 'Łódź', 'Ogrodowa','Piotrek');
+INSERT INTO customers ( name, surname, city, street,username) VALUES ('Michał', 'Wygoda', 'Rzeszów', 'Polna','Michal');
+INSERT INTO customers ( name, surname, city, street,username) VALUES ('Magdalena', 'Zalewska', 'Wrocław', 'Kołątaja','Magdalena');
 --TWORZENIE TABELI PRACOWNICY
 
-CREATE TABLE PRACOWNICY
+CREATE TABLE employees
 (
-id_pracownika SERIAL PRIMARY KEY,
-imie VARCHAR(20),
-nazwisko VARCHAR(20),
-data_zatrudnienia DATE,
-data_zwolnienia DATE,
+idEmployee SERIAL PRIMARY KEY,
+name VARCHAR(20),
+surname VARCHAR(20),
+dateOfEmployment DATE,
+dateOfDismissal DATE,
 username varchar(50),
-CONSTRAINT FK_PRACOWNIK_UZYTKOWNIK FOREIGN KEY (username)
+CONSTRAINT FK_EMPLOYEES_USERS FOREIGN KEY (username)
 REFERENCES users(username)
 );
-INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,username) VALUES ('Mateusz', 'Król',NOW() ,null,'Mateusz');
-INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,username) VALUES ('Piotr', 'Rudy',NOW() ,null,'Piotr');
-INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,username) VALUES ('Zbigniew', 'Bomba',NOW() ,null,'Zbigniew');
-INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,username) VALUES ('Janek', 'Pchełka',NOW(),null,'Janek');
-INSERT INTO PRACOWNICY (imie, nazwisko,data_zatrudnienia, data_zwolnienia,username) VALUES ('Roksana', 'Kóska',NOW() ,null,'Roksana');
+INSERT INTO employees (name, surname,dateOfEmployment, dateOfDismissal,username) VALUES ('Mateusz', 'Król',NOW() ,null,'Mateusz');
+INSERT INTO employees (name, surname,dateOfEmployment, dateOfDismissal,username) VALUES ('Piotr', 'Rudy',NOW() ,null,'Piotr');
+INSERT INTO employees (name, surname,dateOfEmployment, dateOfDismissal,username) VALUES ('Zbigniew', 'Bomba',NOW() ,null,'Zbigniew');
+INSERT INTO employees (name, surname,dateOfEmployment, dateOfDismissal,username) VALUES ('Janek', 'Pchełka',NOW(),null,'Janek');
+INSERT INTO employees (name, surname,dateOfEmployment, dateOfDismissal,username) VALUES ('Roksana', 'Kóska',NOW() ,null,'Roksana');
 --TWORZENIE TABELI Z GATUNKAMI HERBAT
 
-CREATE TABLE GATUNKI_HERBAT
+CREATE TABLE teaSpecies
 (
-id_gatunku SERIAL PRIMARY KEY,
-nazwa_gatunku VARCHAR(20)
+idSpecies SERIAL PRIMARY KEY,
+name VARCHAR(20)
 );
-INSERT INTO GATUNKI_HERBAT(nazwa_gatunku) VALUES ('Niezdefiniowany');
-INSERT INTO GATUNKI_HERBAT(nazwa_gatunku) VALUES ('Czarna');
-INSERT INTO GATUNKI_HERBAT(nazwa_gatunku) VALUES ('Zielona');
-INSERT INTO GATUNKI_HERBAT(nazwa_gatunku) VALUES ('Biala');
-INSERT INTO GATUNKI_HERBAT(nazwa_gatunku) VALUES ('Pu-erh');
-INSERT INTO GATUNKI_HERBAT(nazwa_gatunku) VALUES ('oolong');
-INSERT INTO GATUNKI_HERBAT(nazwa_gatunku) VALUES ('Yerba mate');
-INSERT INTO GATUNKI_HERBAT(nazwa_gatunku) VALUES ('Roibos');
+INSERT INTO teaSpecies(name) VALUES ('Niezdefiniowany');
+INSERT INTO teaSpecies(name) VALUES ('Czarna');
+INSERT INTO teaSpecies(name) VALUES ('Zielona');
+INSERT INTO teaSpecies(name) VALUES ('Biala');
+INSERT INTO teaSpecies(name) VALUES ('Pu-erh');
+INSERT INTO teaSpecies(name) VALUES ('oolong');
+INSERT INTO teaSpecies(name) VALUES ('Yerba mate');
+INSERT INTO teaSpecies(name) VALUES ('Roibos');
 --TWORZENIE TABELI ZE STATUSAMI TRANSAKCJI
 
-CREATE TABLE STATUSY_TRANSAKCJI
+CREATE TABLE transactionStatuses
 (
-id_statusu SERIAL PRIMARY KEY,
-nazwa VARCHAR(20)
+idStatus SERIAL PRIMARY KEY,
+name VARCHAR(20)
 );
-INSERT INTO STATUSY_TRANSAKCJI(nazwa) VALUES ('Zamówiono');
-INSERT INTO STATUSY_TRANSAKCJI(nazwa) VALUES ('Opłacono');
-INSERT INTO STATUSY_TRANSAKCJI(nazwa) VALUES ('Spakowano');
-INSERT INTO STATUSY_TRANSAKCJI(nazwa) VALUES ('Dostarczono');
+INSERT INTO transactionStatuses(name) VALUES ('Zamówiono');
+INSERT INTO transactionStatuses(name) VALUES ('Opłacono');
+INSERT INTO transactionStatuses(name) VALUES ('Spakowano');
+INSERT INTO transactionStatuses(name) VALUES ('Dostarczono');
 
 --TWORZENIE TABELI ZE KRAJAMI POCHODZENIA
 
-CREATE TABLE KRAJE_POCHODZENIA
+CREATE TABLE countryOfOrigin
 (
-id_kraju SERIAL PRIMARY KEY,
-nazwa_kraju VARCHAR(20)
+idCountry SERIAL PRIMARY KEY,
+name VARCHAR(20)
 );
-INSERT INTO KRAJE_POCHODZENIA(nazwa_kraju) VALUES ('Niezdefiniowany');
-INSERT INTO KRAJE_POCHODZENIA(nazwa_kraju) VALUES ('Indie');
-INSERT INTO KRAJE_POCHODZENIA(nazwa_kraju) VALUES ('Chiny');
-INSERT INTO KRAJE_POCHODZENIA(nazwa_kraju) VALUES ('Brazylia');
-INSERT INTO KRAJE_POCHODZENIA(nazwa_kraju) VALUES ('Indonezja');
-INSERT INTO KRAJE_POCHODZENIA(nazwa_kraju) VALUES ('Cejlon');
-INSERT INTO KRAJE_POCHODZENIA(nazwa_kraju) VALUES ('Kenia');
+INSERT INTO countryOfOrigin(name) VALUES ('Niezdefiniowany');
+INSERT INTO countryOfOrigin(name) VALUES ('Indie');
+INSERT INTO countryOfOrigin(name) VALUES ('Chiny');
+INSERT INTO countryOfOrigin(name) VALUES ('Brazylia');
+INSERT INTO countryOfOrigin(name) VALUES ('Indonezja');
+INSERT INTO countryOfOrigin(name) VALUES ('Cejlon');
+INSERT INTO countryOfOrigin(name) VALUES ('Kenia');
 --TWORZENIE TABELI MAGAZYNU Z HERBATAMI
 
-CREATE TABLE HERBATY
+CREATE TABLE tea
 (
-id_herbaty SERIAL PRIMARY KEY,
-nazwa_herbaty VARCHAR(20),
-opis VARCHAR(200),
-cena_sprzedazy INT,
-cena_dostawy INT,
-ilosc_dostepna INT,
-id_gatunku INT DEFAULT 1,
-id_kraju INT DEFAULT 1,
-CONSTRAINT FK_HERBATA_GATUNEK FOREIGN KEY (id_gatunku)
-REFERENCES GATUNKI_HERBAT(id_gatunku) ON DELETE SET DEFAULT,
-CONSTRAINT FK_HERBATA_KRAJ FOREIGN KEY (id_kraju)
-REFERENCES KRAJE_POCHODZENIA(id_kraju) ON DELETE SET DEFAULT
+idTea SERIAL PRIMARY KEY,
+name VARCHAR(20),
+description VARCHAR(200),
+priceOfSelling INT,
+priceOfDelivery INT,
+availableQuantity INT,
+idSpecies INT DEFAULT 1,
+idCountry INT DEFAULT 1,
+CONSTRAINT FK_TEA_SPECIES FOREIGN KEY (idSpecies)
+REFERENCES teaSpecies(idSpecies) ON DELETE SET DEFAULT,
+CONSTRAINT FK_TEA_COUNTRY FOREIGN KEY (idCountry)
+REFERENCES countryOfOrigin(idCountry) ON DELETE SET DEFAULT
 );
-INSERT INTO HERBATY(nazwa_herbaty,opis,cena_sprzedazy,cena_dostawy,ilosc_dostepna,id_gatunku,id_kraju) VALUES ('Lipton','Herbata odświerzająca',35,30,72,2,4);
-INSERT INTO HERBATY(nazwa_herbaty,opis,cena_sprzedazy,cena_dostawy,ilosc_dostepna,id_gatunku,id_kraju) VALUES ('Pajarito','Herbata o piorującym smaku.',95,80,0,1,6);
-INSERT INTO HERBATY(nazwa_herbaty,opis,cena_sprzedazy,cena_dostawy,ilosc_dostepna,id_gatunku,id_kraju) VALUES ('Minutka','Herbata o delikatnym smaku',15,12,0,3,2);
-INSERT INTO HERBATY(nazwa_herbaty,opis,cena_sprzedazy,cena_dostawy,ilosc_dostepna,id_gatunku,id_kraju) VALUES ('Basilur','Herbata o orzeźwiającym smaku z posmakiem ananasu.',115,100,0,1,2);
-INSERT INTO HERBATY(nazwa_herbaty,opis,cena_sprzedazy,cena_dostawy,ilosc_dostepna,id_gatunku,id_kraju) VALUES ('Lipton Earl Grey','Herbata o delikatnym smaku.',25,23,5,5,4);
+INSERT INTO tea(name,description,priceOfSelling,priceOfDelivery,availableQuantity,idSpecies,idCountry) VALUES ('Lipton','Herbata odświerzająca',35,30,72,2,4);
+INSERT INTO tea(name,description,priceOfSelling,priceOfDelivery,availableQuantity,idSpecies,idCountry) VALUES ('Pajarito','Herbata o piorującym smaku.',95,80,0,1,6);
+INSERT INTO tea(name,description,priceOfSelling,priceOfDelivery,availableQuantity,idSpecies,idCountry) VALUES ('Minutka','Herbata o delikatnym smaku',15,12,0,3,2);
+INSERT INTO tea(name,description,priceOfSelling,priceOfDelivery,availableQuantity,idSpecies,idCountry) VALUES ('Basilur','Herbata o orzeźwiającym smaku z posmakiem ananasu.',115,100,0,1,2);
+INSERT INTO tea(name,description,priceOfSelling,priceOfDelivery,availableQuantity,idSpecies,idCountry) VALUES ('Lipton Earl Grey','Herbata o delikatnym smaku.',25,23,5,5,4);
 --TWORZENIE TABELI Z HISTORI• DOSTAW
 
-CREATE TABLE HISTORIA_DOSTAW
+CREATE TABLE deliveries
 (
-id_dostawy SERIAL PRIMARY KEY,
-id_dostawcy INT,
-id_pracownika INT,
-id_herbaty INT,
-ilosc INT,
-id_statusu INT,
-data_dostawy DATE,
-CONSTRAINT FK_DOSTAWA_STATUS FOREIGN KEY (id_statusu)
-REFERENCES STATUSY_TRANSAKCJI(id_statusu),
-CONSTRAINT FK_DOSTAWA_HERBATA FOREIGN KEY (id_herbaty)
-REFERENCES HERBATY(id_herbaty),
-CONSTRAINT FK_DOSTAWA_PRACOWNIK FOREIGN KEY (id_pracownika)
-REFERENCES PRACOWNICY(id_pracownika),
-CONSTRAINT FK_DOSTAWA_DOSTAWCA FOREIGN KEY (id_dostawcy)
-REFERENCES DOSTAWCY(id_dostawcy)
+idDelivery SERIAL PRIMARY KEY,
+idProvider INT,
+idEmployee INT,
+idTea INT,
+amount INT,
+idStatus INT,
+dateOfDelivery DATE,
+CONSTRAINT FK_DELIVERY_STATUS FOREIGN KEY (idStatus)
+REFERENCES transactionStatuses(idStatus),
+CONSTRAINT FK_DELIVERY_TEA FOREIGN KEY (idTea)
+REFERENCES tea(idTea),
+CONSTRAINT FK_DELIVERY_EMPLOYEE FOREIGN KEY (idEmployee)
+REFERENCES employees(idEmployee),
+CONSTRAINT FK_DELIVERY_PROVIDER FOREIGN KEY (idProvider)
+REFERENCES providers(idProvider)
 );
-INSERT INTO HISTORIA_DOSTAW(id_dostawcy,id_pracownika,id_herbaty,ilosc,id_statusu,data_dostawy)VALUES(1,1,1,100,4,NOW());
-INSERT INTO HISTORIA_DOSTAW(id_dostawcy,id_pracownika,id_herbaty,ilosc,id_statusu,data_dostawy)VALUES(1,2,1,20,1,NOW());
-INSERT INTO HISTORIA_DOSTAW(id_dostawcy,id_pracownika,id_herbaty,ilosc,id_statusu,data_dostawy)VALUES(3,2,4,50,2,NOW());
-INSERT INTO HISTORIA_DOSTAW(id_dostawcy,id_pracownika,id_herbaty,ilosc,id_statusu,data_dostawy)VALUES(5,1,5,10,4,NOW());
-INSERT INTO HISTORIA_DOSTAW(id_dostawcy,id_pracownika,id_herbaty,ilosc,id_statusu,data_dostawy)VALUES(2,3,3,200,2,NOW());
+INSERT INTO deliveries(idProvider,idEmployee,idTea,amount,idStatus,dateOfDelivery)VALUES(1,1,1,100,4,NOW());
+INSERT INTO deliveries(idProvider,idEmployee,idTea,amount,idStatus,dateOfDelivery)VALUES(1,2,1,20,1,NOW());
+INSERT INTO deliveries(idProvider,idEmployee,idTea,amount,idStatus,dateOfDelivery)VALUES(3,2,4,50,2,NOW());
+INSERT INTO deliveries(idProvider,idEmployee,idTea,amount,idStatus,dateOfDelivery)VALUES(5,1,5,10,4,NOW());
+INSERT INTO deliveries(idProvider,idEmployee,idTea,amount,idStatus,dateOfDelivery)VALUES(2,3,3,200,2,NOW());
 --TWORZENIE TABELI Z HISTORII ZAKUPOW
 
-CREATE TABLE HISTORIA_ZAKUPOW
+CREATE TABLE purchases
 (
-id_zakupu SERIAL PRIMARY KEY,
-id_klienta INT,
-id_pracownika INT,
-id_herbaty INT,
-ilosc INT,
-id_statusu INT,
-data_zakupu DATE,
-CONSTRAINT FK_ZAKUP_STATUS FOREIGN KEY (id_statusu)
-REFERENCES STATUSY_TRANSAKCJI(id_statusu),
-CONSTRAINT FK_ZAKUP_HERBATA FOREIGN KEY (id_herbaty)
-REFERENCES HERBATY(id_herbaty),
-CONSTRAINT FK_ZAKUP_PRACOWNIK FOREIGN KEY (id_pracownika)
-REFERENCES PRACOWNICY(id_pracownika),
-CONSTRAINT FK_ZAKUP_KLIENT FOREIGN KEY (id_klienta)
-REFERENCES KLIENCI(id_klienta)
+idPurchase SERIAL PRIMARY KEY,
+idCustomer INT,
+idEmployee INT,
+idTea INT,
+amount INT,
+idStatus INT,
+dateOfPurchases DATE,
+CONSTRAINT FK_PURCHASE_STATUS FOREIGN KEY (idStatus)
+REFERENCES transactionStatuses(idStatus),
+CONSTRAINT FK_PURCHASE_TEA FOREIGN KEY (idTea)
+REFERENCES tea(idTea),
+CONSTRAINT FK_PURCHASE_EMPLOYEE FOREIGN KEY (idEmployee)
+REFERENCES employees(idEmployee),
+CONSTRAINT FK_PURCHASE_CUSTOMER FOREIGN KEY (idCustomer)
+REFERENCES customers(idCustomer)
 );
-INSERT INTO HISTORIA_ZAKUPOW(id_klienta,id_pracownika,id_herbaty,ilosc,id_statusu,data_zakupu)VALUES(1,4,1,10,4,NOW());
-INSERT INTO HISTORIA_ZAKUPOW(id_klienta,id_pracownika,id_herbaty,ilosc,id_statusu,data_zakupu)VALUES(2,4,5,2,1,NOW());
-INSERT INTO HISTORIA_ZAKUPOW(id_klienta,id_pracownika,id_herbaty,ilosc,id_statusu,data_zakupu)VALUES(3,5,1,4,2,NOW());
-INSERT INTO HISTORIA_ZAKUPOW(id_klienta,id_pracownika,id_herbaty,ilosc,id_statusu,data_zakupu)VALUES(1,4,5,3,4,NOW());
-INSERT INTO HISTORIA_ZAKUPOW(id_klienta,id_pracownika,id_herbaty,ilosc,id_statusu,data_zakupu)VALUES(5,5,1,14,3,NOW());
+INSERT INTO purchases(idCustomer,idCustomer,idTea,amount,idStatus,dateOfPurchases)VALUES(1,4,1,10,4,NOW());
+INSERT INTO purchases(idCustomer,idCustomer,idTea,amount,idStatus,dateOfPurchases)VALUES(2,4,5,2,1,NOW());
+INSERT INTO purchases(idCustomer,idCustomer,idTea,amount,idStatus,dateOfPurchases)VALUES(3,5,1,4,2,NOW());
+INSERT INTO purchases(idCustomer,idCustomer,idTea,amount,idStatus,dateOfPurchases)VALUES(1,4,5,3,4,NOW());
+INSERT INTO purchases(idCustomer,idCustomer,idTea,amount,idStatus,dateOfPurchases)VALUES(5,5,1,14,3,NOW());
 
