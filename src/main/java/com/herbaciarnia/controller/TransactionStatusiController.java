@@ -5,8 +5,8 @@
  */
 package com.herbaciarnia.controller;
 
-import com.herbaciarnia.bean.Employee;
-import com.herbaciarnia.service.EmployeeService;
+import com.herbaciarnia.bean.TransactionStatus;
+import com.herbaciarnia.service.TransactionStatusService;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,36 +22,36 @@ import org.springframework.web.bind.annotation.RestController;
  * @author user
  */
 @RestController
-@RequestMapping("/Pracownicy")
-public class PracownikController {
+@RequestMapping("/StatusyTransakcji")
+public class TransactionStatusiController {
     @Autowired
-    EmployeeService employeeService;
+    TransactionStatusService statusService;
     
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<Employee> getAllPracownicy(){
-        List<Employee> gatunki = (List<Employee>) employeeService.findAll();
+    public Collection<TransactionStatus> getAllGatunki(){
+        List<TransactionStatus> gatunki = (List<TransactionStatus>) statusService.findAll();
         return gatunki;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Employee getPracownikById(@PathVariable("id") long id){
-        return employeeService.findOne(id);
+    public TransactionStatus getStatusById(@PathVariable("id") long id){
+        return statusService.findOne(id);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deletePracownikById(@PathVariable("id") long id){
-        employeeService.deleteOne(id);
+    public void deleteStatusById(@PathVariable("id") long id){
+        statusService.deleteOne(id);
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updatePracownikById(@RequestBody Employee employee){
-        employeeService.updateOne(employee);
+    public void deleteStatusById(@RequestBody TransactionStatus status){
+        statusService.updateOne(status);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertPracownik(@RequestBody Employee employee){
-        employeeService.insertOne(employee);
+    public void insertStatus(@RequestBody TransactionStatus status){
+        statusService.insertOne(status);
     }
 
 }

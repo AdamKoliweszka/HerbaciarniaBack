@@ -5,8 +5,8 @@
  */
 package com.herbaciarnia.controller;
 
-import com.herbaciarnia.bean.CountryOfOrigin;
-import com.herbaciarnia.service.CountryOfOriginService;
+import com.herbaciarnia.bean.Employee;
+import com.herbaciarnia.service.EmployeeService;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,36 +22,36 @@ import org.springframework.web.bind.annotation.RestController;
  * @author user
  */
 @RestController
-@RequestMapping("/KrajePochodzenia")
-public class KrajPochodzeniaController {
+@RequestMapping("/Pracownicy")
+public class EmployeeController {
     @Autowired
-    CountryOfOriginService krajService;
+    EmployeeService employeeService;
     
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<CountryOfOrigin> getAllKraje(){
-        List<CountryOfOrigin> kraje = (List<CountryOfOrigin>) krajService.findAll();
-        return kraje;
+    public Collection<Employee> getAllEmployees(){
+        List<Employee> employees = (List<Employee>) employeeService.findAll();
+        return employees;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public CountryOfOrigin getKrajById(@PathVariable("id") long id){
-        return krajService.findOne(id);
+    public Employee getEmployeeById(@PathVariable("id") long id){
+        return employeeService.findOne(id);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteKrajById(@PathVariable("id") long id){
-        krajService.deleteOne(id);
+    public void deleteEmployeeById(@PathVariable("id") long id){
+        employeeService.deleteOne(id);
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteKrajById(@RequestBody CountryOfOrigin kraj){
-        krajService.updateOne(kraj);
+    public void updateEmployeeById(@RequestBody Employee employee){
+        employeeService.updateOne(employee);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertKraj(@RequestBody CountryOfOrigin kraj){
-        krajService.insertOne(kraj);
+    public void insertEmployee(@RequestBody Employee employee){
+        employeeService.insertOne(employee);
     }
 
 }

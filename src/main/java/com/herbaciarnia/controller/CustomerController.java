@@ -5,8 +5,8 @@
  */
 package com.herbaciarnia.controller;
 
-import com.herbaciarnia.bean.Purchase;
-import com.herbaciarnia.service.PurchaseService;
+import com.herbaciarnia.bean.Customer;
+import com.herbaciarnia.service.CustomerService;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,36 +22,36 @@ import org.springframework.web.bind.annotation.RestController;
  * @author user
  */
 @RestController
-@RequestMapping("/Zakupy")
-public class ZakupController {
+@RequestMapping("/Klienci")
+public class CustomerController {
     @Autowired
-    PurchaseService purchaseService;
+    CustomerService customerService;
     
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<Purchase> getAllZakupy(){
-        List<Purchase> gatunki = (List<Purchase>) purchaseService.findAll();
+    public Collection<Customer> getAllCustomers(){
+        List<Customer> gatunki = (List<Customer>) customerService.findAll();
         return gatunki;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Purchase getZakupById(@PathVariable("id") long id){
-        return purchaseService.findOne(id);
+    public Customer getCustomerById(@PathVariable("id") long id){
+        return customerService.findOne(id);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteZakupById(@PathVariable("id") long id){
-        purchaseService.deleteOne(id);
+    public void deleteCustomerById(@PathVariable("id") long id){
+        customerService.deleteOne(id);
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteZakupById(@RequestBody Purchase purchase){
-        purchaseService.updateOne(purchase);
+    public void updateCustomerById(@RequestBody Customer customer){
+        customerService.updateOne(customer);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertZakup(@RequestBody Purchase purchase){
-        purchaseService.insertOne(purchase);
+    public void insertCustomer(@RequestBody Customer customer){
+        customerService.insertOne(customer);
     }
 
 }

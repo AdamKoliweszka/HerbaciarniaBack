@@ -23,34 +23,34 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/Dostawcy")
-public class DostawcaController {
+public class ProviderController {
     @Autowired
     ProviderService providerService;
     
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<Provider> getAllDostawcy(){
-        List<Provider> gatunki = (List<Provider>) providerService.findAll();
-        return gatunki;
+    public Collection<Provider> getAllProviders(){
+        List<Provider> providers = (List<Provider>) providerService.findAll();
+        return providers;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Provider getDostawcaById(@PathVariable("id") long id){
+    public Provider getProviderById(@PathVariable("id") long id){
         return providerService.findOne(id);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteDostawcaById(@PathVariable("id") long id){
+    public void deleteProviderById(@PathVariable("id") long id){
         providerService.deleteOne(id);
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateDostawcaById(@RequestBody Provider provider){
+    public void updateProviderById(@RequestBody Provider provider){
         providerService.updateOne(provider);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertDostawca(@RequestBody Provider provider){
+    public void insertProvider(@RequestBody Provider provider){
         providerService.insertOne(provider);
     }
 
