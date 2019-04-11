@@ -23,34 +23,34 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/StatusyTransakcji")
-public class TransactionStatusiController {
+public class TransactionStatusController {
     @Autowired
     TransactionStatusService statusService;
     
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<TransactionStatus> getAllGatunki(){
-        List<TransactionStatus> gatunki = (List<TransactionStatus>) statusService.findAll();
-        return gatunki;
+    public Collection<TransactionStatus> getAllTransactionStatus(){
+        List<TransactionStatus> statuses = (List<TransactionStatus>) statusService.findAll();
+        return statuses;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public TransactionStatus getStatusById(@PathVariable("id") long id){
+    public TransactionStatus getTransactionStatusById(@PathVariable("id") long id){
         return statusService.findOne(id);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteStatusById(@PathVariable("id") long id){
+    public void deleteTransactionStatusById(@PathVariable("id") long id){
         statusService.deleteOne(id);
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteStatusById(@RequestBody TransactionStatus status){
+    public void deleteTransactionStatusById(@RequestBody TransactionStatus status){
         statusService.updateOne(status);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertStatus(@RequestBody TransactionStatus status){
+    public void insertTransactionStatus(@RequestBody TransactionStatus status){
         statusService.insertOne(status);
     }
 

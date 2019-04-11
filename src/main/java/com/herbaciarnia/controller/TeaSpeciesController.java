@@ -26,37 +26,37 @@ import org.springframework.web.bind.annotation.RestController;
 public class TeaSpeciesController {
 
     @Autowired
-    TeaSpeciesService gatunekService;
+    TeaSpeciesService teaSpecies;
 
     @RequestMapping(method = RequestMethod.GET)
-    public Collection<TeaSpecies> getAllGatunki() {
-        List<TeaSpecies> gatunki = (List<TeaSpecies>) gatunekService.findAll();
-        return gatunki;
+    public Collection<TeaSpecies> getAllTeaSpecies() {
+        List<TeaSpecies> teaSpecies = (List<TeaSpecies>) this.teaSpecies.findAll();
+        return teaSpecies;
 
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public TeaSpecies getGatunekById(@PathVariable("id") long id) {
-        return gatunekService.findOne(id);
+    public TeaSpecies getTeaSpeciesById(@PathVariable("id") long id) {
+        return teaSpecies.findOne(id);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void deleteGatunekById(@PathVariable("id") long id) {
+    public void deleteTeaSpeciesById(@PathVariable("id") long id) {
         if (id > 1) {
-            gatunekService.deleteOne(id);
+            teaSpecies.deleteOne(id);
         }
     }
 
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteGatunekById(@RequestBody TeaSpecies gatunek) {
-        if (gatunek.getId_Species() > 1) {
-            gatunekService.updateOne(gatunek);
+    public void deleteTeaSpeciesById(@RequestBody TeaSpecies teaSpecies) {
+        if (teaSpecies.getId_Species() > 1) {
+            this.teaSpecies.updateOne(teaSpecies);
         }
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertGatunek(@RequestBody TeaSpecies gatunek) {
-        gatunekService.insertOne(gatunek);
+    public void insertTeaSpecies(@RequestBody TeaSpecies teaSpecies) {
+        this.teaSpecies.insertOne(teaSpecies);
     }
 
 }
