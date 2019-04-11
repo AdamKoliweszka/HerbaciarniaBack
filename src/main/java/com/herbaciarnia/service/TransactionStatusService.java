@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class StatusTransakcjiService{
+public class TransactionStatusService {
 
     @Autowired
     private TransactionStatusRepository repository;
@@ -20,9 +20,9 @@ public class StatusTransakcjiService{
     
     public List<TransactionStatus> findAll() {
 
-        List<TransactionStatus> statuse = (List<TransactionStatus>) repository.findAll();
+        List<TransactionStatus> statuses = (List<TransactionStatus>) repository.findAll();
         
-        return statuse;
+        return statuses;
     }
     public TransactionStatus findOne(long id) {
 
@@ -33,9 +33,9 @@ public class StatusTransakcjiService{
         repository.delete(id);
     }
     public void updateOne(TransactionStatus status) {
-        TransactionStatus aktualizowanyGatunek = repository.findOne(status.getId_status());
-        aktualizowanyGatunek.setName(status.getName());
-        repository.save(aktualizowanyGatunek);
+        TransactionStatus updatingStatus = repository.findOne(status.getId_status());
+        updatingStatus.setName(status.getName());
+        repository.save(updatingStatus);
     }
     public void insertOne(TransactionStatus status) {
 

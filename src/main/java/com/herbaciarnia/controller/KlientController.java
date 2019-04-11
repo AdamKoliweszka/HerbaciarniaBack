@@ -6,7 +6,7 @@
 package com.herbaciarnia.controller;
 
 import com.herbaciarnia.bean.Customer;
-import com.herbaciarnia.service.KlientService;
+import com.herbaciarnia.service.CustomerService;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,33 +25,33 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/Klienci")
 public class KlientController {
     @Autowired
-    KlientService klientService;
+    CustomerService customerService;
     
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Customer> getAllKlienci(){
-        List<Customer> gatunki = (List<Customer>) klientService.findAll();
+        List<Customer> gatunki = (List<Customer>) customerService.findAll();
         return gatunki;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Customer getKlientById(@PathVariable("id") long id){
-        return klientService.findOne(id);
+        return customerService.findOne(id);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteKlientById(@PathVariable("id") long id){
-        klientService.deleteOne(id);
+        customerService.deleteOne(id);
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void updateKlientById(@RequestBody Customer customer){
-        klientService.updateOne(customer);
+        customerService.updateOne(customer);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void insertKlient(@RequestBody Customer customer){
-        klientService.insertOne(customer);
+        customerService.insertOne(customer);
     }
 
 }

@@ -3,22 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="5d165a5f-cf83-449e-9e58-2b9820692fd5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/DostawcaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/ProviderRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/GatunekHerbatyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaSpeciesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/HerbataRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/KlientRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/KrajPochodzeniaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/CountryOfOriginRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/PracownikRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/EmployeeRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/StatusTransakcjiRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TransactionStatusRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/ZakupRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/PurchaseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/DostawcaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/DostawcaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/GatunekHerbatyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/GatunekHerbatyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/HerbataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/HerbataService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/KlientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/KlientService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/KrajPochodzeniaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/KrajPochodzeniaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/PracownikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/PracownikService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/StatusTransakcjiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/StatusTransakcjiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/ZakupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/ZakupService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/DostawcaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/DostawcaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/GatunekHerbatyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/GatunekHerbatyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/HerbataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/HerbataController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/KlientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/KlientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/KrajPochodzeniaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/KrajPochodzeniaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/PracownikController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/PracownikController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/StatusTransakcjiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/StatusTransakcjiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/ZakupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/ZakupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/DostawcaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/ProviderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/GatunekHerbatyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaSpeciesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/HerbataService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/KlientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/KrajPochodzeniaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CountryOfOriginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/PracownikService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/EmployeeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/StatusTransakcjiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TransactionStatusService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/ZakupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/PurchaseService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -35,73 +35,19 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/schema-postgres.sql">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/ProviderService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="90" column="22" lean-forward="true" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/CountryOfOriginRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="16" column="67" selection-start-line="16" selection-start-column="67" selection-end-line="16" selection-end-column="67" />
+            <state relative-caret-position="211">
+              <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TransactionStatusRepository.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TransactionStatusService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/CustomerRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/HerbataController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-240">
-              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/HerbataService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-164">
-              <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaSpeciesRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+            <state relative-caret-position="277">
+              <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -151,6 +97,14 @@
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/CustomerRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/CountryOfOriginRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TransactionStatusRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CountryOfOriginService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CustomerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/EmployeeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/ProviderService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/PurchaseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaSpeciesService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TransactionStatusService.java" />
       </list>
     </option>
   </component>
@@ -220,7 +174,7 @@
               <item name="Herbaciarnia" type="58d84e3e:PackageViewProjectNode" />
               <item name="Herbaciarnia" type="616d4139:PackageViewModuleNode" />
               <item name="com.herbaciarnia" type="1f31426a:PackageElementNode" />
-              <item name="repository" type="1f31426a:PackageElementNode" />
+              <item name="service" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -512,55 +466,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/DostawcaService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="35" column="85" selection-start-line="35" selection-start-column="85" selection-end-line="35" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/GatunekHerbatyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="35" column="84" selection-start-line="35" selection-start-column="84" selection-end-line="35" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/KlientService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="35" column="85" selection-start-line="35" selection-start-column="85" selection-end-line="35" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/KrajPochodzeniaService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="35" column="83" selection-start-line="35" selection-start-column="83" selection-end-line="35" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/PracownikService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="39" column="39" selection-start-line="39" selection-start-column="39" selection-end-line="39" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/StatusTransakcjiService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="35" column="91" selection-start-line="35" selection-start-column="91" selection-end-line="35" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/ZakupService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="35" column="85" selection-start-line="35" selection-start-column="85" selection-end-line="35" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Purchase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1500">
@@ -659,20 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/schema-postgres.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="90" column="22" lean-forward="true" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Delivery.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="488">
@@ -684,13 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-240">
           <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/HerbataService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-164">
-          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
         </state>
       </provider>
     </entry>
@@ -708,6 +592,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TransactionStatusRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/CountryOfOriginRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -715,10 +606,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TransactionStatusRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/schema-postgres.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="154">
+          <caret line="90" column="22" lean-forward="true" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CountryOfOriginService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/EmployeeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/PurchaseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaSpeciesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="38" column="5" lean-forward="true" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/ProviderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TransactionStatusService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
         </state>
       </provider>
     </entry>

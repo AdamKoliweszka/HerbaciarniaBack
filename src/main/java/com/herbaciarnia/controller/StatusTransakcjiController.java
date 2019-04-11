@@ -6,7 +6,7 @@
 package com.herbaciarnia.controller;
 
 import com.herbaciarnia.bean.TransactionStatus;
-import com.herbaciarnia.service.StatusTransakcjiService;
+import com.herbaciarnia.service.TransactionStatusService;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/StatusyTransakcji")
 public class StatusTransakcjiController {
     @Autowired
-    StatusTransakcjiService statusService;
+    TransactionStatusService statusService;
     
     @RequestMapping(method = RequestMethod.GET)
     public Collection<TransactionStatus> getAllGatunki(){

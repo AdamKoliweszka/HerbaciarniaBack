@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PracownikService{
+public class EmployeeService {
 
     @Autowired
     private EmployeeRepository repository;
@@ -33,13 +33,13 @@ public class PracownikService{
         repository.delete(id);
     }
     public void updateOne(Employee employee) {
-        Employee aktualizowanyEmployee = repository.findOne(employee.getId_employee());
-        aktualizowanyEmployee.setName(employee.getName());
-        aktualizowanyEmployee.setSurname(employee.getSurname());
+        Employee updatingEmployee = repository.findOne(employee.getId_employee());
+        updatingEmployee.setName(employee.getName());
+        updatingEmployee.setSurname(employee.getSurname());
         employee.setDate_of_employment(employee.getDate_of_employment());
         employee.setDate_of_employment(employee.getDate_of_employment());
-        aktualizowanyEmployee.getUser().setPassword(employee.getUser().getPassword());
-        repository.save(aktualizowanyEmployee);
+        updatingEmployee.getUser().setPassword(employee.getUser().getPassword());
+        repository.save(updatingEmployee);
     }
     public void insertOne(Employee employee) {
 

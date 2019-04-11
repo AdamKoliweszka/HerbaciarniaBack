@@ -6,7 +6,7 @@
 package com.herbaciarnia.controller;
 
 import com.herbaciarnia.bean.Employee;
-import com.herbaciarnia.service.PracownikService;
+import com.herbaciarnia.service.EmployeeService;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,33 +25,33 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/Pracownicy")
 public class PracownikController {
     @Autowired
-    PracownikService pracownikService;
+    EmployeeService employeeService;
     
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Employee> getAllPracownicy(){
-        List<Employee> gatunki = (List<Employee>) pracownikService.findAll();
+        List<Employee> gatunki = (List<Employee>) employeeService.findAll();
         return gatunki;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Employee getPracownikById(@PathVariable("id") long id){
-        return pracownikService.findOne(id);
+        return employeeService.findOne(id);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deletePracownikById(@PathVariable("id") long id){
-        pracownikService.deleteOne(id);
+        employeeService.deleteOne(id);
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void updatePracownikById(@RequestBody Employee employee){
-        pracownikService.updateOne(employee);
+        employeeService.updateOne(employee);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void insertPracownik(@RequestBody Employee employee){
-        pracownikService.insertOne(employee);
+        employeeService.insertOne(employee);
     }
 
 }

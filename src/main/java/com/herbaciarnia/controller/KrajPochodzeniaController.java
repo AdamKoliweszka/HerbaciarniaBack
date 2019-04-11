@@ -6,7 +6,7 @@
 package com.herbaciarnia.controller;
 
 import com.herbaciarnia.bean.CountryOfOrigin;
-import com.herbaciarnia.service.KrajPochodzeniaService;
+import com.herbaciarnia.service.CountryOfOriginService;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/KrajePochodzenia")
 public class KrajPochodzeniaController {
     @Autowired
-    KrajPochodzeniaService krajService;
+    CountryOfOriginService krajService;
     
     @RequestMapping(method = RequestMethod.GET)
     public Collection<CountryOfOrigin> getAllKraje(){

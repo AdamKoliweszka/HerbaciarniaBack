@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ZakupService{
+public class PurchaseService {
 
     @Autowired
     private PurchaseRepository repository;
@@ -33,9 +33,9 @@ public class ZakupService{
         repository.delete(id);
     }
     public void updateOne(Purchase purchase) {
-        Purchase aktualizowanaPurchase = repository.findOne(purchase.getId_purchase());
+        Purchase updatingPurchase = repository.findOne(purchase.getId_purchase());
         
-        repository.save(aktualizowanaPurchase);
+        repository.save(updatingPurchase);
     }
     public void insertOne(Purchase purchase) {
 

@@ -6,7 +6,7 @@
 package com.herbaciarnia.controller;
 
 import com.herbaciarnia.bean.Purchase;
-import com.herbaciarnia.service.ZakupService;
+import com.herbaciarnia.service.PurchaseService;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,33 +25,33 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/Zakupy")
 public class ZakupController {
     @Autowired
-    ZakupService zakupService;
+    PurchaseService purchaseService;
     
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Purchase> getAllZakupy(){
-        List<Purchase> gatunki = (List<Purchase>) zakupService.findAll();
+        List<Purchase> gatunki = (List<Purchase>) purchaseService.findAll();
         return gatunki;
         
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Purchase getZakupById(@PathVariable("id") long id){
-        return zakupService.findOne(id);
+        return purchaseService.findOne(id);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteZakupById(@PathVariable("id") long id){
-        zakupService.deleteOne(id);
+        purchaseService.deleteOne(id);
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteZakupById(@RequestBody Purchase purchase){
-        zakupService.updateOne(purchase);
+        purchaseService.updateOne(purchase);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void insertZakup(@RequestBody Purchase purchase){
-        zakupService.insertOne(purchase);
+        purchaseService.insertOne(purchase);
     }
 
 }

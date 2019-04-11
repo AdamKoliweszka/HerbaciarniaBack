@@ -6,7 +6,7 @@
 package com.herbaciarnia.controller;
 
 import com.herbaciarnia.bean.TeaSpecies;
-import com.herbaciarnia.service.GatunekHerbatyService;
+import com.herbaciarnia.service.TeaSpeciesService;
 import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GatunekHerbatyController {
 
     @Autowired
-    GatunekHerbatyService gatunekService;
+    TeaSpeciesService gatunekService;
 
     @RequestMapping(method = RequestMethod.GET)
     public Collection<TeaSpecies> getAllGatunki() {

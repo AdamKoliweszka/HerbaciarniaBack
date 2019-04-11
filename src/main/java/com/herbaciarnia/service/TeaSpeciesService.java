@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GatunekHerbatyService{
+public class TeaSpeciesService {
 
     @Autowired
     private TeaSpeciesRepository repository;
@@ -20,9 +20,9 @@ public class GatunekHerbatyService{
     
     public List<TeaSpecies> findAll() {
 
-        List<TeaSpecies> gatunek = (List<TeaSpecies>) repository.findAll();
+        List<TeaSpecies> species = (List<TeaSpecies>) repository.findAll();
         
-        return gatunek;
+        return species;
     }
     public TeaSpecies findOne(long id) {
 
@@ -32,15 +32,15 @@ public class GatunekHerbatyService{
 
         repository.delete(id);
     }
-    public void updateOne(TeaSpecies gatunek) {
-        TeaSpecies aktualizowanyGatunek = repository.findOne(gatunek.getId_Species());
-        aktualizowanyGatunek.setName(gatunek.getName());
-        repository.save(aktualizowanyGatunek);
+    public void updateOne(TeaSpecies species) {
+        TeaSpecies updatingSpecies = repository.findOne(species.getId_Species());
+        updatingSpecies.setName(species.getName());
+        repository.save(updatingSpecies);
     }
-    public void insertOne(TeaSpecies gatunek) {
-        List<TeaSpecies> lg = (List<TeaSpecies>)repository.findTeaSpeciesByName(gatunek.getName());
-        if(lg.size() == 0) {
-            repository.save(gatunek);
+    public void insertOne(TeaSpecies species) {
+        List<TeaSpecies> ls = (List<TeaSpecies>)repository.findTeaSpeciesByName(species.getName());
+        if(ls.size() == 0) {
+            repository.save(species);
         }
     }
 }

@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class DostawcaService{
+public class ProviderService {
 
     @Autowired
     private ProviderRepository repository;
@@ -33,13 +33,13 @@ public class DostawcaService{
         repository.delete(id);
     }
     public void updateOne(Provider provider) {
-        Provider aktualizowanyProvider = repository.findOne(provider.getId_provider());
-        aktualizowanyProvider.setName(provider.getName());
-        aktualizowanyProvider.setSurname(provider.getSurname());
-        aktualizowanyProvider.setCity(provider.getCity());
-        aktualizowanyProvider.setAccount_number(provider.getAccount_number());
-        aktualizowanyProvider.setStreet(provider.getStreet());
-        repository.save(aktualizowanyProvider);
+        Provider updatingProvider = repository.findOne(provider.getId_provider());
+        updatingProvider.setName(provider.getName());
+        updatingProvider.setSurname(provider.getSurname());
+        updatingProvider.setCity(provider.getCity());
+        updatingProvider.setAccount_number(provider.getAccount_number());
+        updatingProvider.setStreet(provider.getStreet());
+        repository.save(updatingProvider);
     }
     public void insertOne(Provider provider) {
 

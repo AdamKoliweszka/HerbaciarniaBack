@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KlientService{
+public class CustomerService {
 
     @Autowired
     private CustomerRepository repository;
@@ -33,14 +33,14 @@ public class KlientService{
         repository.delete(id);
     }
     public void updateOne(Customer customer) {
-        Customer aktualizowanyCustomer = repository.findOne(customer.getId_customer());
-        aktualizowanyCustomer.setName(customer.getName());
-        aktualizowanyCustomer.setSurname(customer.getSurname());
-        aktualizowanyCustomer.setCity(customer.getCity());
-        aktualizowanyCustomer.setDateOfDeletingAccount(customer.getDateOfDeletingAccount());
-        aktualizowanyCustomer.setStreet(customer.getStreet());
-        aktualizowanyCustomer.getUser().setPassword(customer.getUser().getPassword());
-        repository.save(aktualizowanyCustomer);
+        Customer updatingCustomer = repository.findOne(customer.getId_customer());
+        updatingCustomer.setName(customer.getName());
+        updatingCustomer.setSurname(customer.getSurname());
+        updatingCustomer.setCity(customer.getCity());
+        updatingCustomer.setDateOfDeletingAccount(customer.getDateOfDeletingAccount());
+        updatingCustomer.setStreet(customer.getStreet());
+        updatingCustomer.getUser().setPassword(customer.getUser().getPassword());
+        repository.save(updatingCustomer);
     }
     public void insertOne(Customer customer) {
 

@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KrajPochodzeniaService{
+public class CountryOfOriginService {
 
     @Autowired
     private CountryOfOriginRepository repository;
@@ -20,9 +20,9 @@ public class KrajPochodzeniaService{
     
     public List<CountryOfOrigin> findAll() {
 
-        List<CountryOfOrigin> kraje = (List<CountryOfOrigin>) repository.findAll();
+        List<CountryOfOrigin> countries = (List<CountryOfOrigin>) repository.findAll();
         
-        return kraje;
+        return countries;
     }
     public CountryOfOrigin findOne(long id) {
 
@@ -32,15 +32,15 @@ public class KrajPochodzeniaService{
 
         repository.delete(id);
     }
-    public void updateOne(CountryOfOrigin kraj) {
-        CountryOfOrigin aktualizowanyKraj = repository.findOne(kraj.getId_country());
-        aktualizowanyKraj.setName(kraj.getName());
-        repository.save(aktualizowanyKraj);
+    public void updateOne(CountryOfOrigin country) {
+        CountryOfOrigin updatingCountry = repository.findOne(country.getId_country());
+        updatingCountry.setName(country.getName());
+        repository.save(updatingCountry);
     }
-    public void insertOne(CountryOfOrigin kraj) {
-        List<CountryOfOrigin> lk = (List<CountryOfOrigin>)repository.findCountryOfOriginByName(kraj.getName());
-        if(lk.size() == 0) {
-            repository.save(kraj);
+    public void insertOne(CountryOfOrigin country) {
+        List<CountryOfOrigin> lc = (List<CountryOfOrigin>)repository.findCountryOfOriginByName(country.getName());
+        if(lc.size() == 0) {
+            repository.save(country);
         }
     }
 }

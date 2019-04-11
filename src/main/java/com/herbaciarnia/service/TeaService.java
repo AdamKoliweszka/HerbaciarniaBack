@@ -13,34 +13,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class HerbataService{
+public class TeaService {
 
     @Autowired
     private TeaRepository repository;
 
-    public List<Tea> findAllDostepne()
+    public List<Tea> findAllAvaible()
     {
         List<Tea> tea = (List<Tea>) repository.findAvaibleTea();
         return tea;
     }
-    public List<Tea> findAllDostepneByArgument(ArgumentWyszukiwaniaHerbaty argument)
+    public List<Tea> findAllAvaibleByArgument(ArgumentWyszukiwaniaHerbaty argument)
     {
         List<Tea> tea = (List<Tea>) repository.findAvaibleTeaByArgument(argument);
         return tea;
     }
-    public List<Tea> findAllWszystkieByArgument(ArgumentWyszukiwaniaHerbaty argument)
+    public List<Tea> findAllByArgument(ArgumentWyszukiwaniaHerbaty argument)
     {
-        List<Tea> herbaty = null;
+        List<Tea> tea = null;
         if(argument.isCzyDostepne() && !argument.isCzyNiedostepne())
         {
-            herbaty = (List<Tea>) repository.findAvaibleTeaByArgument(argument);
+            tea = (List<Tea>) repository.findAvaibleTeaByArgument(argument);
         }else if(!argument.isCzyDostepne() && argument.isCzyNiedostepne())
         {
-            herbaty = (List<Tea>) repository.findUnavaibleTeaByArgument(argument);
+            tea = (List<Tea>) repository.findUnavaibleTeaByArgument(argument);
         }else{
-            herbaty = (List<Tea>) repository.findAllTeaByArgument(argument);
+            tea = (List<Tea>) repository.findAllTeaByArgument(argument);
         }
-        return herbaty;
+        return tea;
     }
     public List<Tea> findAll() {
 
@@ -56,15 +56,15 @@ public class HerbataService{
         repository.delete(id);
     }
     public void updateOne(Tea tea) {
-        Tea aktualizowanaTea = repository.findOne(tea.getId_tea());
-        aktualizowanaTea.setName(tea.getName());
-        aktualizowanaTea.setPrice_of_delivery(tea.getPrice_of_delivery());
-        aktualizowanaTea.setPrice_of_selling(tea.getPrice_of_selling());
-        aktualizowanaTea.setTea_species(tea.getTea_species());
-        aktualizowanaTea.setAvailable_quantity(tea.getAvailable_quantity());
-        aktualizowanaTea.setCountry_of_origin(tea.getCountry_of_origin());
-        aktualizowanaTea.setDescription(tea.getDescription());
-        repository.save(aktualizowanaTea);
+        Tea updatingTea = repository.findOne(tea.getId_tea());
+        updatingTea.setName(tea.getName());
+        updatingTea.setPrice_of_delivery(tea.getPrice_of_delivery());
+        updatingTea.setPrice_of_selling(tea.getPrice_of_selling());
+        updatingTea.setTea_species(tea.getTea_species());
+        updatingTea.setAvailable_quantity(tea.getAvailable_quantity());
+        updatingTea.setCountry_of_origin(tea.getCountry_of_origin());
+        updatingTea.setDescription(tea.getDescription());
+        repository.save(updatingTea);
     }
     public void insertOne(Tea tea) {
 
