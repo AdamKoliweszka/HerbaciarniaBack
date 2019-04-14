@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.controller;
 
-import com.herbaciarnia.bean.ArgumentWyszukiwaniaHerbaty;
+import com.herbaciarnia.bean.ArgumentOfFilteringTea;
 import com.herbaciarnia.bean.Tea;
 import com.herbaciarnia.service.TeaService;
 import java.util.Collection;
@@ -36,14 +36,14 @@ public class TeaController {
     }
     
     @RequestMapping(path = "/Dostepne",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Tea> getAllAvaibleTeaFiltered(@RequestBody ArgumentWyszukiwaniaHerbaty argument){
+    public Collection<Tea> getAllAvaibleTeaFiltered(@RequestBody ArgumentOfFilteringTea argument){
         List<Tea> tea = (List<Tea>) teaService.findAllAvaibleByArgument(argument);
         return tea;
         
     }
 
     @RequestMapping(path = "/Wszystkie",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Tea> getAllTeaFiltred(@RequestBody ArgumentWyszukiwaniaHerbaty argument){
+    public Collection<Tea> getAllTeaFiltred(@RequestBody ArgumentOfFilteringTea argument){
         List<Tea> herbaty = (List<Tea>) teaService.findAllByArgument(argument);
         return herbaty;
 

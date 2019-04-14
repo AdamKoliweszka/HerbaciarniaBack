@@ -3,8 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="5d165a5f-cf83-449e-9e58-2b9820692fd5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/ArgumentWyszukiwaniaHerbaty.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/ArgumentOfFilteringTea.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/TeaSpecies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/TeaSpecies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TeaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TeaController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TeaSpeciesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TeaSpeciesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TransactionStatusiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TransactionStatusController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaSpeciesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaSpeciesService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -20,9 +26,82 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="229">
+              <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/ArgumentOfFilteringTea.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-450">
+              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+              <folding>
+                <element signature="e#555#556#0" expanded="true" />
+                <element signature="e#586#587#0" expanded="true" />
+                <element signature="e#631#632#0" expanded="true" />
+                <element signature="e#671#672#0" expanded="true" />
+                <element signature="e#702#703#0" expanded="true" />
+                <element signature="e#732#733#0" expanded="true" />
+                <element signature="e#775#776#0" expanded="true" />
+                <element signature="e#813#814#0" expanded="true" />
+                <element signature="e#853#854#0" expanded="true" />
+                <element signature="e#883#884#0" expanded="true" />
+                <element signature="e#935#936#0" expanded="true" />
+                <element signature="e#973#974#0" expanded="true" />
+                <element signature="e#1020#1021#0" expanded="true" />
+                <element signature="e#1052#1053#0" expanded="true" />
+                <element signature="e#1113#1114#0" expanded="true" />
+                <element signature="e#1155#1156#0" expanded="true" />
+                <element signature="e#1189#1190#0" expanded="true" />
+                <element signature="e#1221#1222#0" expanded="true" />
+                <element signature="e#1268#1269#0" expanded="true" />
+                <element signature="e#1303#1304#0" expanded="true" />
+                <element signature="e#1339#1340#0" expanded="true" />
+                <element signature="e#1373#1374#0" expanded="true" />
+                <element signature="e#1424#1425#0" expanded="true" />
+                <element signature="e#1463#1464#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/TeaSpecies.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+              <folding>
+                <element signature="e#481#482#0" expanded="true" />
+                <element signature="e#531#532#0" expanded="true" />
+                <element signature="e#575#576#0" expanded="true" />
+                <element signature="e#606#607#0" expanded="true" />
+                <element signature="e#633#634#0" expanded="true" />
+                <element signature="e#673#674#0" expanded="true" />
+                <element signature="e#705#706#0" expanded="true" />
+                <element signature="e#1049#1050#0" expanded="true" />
+                <element signature="e#1102#1103#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="24" column="65" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Tea.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1585">
+            <state relative-caret-position="1605">
               <caret line="114" column="18" selection-start-line="114" selection-start-column="18" selection-end-line="114" selection-end-column="18" />
               <folding>
                 <element signature="e#823#824#0" expanded="true" />
@@ -76,7 +155,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Uzytkownik.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Pracownik.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Klient.java" />
@@ -88,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Provider.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Purchase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Tea.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/TeaSpecies.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/TransactionalStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/DostawcaService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/GatunekHerbatyService.java" />
@@ -112,16 +189,20 @@
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/EmployeeService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/ProviderService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/PurchaseService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaSpeciesService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TransactionStatusService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/CountryOfOriginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/CustomerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/EmployeeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/ProviderController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TeaController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TeaSpeciesController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TransactionStatusController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TeaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/ArgumentOfFilteringTea.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/TeaSpecies.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaService.java" />
       </list>
     </option>
   </component>
@@ -187,6 +268,12 @@
               <item name="com.herbaciarnia" type="1f31426a:PackageElementNode" />
               <item name="controller" type="1f31426a:PackageElementNode" />
             </path>
+            <path>
+              <item name="Herbaciarnia" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Herbaciarnia" type="616d4139:PackageViewModuleNode" />
+              <item name="com.herbaciarnia" type="1f31426a:PackageElementNode" />
+              <item name="repository" type="1f31426a:PackageElementNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -237,7 +324,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1695279" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1695279" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -246,7 +333,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34578314" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34578314" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -265,20 +352,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="57" column="89" selection-start-line="57" selection-start-column="89" selection-end-line="57" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/ArgumentWyszukiwaniaHerbaty.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-513">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/EmployeeRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -383,25 +456,6 @@
             <element signature="e#1586#1587#0" expanded="true" />
             <element signature="e#1624#1625#0" expanded="true" />
             <element signature="e#1656#1657#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/TeaSpecies.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
-          <folding>
-            <element signature="e#448#449#0" expanded="true" />
-            <element signature="e#481#482#0" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-            <element signature="e#575#576#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#673#674#0" expanded="true" />
-            <element signature="e#705#706#0" expanded="true" />
-            <element signature="e#1049#1050#0" expanded="true" />
-            <element signature="e#1102#1103#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -555,20 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/schema-postgres.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="90" column="22" lean-forward="true" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="37" column="34" selection-start-line="37" selection-start-column="34" selection-end-line="37" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CountryOfOriginService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="346">
@@ -587,13 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
           <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="58" column="20" selection-start-line="58" selection-start-column="20" selection-end-line="58" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -680,14 +713,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TeaController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="73" column="25" selection-start-line="73" selection-start-column="25" selection-end-line="73" selection-end-column="25" />
+        <state relative-caret-position="600">
+          <caret line="55" column="5" lean-forward="true" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/schema-postgres.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="599">
+          <caret line="90" column="22" lean-forward="true" selection-start-line="90" selection-start-column="22" selection-end-line="90" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="69" column="90" selection-start-line="69" selection-start-column="90" selection-end-line="69" selection-end-column="90" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Tea.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1585">
+        <state relative-caret-position="1605">
           <caret line="114" column="18" selection-start-line="114" selection-start-column="18" selection-end-line="114" selection-end-column="18" />
           <folding>
             <element signature="e#823#824#0" expanded="true" />
@@ -723,6 +770,71 @@
             <element signature="e#2198#2199#0" expanded="true" />
             <element signature="e#2244#2245#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/TeaRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="24" column="65" selection-start-line="24" selection-start-column="65" selection-end-line="24" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/TeaSpecies.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+          <folding>
+            <element signature="e#481#482#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#633#634#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#705#706#0" expanded="true" />
+            <element signature="e#1049#1050#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/ArgumentOfFilteringTea.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-450">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <folding>
+            <element signature="e#555#556#0" expanded="true" />
+            <element signature="e#586#587#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#671#672#0" expanded="true" />
+            <element signature="e#702#703#0" expanded="true" />
+            <element signature="e#732#733#0" expanded="true" />
+            <element signature="e#775#776#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#883#884#0" expanded="true" />
+            <element signature="e#935#936#0" expanded="true" />
+            <element signature="e#973#974#0" expanded="true" />
+            <element signature="e#1020#1021#0" expanded="true" />
+            <element signature="e#1052#1053#0" expanded="true" />
+            <element signature="e#1113#1114#0" expanded="true" />
+            <element signature="e#1155#1156#0" expanded="true" />
+            <element signature="e#1189#1190#0" expanded="true" />
+            <element signature="e#1221#1222#0" expanded="true" />
+            <element signature="e#1268#1269#0" expanded="true" />
+            <element signature="e#1303#1304#0" expanded="true" />
+            <element signature="e#1339#1340#0" expanded="true" />
+            <element signature="e#1373#1374#0" expanded="true" />
+            <element signature="e#1424#1425#0" expanded="true" />
+            <element signature="e#1463#1464#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/TeaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
         </state>
       </provider>
     </entry>

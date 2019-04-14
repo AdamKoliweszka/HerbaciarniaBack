@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.service;
 
-import com.herbaciarnia.bean.ArgumentWyszukiwaniaHerbaty;
+import com.herbaciarnia.bean.ArgumentOfFilteringTea;
 import com.herbaciarnia.bean.Tea;
 import com.herbaciarnia.repository.TeaRepository;
 import java.util.List;
@@ -23,18 +23,18 @@ public class TeaService {
         List<Tea> tea = (List<Tea>) repository.findAvaibleTea();
         return tea;
     }
-    public List<Tea> findAllAvaibleByArgument(ArgumentWyszukiwaniaHerbaty argument)
+    public List<Tea> findAllAvaibleByArgument(ArgumentOfFilteringTea argument)
     {
         List<Tea> tea = (List<Tea>) repository.findAvaibleTeaByArgument(argument);
         return tea;
     }
-    public List<Tea> findAllByArgument(ArgumentWyszukiwaniaHerbaty argument)
+    public List<Tea> findAllByArgument(ArgumentOfFilteringTea argument)
     {
         List<Tea> tea = null;
-        if(argument.isCzyDostepne() && !argument.isCzyNiedostepne())
+        if(argument.isAvaible() && !argument.isUnavaible())
         {
             tea = (List<Tea>) repository.findAvaibleTeaByArgument(argument);
-        }else if(!argument.isCzyDostepne() && argument.isCzyNiedostepne())
+        }else if(!argument.isAvaible() && argument.isUnavaible())
         {
             tea = (List<Tea>) repository.findUnavaibleTeaByArgument(argument);
         }else{

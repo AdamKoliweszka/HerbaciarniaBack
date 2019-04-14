@@ -49,7 +49,7 @@ public class TeaSpeciesController {
 
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void deleteTeaSpeciesById(@RequestBody TeaSpecies teaSpecies) {
-        if (teaSpecies.getId_Species() > 1) {
+        if (teaSpecies.getId_species() > 1) {
             this.teaSpecies.updateOne(teaSpecies);
         }
     }

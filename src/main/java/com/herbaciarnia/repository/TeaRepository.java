@@ -5,7 +5,7 @@
  */
 package com.herbaciarnia.repository;
 
-import com.herbaciarnia.bean.ArgumentWyszukiwaniaHerbaty;
+import com.herbaciarnia.bean.ArgumentOfFilteringTea;
 import com.herbaciarnia.bean.Tea;
 
 import org.springframework.data.jpa.repository.Query;
@@ -20,21 +20,21 @@ public interface TeaRepository extends CrudRepository<Tea, Long> {
     Iterable<Tea> findAvaibleTea();
     
     @Query("SELECT h FROM Tea h WHERE h.available_quantity > 0 "
-            + " AND h.price_of_selling >= :#{#argument.cenaOd} AND h.price_of_selling <= :#{#argument.cenaDo} "
-            + " AND h.tea_species IN :#{#argument.gatunki } "
-            + " AND h.country_of_origin IN :#{#argument.kraje } ")
-    Iterable<Tea> findAvaibleTeaByArgument(@Param("argument") ArgumentWyszukiwaniaHerbaty argument);
+            + " AND h.price_of_selling >= :#{#argument.priceFor} AND h.price_of_selling <= :#{#argument.priceTo} "
+            + " AND h.tea_species IN :#{#argument.species } "
+            + " AND h.country_of_origin IN :#{#argument.countries } ")
+    Iterable<Tea> findAvaibleTeaByArgument(@Param("argument") ArgumentOfFilteringTea argument);
 
     @Query("SELECT h FROM Tea h WHERE"
-            + " h.price_of_selling >= :#{#argument.cenaOd} AND h.price_of_selling <= :#{#argument.cenaDo} "
-            + " AND h.tea_species IN :#{#argument.gatunki } "
-            + " AND h.country_of_origin IN :#{#argument.kraje } ")
-    Iterable<Tea> findAllTeaByArgument(@Param("argument") ArgumentWyszukiwaniaHerbaty argument);
+            + " h.price_of_selling >= :#{#argument.priceFor} AND h.price_of_selling <= :#{#argument.priceTo} "
+            + " AND h.tea_species IN :#{#argument.species } "
+            + " AND h.country_of_origin IN :#{#argument.countries } ")
+    Iterable<Tea> findAllTeaByArgument(@Param("argument") ArgumentOfFilteringTea argument);
 
     @Query("SELECT h FROM Tea h WHERE h.available_quantity = 0 "
-            + " AND h.price_of_selling >= :#{#argument.cenaOd} AND h.price_of_selling <= :#{#argument.cenaDo} "
-            + " AND h.tea_species IN :#{#argument.gatunki } "
-            + " AND h.country_of_origin IN :#{#argument.kraje } ")
-    Iterable<Tea> findUnavaibleTeaByArgument(@Param("argument") ArgumentWyszukiwaniaHerbaty argument);
+            + " AND h.price_of_selling >= :#{#argument.priceFor} AND h.price_of_selling <= :#{#argument.priceTo} "
+            + " AND h.tea_species IN :#{#argument.species } "
+            + " AND h.country_of_origin IN :#{#argument.countries } ")
+    Iterable<Tea> findUnavaibleTeaByArgument(@Param("argument") ArgumentOfFilteringTea argument);
     
 }

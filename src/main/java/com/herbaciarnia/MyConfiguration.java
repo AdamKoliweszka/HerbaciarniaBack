@@ -56,18 +56,18 @@ public class MyConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST,"/Herbaty/Dostepne").permitAll()
 
                 .antMatchers(HttpMethod.GET,"/Herbaty/Wszystkie").hasAuthority("PRACOWNIK")// hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST,"/Herbaty/Wszystkie").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/Herbaty/Wszystkie").hasAuthority("PRACOWNIK")
 
 
                 .antMatchers(HttpMethod.GET,"/GatunkiHerbaty").permitAll()
-                .antMatchers(HttpMethod.POST,"/GatunkiHerbaty").hasRole("ADMIN")
-                .antMatchers(HttpMethod.DELETE,"/GatunkiHerbaty").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PUT,"/GatunkiHerbaty").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/GatunkiHerbaty").hasAuthority("PRACOWNIK")
+                .antMatchers(HttpMethod.DELETE,"/GatunkiHerbaty").hasAuthority("PRACOWNIK")
+                .antMatchers(HttpMethod.PUT,"/GatunkiHerbaty").hasAuthority("PRACOWNIK")
 
                 .antMatchers(HttpMethod.GET,"/KrajePochodzenia").permitAll()
-                .antMatchers(HttpMethod.POST,"/KrajePochodzenia").hasRole("ADMIN")
-                .antMatchers(HttpMethod.DELETE,"/KrajePochodzenia").hasRole("ADMIN")
-                .antMatchers(HttpMethod.PUT,"/KrajePochodzenia").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST,"/KrajePochodzenia").hasAuthority("PRACOWNIK")
+                .antMatchers(HttpMethod.DELETE,"/KrajePochodzenia").hasAuthority("PRACOWNIK")
+                .antMatchers(HttpMethod.PUT,"/KrajePochodzenia").hasAuthority("PRACOWNIK")
 
 
                 .and().httpBasic().realmName(REALM).authenticationEntryPoint(getBasicAuthEntryPoint())

@@ -11,15 +11,15 @@ import javax.persistence.Table;
 public class TeaSpecies {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_Species;
+    private long id_species;
     private String name;
 
-    public long getId_Species() {
-        return id_Species;
+    public long getId_species() {
+        return id_species;
     }
 
-    public void setId_Species(long id_Species) {
-        this.id_Species = id_Species;
+    public void setId_species(long id_species) {
+        this.id_species = id_species;
     }
 
     public String getName() {
@@ -35,19 +35,19 @@ public class TeaSpecies {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         TeaSpecies that = (TeaSpecies) o;
-        return id_Species == that.id_Species &&
+        return id_species == that.id_species &&
                 Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_Species, name);
+        return Objects.hash(id_species, name);
     }
 
     @Override
     public String toString() {
         return "TeaSpecies{" +
-                "id_Species=" + id_Species +
+                "id_species=" + id_species +
                 ", name='" + name + '\'' +
                 '}';
     }

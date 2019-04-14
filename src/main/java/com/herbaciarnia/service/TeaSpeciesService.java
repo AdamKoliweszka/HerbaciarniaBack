@@ -33,7 +33,7 @@ public class TeaSpeciesService {
         repository.delete(id);
     }
     public void updateOne(TeaSpecies species) {
-        TeaSpecies updatingSpecies = repository.findOne(species.getId_Species());
+        TeaSpecies updatingSpecies = repository.findOne(species.getId_species());
         updatingSpecies.setName(species.getName());
         repository.save(updatingSpecies);
     }
