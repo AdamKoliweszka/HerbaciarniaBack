@@ -5,6 +5,8 @@
  */
 package com.herbaciarnia.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -23,6 +25,8 @@ public class User implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String username;
+
+    @JsonIgnore
     private String password;
     private Boolean enabled;
 

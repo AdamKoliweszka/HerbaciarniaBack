@@ -37,7 +37,7 @@ public class CustomerService {
         updatingCustomer.setName(customer.getName());
         updatingCustomer.setSurname(customer.getSurname());
         updatingCustomer.setCity(customer.getCity());
-        updatingCustomer.setDateOfDeletingAccount(customer.getDateOfDeletingAccount());
+        updatingCustomer.setDate_of_delete_account(customer.getDate_of_delete_account());
         updatingCustomer.setStreet(customer.getStreet());
         updatingCustomer.getUser().setPassword(customer.getUser().getPassword());
         repository.save(updatingCustomer);

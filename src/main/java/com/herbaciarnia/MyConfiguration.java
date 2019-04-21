@@ -53,6 +53,7 @@ public class MyConfiguration extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET,"/Login").hasAnyAuthority("PRACOWNIK","KLIENT")
+                .antMatchers(HttpMethod.PUT,"/Pracownicy").hasAuthority("PRACOWNIK")
                 .antMatchers(HttpMethod.GET,"/Herbaty/Dostepne").permitAll()
                 .antMatchers(HttpMethod.POST,"/Herbaty/Dostepne").permitAll()
 

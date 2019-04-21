@@ -46,7 +46,9 @@ public class EmployeeController {
     
     @RequestMapping(value = "/Pracownicy",method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void updateEmployeeById(@RequestBody Employee employee){
-        employeeService.updateOne(employee);
+        org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        employeeService.updateOne(username,employee);
     }
 
     @RequestMapping(value = "/Pracownicy",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)

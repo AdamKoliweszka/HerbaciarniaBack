@@ -38,8 +38,10 @@ public class UserController {
     }
     
     @RequestMapping(value = "/Uzytkownicy",method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteUserByUsername(@RequestBody User user){
-        userService.updateOne(user);
+    public void updateUserByUsername(@RequestBody User user){
+        org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        userService.updateOne(username,user);
     }
 
     @RequestMapping(value = "/Uzytkownicy",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)

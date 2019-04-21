@@ -212,9 +212,9 @@ REFERENCES employees(id_employee),
 CONSTRAINT FK_PURCHASE_CUSTOMER FOREIGN KEY (id_customer)
 REFERENCES customers(id_customer)
 );
-INSERT INTO purchases(id_customer,id_employee,id_tea,amount,id_status,date_of_purchases)VALUES(1,4,1,10,4,NOW());
-INSERT INTO purchases(id_customer,id_employee,id_tea,amount,id_status,date_of_purchases)VALUES(2,4,5,2,1,NOW());
-INSERT INTO purchases(id_customer,id_employee,id_tea,amount,id_status,date_of_purchases)VALUES(3,5,1,4,2,NOW());
-INSERT INTO purchases(id_customer,id_employee,id_tea,amount,id_status,date_of_purchases)VALUES(1,4,5,3,4,NOW());
-INSERT INTO purchases(id_customer,id_employee,id_tea,amount,id_status,date_of_purchases)VALUES(5,5,1,14,3,NOW());
+INSERT INTO purchases(id_customer,id_employee,id_tea,amount,id_status,date_of_purchases)VALUES(1,1,1,10,4,NOW());
+INSERT INTO purchases(id_customer,id_employee,id_tea,amount,id_status,date_of_purchases)VALUES(2,1,5,2,1,NOW());
+INSERT INTO purchases(id_customer,id_employee,id_tea,amount,id_status,date_of_purchases)VALUES(3,1,1,4,2,NOW());
+INSERT INTO purchases(id_customer,id_employee,id_tea,amount,id_status,date_of_purchases)VALUES(1,1,5,3,4,NOW());
+INSERT INTO purchases(id_customer,id_employee,id_tea,amount,id_status,date_of_purchases)VALUES(5,1,1,14,3,NOW());
 

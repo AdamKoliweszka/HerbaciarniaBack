@@ -17,6 +17,6 @@ import java.util.List;
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 
     @Query("SELECT e FROM Employee e WHERE e.user.username = :#{#username }")
-    List<Employee> findOneByUsername(@Param("username") String username);
+    Employee findOneByUsername(@Param("username") String username);
     
 }

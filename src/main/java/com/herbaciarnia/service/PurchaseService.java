@@ -18,9 +18,9 @@ public class PurchaseService {
     private PurchaseRepository repository;
 
     
-    public List<Purchase> findAll() {
+    public List<Purchase> findAllByUsername(String username) {
 
-        List<Purchase> purchase = (List<Purchase>) repository.findAll();
+        List<Purchase> purchase = (List<Purchase>) repository.findAllByUsername(username);
         
         return purchase;
     }
@@ -34,7 +34,7 @@ public class PurchaseService {
     }
     public void updateOne(Purchase purchase) {
         Purchase updatingPurchase = repository.findOne(purchase.getId_purchase());
-        
+        updatingPurchase.setStatus(purchase.getStatus());
         repository.save(updatingPurchase);
     }
     public void insertOne(Purchase purchase) {

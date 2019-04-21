@@ -28,7 +28,7 @@ public class Purchase {
     @ManyToOne
     @JoinColumn(name = "id_status")
     private TransactionStatus status;
-    private Date date_of_purchase;
+    private Date date_of_purchases;
 
     public long getId_purchase() {
         return id_purchase;
@@ -78,12 +78,12 @@ public class Purchase {
         this.status = status;
     }
 
-    public Date getDate_of_purchase() {
-        return date_of_purchase;
+    public Date getDate_of_purchases() {
+        return date_of_purchases;
     }
 
-    public void setDate_of_purchase(Date date_of_purchase) {
-        this.date_of_purchase = date_of_purchase;
+    public void setDate_of_purchases(Date date_of_purchase) {
+        this.date_of_purchases = date_of_purchase;
     }
 
     @Override
@@ -97,12 +97,12 @@ public class Purchase {
                 Objects.equals(employee, purchase.employee) &&
                 Objects.equals(tea, purchase.tea) &&
                 Objects.equals(status, purchase.status) &&
-                Objects.equals(date_of_purchase, purchase.date_of_purchase);
+                Objects.equals(date_of_purchases, purchase.date_of_purchases);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_purchase, customer, employee, tea, amount, status, date_of_purchase);
+        return Objects.hash(id_purchase, customer, employee, tea, amount, status, date_of_purchases);
     }
 
     @Override
@@ -114,7 +114,7 @@ public class Purchase {
                 ", tea=" + tea +
                 ", amount=" + amount +
                 ", status=" + status +
-                ", date_of_purchase=" + date_of_purchase +
+                ", date_of_purchase=" + date_of_purchases +
                 '}';
     }
 }

@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 @Entity
-@Table(name = "transactional_status")
+@Table(name = "transaction_statuses")
 public class TransactionStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

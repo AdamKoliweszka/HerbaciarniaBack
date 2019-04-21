@@ -22,7 +22,6 @@ public class Employee {
     private Date date_of_employment;
     private Date date_of_dismissal;
 
-    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "username")
     private User user;

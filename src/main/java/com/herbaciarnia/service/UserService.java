@@ -37,10 +37,9 @@ public class UserService {
 
         repository.delete(username);
     }
-    public void updateOne(User user) {
-        User updatingUser = repository.findOne(user.getUsername());
+    public void updateOne(String username,User user) {
+        User updatingUser = repository.findOne(username);
         updatingUser.setPassword(user.getPassword());
-        updatingUser.setEnabled(user.getEnabled());
         repository.save(updatingUser);
     }
     public void insertOne(User user) {

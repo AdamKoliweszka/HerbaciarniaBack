@@ -10,6 +10,7 @@ import com.herbaciarnia.repository.EmployeeRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class EmployeeService {
@@ -32,13 +33,11 @@ public class EmployeeService {
 
         repository.delete(id);
     }
-    public void updateOne(Employee employee) {
-        Employee updatingEmployee = repository.findOne(employee.getId_employee());
+    @Transactional
+    public void updateOne(String username,Employee employee) {
+        Employee updatingEmployee = repository.findOneByUsername(username);
         updatingEmployee.setName(employee.getName());
         updatingEmployee.setSurname(employee.getSurname());
-        employee.setDate_of_employment(employee.getDate_of_employment());
-        employee.setDate_of_employment(employee.getDate_of_employment());
-        updatingEmployee.getUser().setPassword(employee.getUser().getPassword());
         repository.save(updatingEmployee);
     }
     public void insertOne(Employee employee) {
@@ -47,6 +46,6 @@ public class EmployeeService {
     }
     public Employee findOneByUsername(String username)
     {
-        return repository.findOneByUsername(username).get(0);
+        return repository.findOneByUsername(username);
     }
 }

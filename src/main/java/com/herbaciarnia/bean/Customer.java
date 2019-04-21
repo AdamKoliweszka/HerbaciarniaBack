@@ -23,7 +23,7 @@ public class Customer {
 
     private String street;
    
-    private String dateOfDeletingAccount;
+    private String date_of_delete_account;
     @OneToOne
     @JoinColumn(name = "username")
     private User user;
@@ -68,12 +68,12 @@ public class Customer {
         this.street = street;
     }
 
-    public String getDateOfDeletingAccount() {
-        return dateOfDeletingAccount;
+    public String getDate_of_delete_account() {
+        return date_of_delete_account;
     }
 
-    public void setDateOfDeletingAccount(String dateOfDeletingAccount) {
-        this.dateOfDeletingAccount = dateOfDeletingAccount;
+    public void setDate_of_delete_account(String date_of_delete_account) {
+        this.date_of_delete_account = date_of_delete_account;
     }
 
     public User getUser() {
@@ -94,13 +94,13 @@ public class Customer {
                 Objects.equals(surname, customer.surname) &&
                 Objects.equals(city, customer.city) &&
                 Objects.equals(street, customer.street) &&
-                Objects.equals(dateOfDeletingAccount, customer.dateOfDeletingAccount) &&
+                Objects.equals(date_of_delete_account, customer.date_of_delete_account) &&
                 Objects.equals(user, customer.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_customer, name, surname, city, street, dateOfDeletingAccount, user);
+        return Objects.hash(id_customer, name, surname, city, street, date_of_delete_account, user);
     }
 
     @Override
@@ -111,7 +111,7 @@ public class Customer {
                 ", surname='" + surname + '\'' +
                 ", city='" + city + '\'' +
                 ", street='" + street + '\'' +
-                ", dateOfDeletingAccount='" + dateOfDeletingAccount + '\'' +
+                ", dateOfDeletingAccount='" + date_of_delete_account + '\'' +
                 ", user=" + user +
                 '}';
     }
