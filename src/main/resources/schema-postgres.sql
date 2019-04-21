@@ -21,6 +21,7 @@ create table users (
 );
 
 create table authorities (
+    id_authority SERIAL PRIMARY KEY,
     username varchar(50) not null,
     authority varchar(50) not null,
     foreign key (username) references users (username)

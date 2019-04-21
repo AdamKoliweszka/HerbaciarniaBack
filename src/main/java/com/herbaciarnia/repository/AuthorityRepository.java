@@ -5,18 +5,17 @@
  */
 package com.herbaciarnia.repository;
 
-import com.herbaciarnia.bean.Employee;
+import com.herbaciarnia.bean.Authority;
+import com.herbaciarnia.bean.User;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-
 @Repository
-public interface EmployeeRepository extends CrudRepository<Employee, Long> {
+public interface AuthorityRepository extends CrudRepository<Authority, Long> {
 
-    @Query("SELECT e FROM Employee e WHERE e.user.username = :#{#username }")
-    List<Employee> findOneByUsername(@Param("username") String username);
+    @Query("SELECT a.authority FROM Authority a WHERE a.user.username = :#{#username }")
+    String findAuthorityByUsername(@Param("username") String username);
     
 }

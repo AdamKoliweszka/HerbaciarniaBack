@@ -1,5 +1,7 @@
 package com.herbaciarnia.bean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -10,7 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 @Entity
-@Table(name = "employee")
+@Table(name = "employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +20,9 @@ public class Employee {
     private String name;
     private String surname;
     private Date date_of_employment;
-    private Date date_of_dismisal;
+    private Date date_of_dismissal;
+
+    @JsonIgnore
     @OneToOne
     @JoinColumn(name = "username")
     private User user;
@@ -55,12 +59,12 @@ public class Employee {
         this.date_of_employment = date_of_employment;
     }
 
-    public Date getDate_of_dismisal() {
-        return date_of_dismisal;
+    public Date getDate_of_dismissal() {
+        return date_of_dismissal;
     }
 
-    public void setDate_of_dismisal(Date date_of_dismisal) {
-        this.date_of_dismisal = date_of_dismisal;
+    public void setDate_of_dismissal(Date date_of_dismisal) {
+        this.date_of_dismissal = date_of_dismisal;
     }
 
     public User getUser() {
@@ -80,13 +84,13 @@ public class Employee {
                 Objects.equals(name, employee.name) &&
                 Objects.equals(surname, employee.surname) &&
                 Objects.equals(date_of_employment, employee.date_of_employment) &&
-                Objects.equals(date_of_dismisal, employee.date_of_dismisal) &&
+                Objects.equals(date_of_dismissal, employee.date_of_dismissal) &&
                 Objects.equals(user, employee.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_employee, name, surname, date_of_employment, date_of_dismisal, user);
+        return Objects.hash(id_employee, name, surname, date_of_employment, date_of_dismissal, user);
     }
 
     @Override
@@ -96,7 +100,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", date_of_employment=" + date_of_employment +
-                ", date_of_dismisal=" + date_of_dismisal +
+                ", date_of_dismisal=" + date_of_dismissal +
                 ", user=" + user +
                 '}';
     }

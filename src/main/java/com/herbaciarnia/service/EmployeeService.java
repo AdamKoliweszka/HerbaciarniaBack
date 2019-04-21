@@ -45,4 +45,8 @@ public class EmployeeService {
 
         repository.save(employee);
     }
+    public Employee findOneByUsername(String username)
+    {
+        return repository.findOneByUsername(username).get(0);
+    }
 }
