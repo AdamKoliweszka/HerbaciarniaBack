@@ -2,12 +2,7 @@ package com.herbaciarnia.bean;
 
 import java.util.Date;
 import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "deliveries")
@@ -16,13 +11,17 @@ public class Delivery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_delivery;
     @ManyToOne
+    @JoinColumn(name = "id_provider")
     private Provider provider;
     @ManyToOne
+    @JoinColumn(name = "id_employee")
     private Employee employee;
     @ManyToOne
+    @JoinColumn(name = "id_tea")
     private Tea tea;
     private int amount;
     @ManyToOne
+    @JoinColumn(name = "id_status")
     private TransactionStatus status;
     private Date date_of_delivery;
 
