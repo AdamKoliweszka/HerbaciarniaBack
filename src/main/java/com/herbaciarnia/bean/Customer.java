@@ -1,5 +1,6 @@
 package com.herbaciarnia.bean;
 
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Customer {
 
     private String street;
    
-    private String date_of_delete_account;
+    private Date date_of_delete_account;
     @OneToOne
     @JoinColumn(name = "username")
     private User user;
@@ -68,11 +69,11 @@ public class Customer {
         this.street = street;
     }
 
-    public String getDate_of_delete_account() {
+    public Date getDate_of_delete_account() {
         return date_of_delete_account;
     }
 
-    public void setDate_of_delete_account(String date_of_delete_account) {
+    public void setDate_of_delete_account(Date date_of_delete_account) {
         this.date_of_delete_account = date_of_delete_account;
     }
 
