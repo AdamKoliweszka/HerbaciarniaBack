@@ -1,5 +1,8 @@
 package com.herbaciarnia.bean;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +15,9 @@ public class CountryOfOrigin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_country;
+
+    @NotBlank(message = "Kraj pochodzenia herbaty musi posiadać nazwę!")
+    @NotEmpty(message = "Kraj pochodzenia herbaty musi posiadać nazwę!")
     private String name;
 
     public long getId_country() {

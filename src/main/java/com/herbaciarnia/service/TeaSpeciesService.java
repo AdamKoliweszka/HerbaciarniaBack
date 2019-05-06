@@ -10,6 +10,7 @@ import com.herbaciarnia.repository.TeaSpeciesRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TeaSpeciesService {
@@ -28,19 +29,39 @@ public class TeaSpeciesService {
 
         return repository.findOne(id);
     }
-    public void deleteOne(long id) {
 
-        repository.delete(id);
+    @Transactional
+    public String deleteOne(long id) {
+        if(id == 1)return "Gatunek niezdefiniowany nie może zostać usunięty!";
+         TeaSpecies deletingSpecies = repository.findOne(id);
+        if(deletingSpecies != null)
+        {
+            repository.delete(id);
+            return "Gatunek herbaty został usunięty!";
+        }else return "Nie istnieje taki gatunek!";
+
     }
-    public void updateOne(TeaSpecies species) {
+
+    @Transactional
+    public String updateOne(TeaSpecies species) {
+        if(species.getId_species() == 1)return "Gatunek niezdefiniowany nie może ulec modyfikacji!";
+        List<TeaSpecies> speciesWithNames = (List<TeaSpecies>) repository.findTeaSpeciesByName(species.getName());
+        if(speciesWithNames.size() > 0)return "Istnieje już gatunek o takiej nazwie!";
         TeaSpecies updatingSpecies = repository.findOne(species.getId_species());
-        updatingSpecies.setName(species.getName());
-        repository.save(updatingSpecies);
+        if(updatingSpecies != null) {
+            updatingSpecies.setName(species.getName());
+            repository.save(updatingSpecies);
+            return "Gatunek herbaty został zaktualizowany!";
+        }else return "Nie istnieje taki gatunek!";
     }
-    public void insertOne(TeaSpecies species) {
+
+    @Transactional
+    public boolean insertOne(TeaSpecies species) {
         List<TeaSpecies> ls = (List<TeaSpecies>)repository.findTeaSpeciesByName(species.getName());
         if(ls.size() == 0) {
             repository.save(species);
-        }
+            return true;
+        }else return false;
+
     }
 }

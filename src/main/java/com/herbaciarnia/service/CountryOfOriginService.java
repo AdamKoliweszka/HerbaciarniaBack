@@ -10,6 +10,7 @@ import com.herbaciarnia.repository.CountryOfOriginRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CountryOfOriginService {
@@ -28,19 +29,34 @@ public class CountryOfOriginService {
 
         return repository.findOne(id);
     }
-    public void deleteOne(long id) {
-
-        repository.delete(id);
+    @Transactional
+    public String deleteOne(long id) {
+        if(id == 1)return "Kraj niezdefiniowany nie może zostać usunięty!";
+        CountryOfOrigin deletingCountry = repository.findOne(id);
+        if(deletingCountry != null)
+        {
+            repository.delete(id);
+            return "Kraj pochodzenia został usunięty!";
+        }else return "Nie istnieje taki kraj pochodzenia!";
     }
-    public void updateOne(CountryOfOrigin country) {
-        CountryOfOrigin updatingCountry = repository.findOne(country.getId_country());
-        updatingCountry.setName(country.getName());
-        repository.save(updatingCountry);
+    @Transactional
+    public String updateOne(CountryOfOrigin country) {
+        if(country.getId_country() == 1)return "Kraj niezdefiniowany nie może ulec modyfikacji!";
+        List<CountryOfOrigin> countriesWithNames = (List<CountryOfOrigin>) repository.findCountryOfOriginByName(country.getName());
+        if(countriesWithNames.size() > 0)return "Istnieje już kraj o takiej nazwie!";
+        CountryOfOrigin updatingSpecies = repository.findOne(country.getId_country());
+        if(updatingSpecies != null) {
+            updatingSpecies.setName(country.getName());
+            repository.save(updatingSpecies);
+            return "Kraj pochodzenia został zaktualizowany!";
+        }else return "Nie istnieje taki kraj pochodzenia!";
     }
-    public void insertOne(CountryOfOrigin country) {
-        List<CountryOfOrigin> lc = (List<CountryOfOrigin>)repository.findCountryOfOriginByName(country.getName());
-        if(lc.size() == 0) {
+    @Transactional
+    public boolean insertOne(CountryOfOrigin country) {
+        List<CountryOfOrigin> ls = (List<CountryOfOrigin>)repository.findCountryOfOriginByName(country.getName());
+        if(ls.size() == 0) {
             repository.save(country);
-        }
+            return true;
+        }else return false;
     }
 }
