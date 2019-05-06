@@ -1,5 +1,9 @@
 package com.herbaciarnia.bean;
 
+import com.herbaciarnia.validator.RegistrationCustomerValidateGroup;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -9,6 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Null;
+
 @Entity
 @Table(name = "customers")
 public class Customer {
@@ -16,15 +24,23 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_customer;
 
+    @NotBlank(groups = {RegistrationCustomerValidateGroup.class},message = "Imie jest wymagane!")
+    @NotEmpty(groups = {RegistrationCustomerValidateGroup.class},message = "Imie jest wymagane!")
     private String name;
 
+    @NotBlank(groups = {RegistrationCustomerValidateGroup.class},message = "Nazwisko jest wymagane!")
+    @NotEmpty(groups = {RegistrationCustomerValidateGroup.class},message = "Nazwisko jest wymagane!")
     private String surname;
 
+    @NotBlank(groups = {RegistrationCustomerValidateGroup.class},message = "Adres jest wymagany!")
+    @NotEmpty(groups = {RegistrationCustomerValidateGroup.class},message = "Adres jest wymagany!")
     private String city;
 
+    @NotBlank(groups = {RegistrationCustomerValidateGroup.class},message = "Adres jest wymagany!")
+    @NotEmpty(groups = {RegistrationCustomerValidateGroup.class},message = "Adres jest wymagany!")
     private String street;
-   
-    private Date date_of_delete_account;
+
+    @Valid()
     @OneToOne
     @JoinColumn(name = "username")
     private User user;
@@ -69,14 +85,6 @@ public class Customer {
         this.street = street;
     }
 
-    public Date getDate_of_delete_account() {
-        return date_of_delete_account;
-    }
-
-    public void setDate_of_delete_account(Date date_of_delete_account) {
-        this.date_of_delete_account = date_of_delete_account;
-    }
-
     public User getUser() {
         return user;
     }
@@ -95,13 +103,12 @@ public class Customer {
                 Objects.equals(surname, customer.surname) &&
                 Objects.equals(city, customer.city) &&
                 Objects.equals(street, customer.street) &&
-                Objects.equals(date_of_delete_account, customer.date_of_delete_account) &&
                 Objects.equals(user, customer.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_customer, name, surname, city, street, date_of_delete_account, user);
+        return Objects.hash(id_customer, name, surname, city, street, user);
     }
 
     @Override
@@ -112,7 +119,6 @@ public class Customer {
                 ", surname='" + surname + '\'' +
                 ", city='" + city + '\'' +
                 ", street='" + street + '\'' +
-                ", dateOfDeletingAccount='" + date_of_delete_account + '\'' +
                 ", user=" + user +
                 '}';
     }

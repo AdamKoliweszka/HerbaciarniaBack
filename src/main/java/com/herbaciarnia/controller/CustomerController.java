@@ -8,12 +8,21 @@ package com.herbaciarnia.controller;
 import com.herbaciarnia.bean.Customer;
 import com.herbaciarnia.service.CustomerService;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import com.herbaciarnia.validator.RegistrationCustomerValidateGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
+
 
 /**
  *
@@ -27,8 +36,8 @@ public class CustomerController {
     
     @RequestMapping(method = RequestMethod.GET)
     public Collection<Customer> getAllCustomers(){
-        List<Customer> gatunki = (List<Customer>) customerService.findAll();
-        return gatunki;
+        List<Customer> customers = (List<Customer>) customerService.findAll();
+        return customers;
         
     }
     
@@ -43,22 +52,36 @@ public class CustomerController {
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateCustomerById(@RequestBody Customer customer){
+    public void updateCustomerById(@Valid @RequestBody Customer customer){
         customerService.updateOne(customer);
     }
 
+
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity insertCustomer(@RequestBody Customer customer){
-        try {
-            customerService.insertOne(customer);
-            return new ResponseEntity("Rejestracja powiodła się!",HttpStatus.OK);
-        }catch (IllegalArgumentException e)
+
+    public ResponseEntity insertCustomer(@Validated({RegistrationCustomerValidateGroup.class}) @RequestBody Customer customer){
+        if(customerService.insertOne(customer))
         {
-            return new ResponseEntity(e.getMessage(),HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<String>("Rejestracja powiodła się!",HttpStatus.OK);
         }
+        else return new ResponseEntity<String[]>( new String[] {"Istnieje już użytkownik z takim loginem!"} ,HttpStatus.BAD_REQUEST);
+
+
     }
 
-    @ResponseStatus(value = HttpStatus.BAD_REQUEST, reason = "Użytkownik o takim loginie jest już w systemie!")
-    void onFailRegistrationException(IllegalArgumentException exception) {}
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
+    }
+
+
 
 }

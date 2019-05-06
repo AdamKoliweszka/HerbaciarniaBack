@@ -1,6 +1,9 @@
 package com.herbaciarnia.bean;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.herbaciarnia.validator.EditingDataEmployeeValidateGroup;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import java.util.Date;
 import java.util.Objects;
@@ -11,15 +14,27 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
+
 @Entity
 @Table(name = "employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_employee;
+
+    @NotBlank(groups = {EditingDataEmployeeValidateGroup.class},message = "Imie jest wymagane!")
+    @NotEmpty(groups = {EditingDataEmployeeValidateGroup.class},message = "Imie jest wymagane!")
     private String name;
+
+    @NotBlank(groups = {EditingDataEmployeeValidateGroup.class},message = "Nazwisko jest wymagane!")
+    @NotEmpty(groups = {EditingDataEmployeeValidateGroup.class},message = "Nazwisko jest wymagane!")
     private String surname;
+
+
     private Date date_of_employment;
+
+
     private Date date_of_dismissal;
 
     @OneToOne

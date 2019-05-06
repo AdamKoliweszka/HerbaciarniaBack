@@ -1,5 +1,8 @@
 package com.herbaciarnia.bean;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tea")
@@ -15,14 +20,29 @@ public class Tea {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_tea;
+
+    @NotBlank(message = "Herbata musi posiadać nazwe!")
+    @NotEmpty(message = "Herbata musi posiadać nazwe!")
     private String name;
+
+    @NotBlank(message = "Herbata musi posiadać opis!")
+    @NotEmpty(message = "Herbata musi posiadać opis!")
     private String description;
+
+    @Min(value = 0,message = "Cena musi być dodatnia")
     private int price_of_selling;
+
+    @Min(value = 0,message = "Cena musi być dodatnia")
     private int price_of_delivery;
+
     private int available_quantity;
+
+    @NotNull(message = "Herbata musi mieć przypisany kraj pochodzenia!")
     @ManyToOne
     @JoinColumn(name = "id_country")
     private CountryOfOrigin country_of_origin;
+
+    @NotNull(message = "Herbata musi mieć przypisany gatunek!")
     @ManyToOne
     @JoinColumn(name = "id_species")
     private TeaSpecies tea_species;

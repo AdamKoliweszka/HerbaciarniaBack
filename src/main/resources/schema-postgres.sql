@@ -77,7 +77,6 @@ name VARCHAR(20),
 surname VARCHAR(20),
 city VARCHAR(20),
 street VARCHAR(20),
-date_of_delete_account DATE,
 username varchar(50),
 CONSTRAINT FK_CUSTOMERS_USERS FOREIGN KEY (username)
 REFERENCES users(username)

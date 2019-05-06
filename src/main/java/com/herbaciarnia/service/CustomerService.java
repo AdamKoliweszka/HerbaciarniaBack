@@ -48,15 +48,13 @@ public class CustomerService {
         updatingCustomer.setName(customer.getName());
         updatingCustomer.setSurname(customer.getSurname());
         updatingCustomer.setCity(customer.getCity());
-        updatingCustomer.setDate_of_delete_account(customer.getDate_of_delete_account());
         updatingCustomer.setStreet(customer.getStreet());
         updatingCustomer.getUser().setPassword(customer.getUser().getPassword());
         repository.save(updatingCustomer);
     }
     @Transactional
-    public void insertOne(Customer customer) {
+    public boolean insertOne(Customer customer) {
         User user = customer.getUser();
-        if(user.getPassword() == null || user.getPassword().equals(""))throw new IllegalArgumentException("Brak hasła!");
         if(userRepository.findOne(user.getUsername()) == null) {
             user.setEnabled(true);
             userRepository.save(user);
@@ -65,8 +63,10 @@ public class CustomerService {
             authority.setUser(user);
             authorityRepository.save(authority);
             repository.save(customer);
+            return true;
         }else{
-            throw new IllegalArgumentException("Użytkownik o takiej nazwie istnieje!");
+            return false;
         }
+
     }
 }

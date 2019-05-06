@@ -8,12 +8,18 @@ package com.herbaciarnia.controller;
 import com.herbaciarnia.bean.User;
 import com.herbaciarnia.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -38,10 +44,15 @@ public class UserController {
     }
     
     @RequestMapping(value = "/Uzytkownicy",method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateUserByUsername(@RequestBody User user){
+    public ResponseEntity updateUserByUsername(@RequestBody User user){
         org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
+        if(user.getPassword() == null || user.getPassword().length() == 0)
+        {
+            return new ResponseEntity<String[]>( new String[] {"Nowe hasło nie jest poprawne!"} ,HttpStatus.BAD_REQUEST);
+        }
         userService.updateOne(username,user);
+        return new ResponseEntity<String>("Zmiana hasła powiodła się!",HttpStatus.OK);
     }
 
     @RequestMapping(value = "/Uzytkownicy",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -55,6 +66,19 @@ public class UserController {
         String username = authentication.getName();
         String s = userService.findAutorityByUsername(username);
         return s;
+    }
+
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
     }
 
 }
