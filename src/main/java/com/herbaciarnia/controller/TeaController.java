@@ -7,6 +7,7 @@ package com.herbaciarnia.controller;
 
 import com.herbaciarnia.bean.ArgumentOfFilteringTea;
 import com.herbaciarnia.bean.Tea;
+import com.herbaciarnia.bean.TeaSpecies;
 import com.herbaciarnia.service.TeaService;
 import java.util.Collection;
 import java.util.HashMap;
@@ -63,8 +64,14 @@ public class TeaController {
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Tea getTeaById(@PathVariable("id") long id){
-        return teaService.findOne(id);
+    public ResponseEntity<Tea> getTeaById(@PathVariable("id") long id){
+
+        Tea tea = teaService.findOne(id);
+        if(tea != null)
+        {
+            return new ResponseEntity<Tea>(tea, HttpStatus.OK);
+
+        }else return new ResponseEntity<Tea>( tea,HttpStatus.BAD_REQUEST);
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
@@ -74,14 +81,24 @@ public class TeaController {
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity updateTeaById(@Valid @RequestBody Tea tea){
-        teaService.updateOne(tea);
-        return new ResponseEntity<String>("Herbata została edytowana!",HttpStatus.OK);
+
+        String comunicat = this.teaService.updateOne(tea);
+        if(comunicat.equals("Herbata została zaktualizowana!"))
+        {
+            return new ResponseEntity<String>(comunicat, HttpStatus.OK);
+
+        }else return new ResponseEntity<String[]>( new String[] {comunicat} ,HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity insertTea(@Valid @RequestBody Tea tea){
-        teaService.insertOne(tea);
-        return new ResponseEntity<String>("Herbata została dodana!",HttpStatus.OK);
+
+        if (this.teaService.insertOne(tea)) {
+            return new ResponseEntity<String>("Herbata została dodana!", HttpStatus.OK);
+
+        }else{
+            return new ResponseEntity<String[]>( new String[] {"Istnieje już herbata z taką nazwą!"} ,HttpStatus.BAD_REQUEST);
+        }
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

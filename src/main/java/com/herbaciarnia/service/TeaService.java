@@ -11,6 +11,7 @@ import com.herbaciarnia.repository.TeaRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TeaService {
@@ -55,8 +56,11 @@ public class TeaService {
 
         repository.delete(id);
     }
-    public void updateOne(Tea tea) {
+    public String updateOne(Tea tea) {
+        List<Tea> speciesWithNames = (List<Tea>) repository.findTeaByName(tea.getName());
+        if(speciesWithNames.size() > 0)return "Istnieje już herbata o takiej nazwie!";
         Tea updatingTea = repository.findOne(tea.getId_tea());
+        if(updatingTea != null) {
         updatingTea.setName(tea.getName());
         updatingTea.setPrice_of_delivery(tea.getPrice_of_delivery());
         updatingTea.setPrice_of_selling(tea.getPrice_of_selling());
@@ -65,9 +69,17 @@ public class TeaService {
         updatingTea.setCountry_of_origin(tea.getCountry_of_origin());
         updatingTea.setDescription(tea.getDescription());
         repository.save(updatingTea);
+            return "Herbata została zaktualizowana!";
+        }else return "Nie istnieje taka herbata!";
     }
-    public void insertOne(Tea tea) {
 
-        repository.save(tea);
+    @Transactional
+    public boolean insertOne(Tea tea) {
+
+        List<Tea> ls = (List<Tea>)repository.findTeaByName(tea.getName());
+        if(ls.size() == 0) {
+            repository.save(tea);
+            return true;
+        }else return false;
     }
 }

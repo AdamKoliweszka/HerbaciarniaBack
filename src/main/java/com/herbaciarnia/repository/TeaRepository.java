@@ -36,5 +36,8 @@ public interface TeaRepository extends CrudRepository<Tea, Long> {
             + " AND h.tea_species IN :#{#argument.species } "
             + " AND h.country_of_origin IN :#{#argument.countries } ")
     Iterable<Tea> findUnavaibleTeaByArgument(@Param("argument") ArgumentOfFilteringTea argument);
-    
+
+    @Query("SELECT t FROM Tea t WHERE t.name = :#{#name }")
+    Iterable<Tea> findTeaByName(@Param("name") String name);
+
 }
