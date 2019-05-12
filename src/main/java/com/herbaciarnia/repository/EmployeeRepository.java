@@ -18,5 +18,7 @@ public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 
     @Query("SELECT e FROM Employee e WHERE e.user.username = :#{#username }")
     Employee findOneByUsername(@Param("username") String username);
-    
+
+    @Query("SELECT e FROM Employee e WHERE e.user.enabled = true")
+    List<Employee> findAllEnable();
 }

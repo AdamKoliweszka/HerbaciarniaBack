@@ -61,8 +61,10 @@ public class PurchaseController {
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertPurchase(@RequestBody Purchase purchase){
-        purchaseService.insertOne(purchase);
+    public void insertPurchases(@RequestBody List<Purchase> purchases){
+        org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        purchaseService.insertAll(purchases,username);
     }
 
 }
