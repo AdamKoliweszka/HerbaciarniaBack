@@ -5,6 +5,7 @@
  */
 package com.herbaciarnia.service;
 
+import com.herbaciarnia.bean.ArgumentOfFilteringTeaForEmployee;
 import com.herbaciarnia.bean.ArgumentOfFilteringTea;
 import com.herbaciarnia.bean.Tea;
 import com.herbaciarnia.repository.TeaRepository;
@@ -29,7 +30,7 @@ public class TeaService {
         List<Tea> tea = (List<Tea>) repository.findAvaibleTeaByArgument(argument);
         return tea;
     }
-    public List<Tea> findAllByArgument(ArgumentOfFilteringTea argument)
+    public List<Tea> findAllByArgument(ArgumentOfFilteringTeaForEmployee argument)
     {
         List<Tea> tea = null;
         if(argument.isAvaible() && !argument.isUnavaible())
@@ -58,7 +59,7 @@ public class TeaService {
     }
     public String updateOne(Tea tea) {
         List<Tea> speciesWithNames = (List<Tea>) repository.findTeaByName(tea.getName());
-        if(speciesWithNames.size() > 0)return "Istnieje już herbata o takiej nazwie!";
+        if(speciesWithNames.size() > 0 && !speciesWithNames.equals(tea) )return "Istnieje już herbata o takiej nazwie!";
         Tea updatingTea = repository.findOne(tea.getId_tea());
         if(updatingTea != null) {
         updatingTea.setName(tea.getName());

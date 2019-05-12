@@ -1,5 +1,8 @@
 package com.herbaciarnia.bean;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,10 +15,20 @@ public class Provider {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_provider;
+    @NotBlank(message = "Dostawca musi posiadać imię!")
+    @NotEmpty(message = "Dostawca musi posiadać imię!")
     private String name;
+    @NotBlank(message = "Dostawca musi posiadać nazwisko!")
+    @NotEmpty(message = "Dostawca musi posiadać nazwisko!")
     private String surname;
+    @NotBlank(message = "Dostawca musi posiadać adres!")
+    @NotEmpty(message = "Dostawca musi posiadać adres!")
     private String city;
+    @NotBlank(message = "Dostawca musi posiadać adres!")
+    @NotEmpty(message = "Dostawca musi posiadać adres!")
     private String street;
+    @NotBlank(message = "Dostawca musi posiadać numer konta bankowego!")
+    @NotEmpty(message = "Dostawca musi posiadać numer konta bankowego!")
     private String account_number;
 
     public long getId_provider() {

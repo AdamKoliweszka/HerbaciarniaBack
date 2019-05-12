@@ -13,58 +13,42 @@ import java.util.Objects;
  * @author user
  */
 
-public class ArgumentOfFilteringTea {
-    protected int priceFor;
-    protected int priceTo;
-    protected TeaSpecies[] species;
-    protected CountryOfOrigin[] countries;
+public class ArgumentOfFilteringTeaForEmployee extends ArgumentOfFilteringTea {
+    private boolean avaible;
+    private boolean unavaible;
 
-    public int getPriceFor() {
-        return priceFor;
+    public boolean isAvaible() {
+        return avaible;
     }
 
-    public void setPriceFor(int priceFor) {
-        this.priceFor = priceFor;
+    public void setAvaible(boolean avaible) {
+        this.avaible = avaible;
     }
 
-    public int getPriceTo() {
-        return priceTo;
+    public boolean isUnavaible() {
+        return unavaible;
     }
 
-    public void setPriceTo(int priceTo) {
-        this.priceTo = priceTo;
-    }
-
-    public TeaSpecies[] getSpecies() {
-        return species;
-    }
-
-    public void setSpecies(TeaSpecies[] species) {
-        this.species = species;
-    }
-
-    public CountryOfOrigin[] getCountries() {
-        return countries;
-    }
-
-    public void setCountries(CountryOfOrigin[] countries) {
-        this.countries = countries;
+    public void setUnavaible(boolean unavaible) {
+        this.unavaible = unavaible;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ArgumentOfFilteringTea that = (ArgumentOfFilteringTea) o;
+        ArgumentOfFilteringTeaForEmployee that = (ArgumentOfFilteringTeaForEmployee) o;
         return priceFor == that.priceFor &&
                 priceTo == that.priceTo &&
+                avaible == that.avaible &&
+                unavaible == that.unavaible &&
                 Arrays.equals(species, that.species) &&
                 Arrays.equals(countries, that.countries);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(priceFor, priceTo);
+        int result = Objects.hash(priceFor, priceTo, avaible, unavaible);
         result = 31 * result + Arrays.hashCode(species);
         result = 31 * result + Arrays.hashCode(countries);
         return result;
@@ -77,6 +61,8 @@ public class ArgumentOfFilteringTea {
                 ", priceTo=" + priceTo +
                 ", species=" + Arrays.toString(species) +
                 ", countries=" + Arrays.toString(countries) +
+                ", avaible=" + avaible +
+                ", unavaible=" + unavaible +
                 '}';
     }
 }

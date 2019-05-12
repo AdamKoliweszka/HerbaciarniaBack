@@ -7,15 +7,18 @@ package com.herbaciarnia.controller;
 
 import com.herbaciarnia.bean.User;
 import com.herbaciarnia.service.UserService;
+import com.herbaciarnia.validator.RegistrationCustomerValidateGroup;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.FieldError;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -44,13 +47,9 @@ public class UserController {
     }
     
     @RequestMapping(value = "/Uzytkownicy",method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity updateUserByUsername(@RequestBody User user){
+    public ResponseEntity updateUserByUsername(@Validated({RegistrationCustomerValidateGroup.class}) @RequestBody User user){
         org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
-        if(user.getPassword() == null || user.getPassword().length() == 0)
-        {
-            return new ResponseEntity<String[]>( new String[] {"Nowe hasło nie jest poprawne!"} ,HttpStatus.BAD_REQUEST);
-        }
         userService.updateOne(username,user);
         return new ResponseEntity<String>("Zmiana hasła powiodła się!",HttpStatus.OK);
     }

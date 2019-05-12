@@ -5,6 +5,7 @@
  */
 package com.herbaciarnia.repository;
 
+import com.herbaciarnia.bean.ArgumentOfFilteringTeaForEmployee;
 import com.herbaciarnia.bean.ArgumentOfFilteringTea;
 import com.herbaciarnia.bean.Tea;
 
