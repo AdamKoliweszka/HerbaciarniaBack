@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PurchaseRepository extends CrudRepository<Purchase, Long> {
 
-    @Query("SELECT p FROM Purchase p WHERE p.employee.user.username = :#{#username }")
+    @Query("SELECT p FROM Purchase p WHERE p.employee.user.username = :#{#username } or p.customer.user.username = :#{#username }")
     Iterable<Purchase> findAllByUsername(@Param("username") String username);
     
 }

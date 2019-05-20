@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -29,35 +30,36 @@ import javax.validation.Valid;
  * @author user
  */
 @RestController
-@RequestMapping("/Klienci")
 public class CustomerController {
     @Autowired
     CustomerService customerService;
     
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value="/Klienci",method = RequestMethod.GET)
     public Collection<Customer> getAllCustomers(){
         List<Customer> customers = (List<Customer>) customerService.findAll();
         return customers;
         
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/Klienci/{id}", method = RequestMethod.GET)
     public Customer getCustomerById(@PathVariable("id") long id){
         return customerService.findOne(id);
     }
     
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/Klienci/{id}", method = RequestMethod.DELETE)
     public void deleteCustomerById(@PathVariable("id") long id){
         customerService.deleteOne(id);
     }
-    
-    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateCustomerById(@Valid @RequestBody Customer customer){
-        customerService.updateOne(customer);
+
+    @RequestMapping(value="/Klienci",method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> updateCustomerById(@Valid @RequestBody Customer customer){
+        org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        customerService.updateOne(username,customer);
+        return new ResponseEntity<String>("Zmiana danych powiodła się!",HttpStatus.OK);
     }
 
-
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value="/Klienci",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 
     public ResponseEntity insertCustomer(@Validated({RegistrationCustomerValidateGroup.class}) @RequestBody Customer customer){
         if(customerService.insertOne(customer))
@@ -67,6 +69,13 @@ public class CustomerController {
         else return new ResponseEntity<String[]>( new String[] {"Istnieje już użytkownik z takim loginem!"} ,HttpStatus.BAD_REQUEST);
 
 
+    }
+
+    @RequestMapping(value = "/DaneKlienta", method = RequestMethod.GET)
+    public Customer getDataOfCustomer(){
+        org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        return customerService.findOneByUsername(username);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

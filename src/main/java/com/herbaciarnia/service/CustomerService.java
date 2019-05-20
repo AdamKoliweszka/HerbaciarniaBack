@@ -43,13 +43,14 @@ public class CustomerService {
 
         repository.delete(id);
     }
-    public void updateOne(Customer customer) {
-        Customer updatingCustomer = repository.findOne(customer.getId_customer());
+
+    @Transactional
+    public void updateOne(String username,Customer customer) {
+        Customer updatingCustomer = repository.findOneByUsername(username);
         updatingCustomer.setName(customer.getName());
         updatingCustomer.setSurname(customer.getSurname());
         updatingCustomer.setCity(customer.getCity());
         updatingCustomer.setStreet(customer.getStreet());
-        updatingCustomer.getUser().setPassword(customer.getUser().getPassword());
         repository.save(updatingCustomer);
     }
     @Transactional
@@ -69,4 +70,9 @@ public class CustomerService {
         }
 
     }
+    public Customer findOneByUsername(String username)
+    {
+        return repository.findOneByUsername(username);
+    }
+
 }

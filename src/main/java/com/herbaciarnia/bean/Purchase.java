@@ -1,5 +1,7 @@
 package com.herbaciarnia.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Entity;
@@ -28,6 +30,7 @@ public class Purchase {
     @ManyToOne
     @JoinColumn(name = "id_status")
     private TransactionStatus status;
+    @JsonFormat(pattern="dd.MM.yyyy")
     private Date date_of_purchases;
 
     public long getId_purchase() {
