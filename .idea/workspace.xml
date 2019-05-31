@@ -3,12 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5d165a5f-cf83-449e-9e58-2b9820692fd5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Delivery.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Delivery.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Purchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Purchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/CustomerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/PurchaseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/PurchaseRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CustomerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/UserService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -24,19 +24,40 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Purchase.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="32" column="37" selection-start-line="32" selection-start-column="37" selection-end-line="32" selection-end-column="37" />
+            <state relative-caret-position="195">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/UserRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="17" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Delivery.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CustomerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+            <state relative-caret-position="166">
+              <caret line="57" column="42" lean-forward="true" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -75,11 +96,8 @@
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TransactionStatusController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Authority.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/AuthorityRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/EmployeeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/TransactionStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/UserRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/DeliveryRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/DeliveryService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/DeliveryController.java" />
@@ -89,7 +107,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/schema-postgres.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/validator/UsernameValidator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/ExceptionController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/validator/EditingDataEmployeeValidateGroup.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Employee.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Customer.java" />
@@ -101,7 +118,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CountryOfOriginService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TeaSpeciesController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/CountryOfOriginController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Provider.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/ProviderController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Okienko.form" />
@@ -118,10 +134,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/PurchaseService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/CustomerController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CustomerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/PurchaseRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Purchase.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Delivery.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CustomerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/UserRepository.java" />
       </list>
     </option>
   </component>
@@ -163,7 +184,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -175,6 +195,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -268,7 +289,7 @@
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19957082" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20243205" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -277,7 +298,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32891566" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34578314" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.34578314" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -296,23 +317,6 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/AuthorityRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="55" column="56" selection-start-line="55" selection-start-column="56" selection-end-line="55" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/TransactionStatus.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -328,13 +332,6 @@
             <element signature="e#1387#1388#0" expanded="true" />
             <element signature="e#1435#1436#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -366,16 +363,6 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2206#2207#0" expanded="true" />
             <element signature="e#2257#2258#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/UserRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -510,24 +497,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/Application.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="57" column="51" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2335#2336#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/TeaSpeciesController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="945">
@@ -596,20 +565,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/CustomerRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="19" column="4" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/PurchaseController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="705">
@@ -641,27 +596,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CustomerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="53" column="8" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/EmployeeController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/CustomerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -686,6 +624,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="5" selection-start-line="18" selection-start-column="4" selection-end-line="20" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/CustomBasicAuthenticationEntryPoint.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Delivery.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Purchase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -693,10 +652,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/Delivery.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="27" column="37" selection-start-line="27" selection-start-column="37" selection-end-line="27" selection-end-column="37" />
+        <state relative-caret-position="887">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2292#2293#0" expanded="true" />
+            <element signature="e#2335#2336#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/bean/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-61">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/MyConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/CustomerRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/controller/CustomerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="73" column="29" selection-start-line="73" selection-start-column="29" selection-end-line="73" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/herbaciarnia/service/CustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="57" column="42" lean-forward="true" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
         </state>
       </provider>
     </entry>

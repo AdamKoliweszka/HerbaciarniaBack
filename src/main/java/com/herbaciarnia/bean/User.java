@@ -11,8 +11,11 @@ import com.herbaciarnia.validator.RegistrationCustomerValidateGroup;
 import com.herbaciarnia.validator.UsernameConstraint;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,7 +31,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "users")
-public class User implements Serializable{
+public class User implements Serializable {
     @Id
     @NotBlank(groups = {RegistrationCustomerValidateGroup.class},message = "Nazwa użytkownika jest wymagana!")
     @NotEmpty(groups = {RegistrationCustomerValidateGroup.class},message = "Nazwa użytkownika jest wymagana!")
@@ -46,6 +49,7 @@ public class User implements Serializable{
     public String getUsername() {
         return username;
     }
+
 
     public void setUsername(String username) {
         this.username = username;

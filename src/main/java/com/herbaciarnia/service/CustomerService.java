@@ -14,11 +14,15 @@ import java.util.List;
 
 import com.herbaciarnia.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CustomerService {
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private CustomerRepository repository;
@@ -58,6 +62,7 @@ public class CustomerService {
         User user = customer.getUser();
         if(userRepository.findOne(user.getUsername()) == null) {
             user.setEnabled(true);
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
             userRepository.save(user);
             Authority authority = new Authority();
             authority.setAuthority("KLIENT");
