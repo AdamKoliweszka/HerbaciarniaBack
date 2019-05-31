@@ -28,21 +28,18 @@ create table authorities (
 );
 
 
-insert into users(username, password, enabled)values('Jan','Kowalski',true);
-insert into users(username, password, enabled)values('Barbara','Witek',true);
-insert into users(username, password, enabled)values('Piotrek','Nowak',true);
-insert into users(username, password, enabled)values('Michal','Wygoda',true);
-insert into users(username, password, enabled)values('Magdalena','Zalewska',true);
+insert into users(username, password, enabled)values('Jan','$2a$10$zqT/plKSzO.1rne2Rvk89ugARZeQp8JorW5zyNolu3ftmOqTmx1FC',true);--Kowalski
+insert into users(username, password, enabled)values('Barbara','$2a$10$PWwPIVBQbgKAUIZpPPdjvuOpx25FbaOD0PE5btlxtEfJ12lUFE5Xa',true);--Witek
+insert into users(username, password, enabled)values('Piotrek','$2a$10$4UJDXT0MR/B5UB/1r1/16.Yud55u1b12MzUSxvy6FdRw9MnOXws82',true);--Nowak
+insert into users(username, password, enabled)values('Michal','$2a$10$tltb73Ypw.QIXzxs8xegrufGG5Z4BtasBN0t7S48mkt3X.yzj1opq',true);--Wygoda
+insert into users(username, password, enabled)values('Magdalena','$2a$10$BogIgO3AJb7HW42obGVy3e6TJRp9HDy3RN2w4xT5/WoFib3dCwkY6',true);--Zalewska
 
-insert into users(username, password, enabled)values('bill','abc123',true);
-insert into users(username, password, enabled)values('Mateusz','Krol',true);
-insert into users(username, password, enabled)values('Piotr','Rudy',true);
-insert into users(username, password, enabled)values('Zbigniew','Bomba',true);
-insert into users(username, password, enabled)values('Janek','Pchelka',true);
-insert into users(username, password, enabled)values('Roksana','Koska',true);
+insert into users(username, password, enabled)values('Mateusz','$2a$10$kXn5H65aXXTqbF5KXgiCU.uxiVUerYMdi3YlOX3nE9EZngc6hIDfu',true);--Krol
+insert into users(username, password, enabled)values('Piotr','$2a$10$29euTng3RAB/U25/TTGhyubKFyocsrc1eVHn1JoG4XIeFtooLAhTi',true);--Rudy
+insert into users(username, password, enabled)values('Zbigniew','$2a$10$FqF2PMQcFnViMG/8LZrjae4E/EHTZ80l2zeTQA8bEAnAEnHua5ADa',true);--Bomba
+insert into users(username, password, enabled)values('Janek','$2a$10$cG4ur/W8t0xcW8/GlLPlxuTGwrlPA7GkeHyH1Y46JlK2zOS7QuFzS',true);--Pchelka
+insert into users(username, password, enabled)values('Roksana','$2a$10$thhIOCMeIllNrvq3tfy16u2LG/57mNjX6hG3Pmn5O4virMsftVvCC',true);--Koska
 
-
-insert into authorities(username,authority)values('bill','PRACOWNIK');
 insert into authorities(username,authority)values('Mateusz','PRACOWNIK');
 insert into authorities(username,authority)values('Piotr','PRACOWNIK');
 insert into authorities(username,authority)values('Zbigniew','PRACOWNIK');
