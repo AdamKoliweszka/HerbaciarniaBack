@@ -8,7 +8,9 @@ package com.herbaciarnia.controller;
 import com.herbaciarnia.bean.Delivery;
 import com.herbaciarnia.service.DeliveryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,14 +47,17 @@ public class DeliveryController {
     }
     
     @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateDeliveryById(@RequestBody Delivery delivery){
+    public ResponseEntity<String> updateDeliveryById(@RequestBody Delivery delivery){
         org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
-        
+        boolean wynik = false;
         if(delivery.getEmployee().getUser().getUsername().equals(username)) {
-            deliveryService.updateOne(delivery);
-
+            wynik = deliveryService.updateOne(delivery);
+        }else{
+            return new ResponseEntity<String>( "Próba modyfikacji nie swojej dostawy!", HttpStatus.BAD_REQUEST);
         }
+        if(wynik)return new ResponseEntity<String>( "Modyfikacja powiodła się!", HttpStatus.OK);
+        else return new ResponseEntity<String>( "Próba modyfikacji statusu wstecz!", HttpStatus.BAD_REQUEST);
 
 
     }

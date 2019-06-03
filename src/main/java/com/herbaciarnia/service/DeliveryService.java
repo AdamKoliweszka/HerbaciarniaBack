@@ -33,10 +33,15 @@ public class DeliveryService {
 
         repository.delete(id);
     }
-    public void updateOne(Delivery delivery) {
+    public boolean updateOne(Delivery delivery) {
         Delivery updatingDelivery = repository.findOne(delivery.getId_delivery());
-        updatingDelivery.setStatus(delivery.getStatus());
-        repository.save(updatingDelivery);
+        if(updatingDelivery.getStatus().getId_status() < delivery.getStatus().getId_status()) {
+
+            updatingDelivery.setStatus(delivery.getStatus());
+            repository.save(updatingDelivery);
+            return true;
+        }
+        return false;
     }
     public void insertOne(Delivery Delivery) {
 
