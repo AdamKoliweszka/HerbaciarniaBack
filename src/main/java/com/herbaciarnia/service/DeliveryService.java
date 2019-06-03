@@ -6,9 +6,12 @@
 package com.herbaciarnia.service;
 
 import com.herbaciarnia.bean.Delivery;
+import com.herbaciarnia.bean.Tea;
 import com.herbaciarnia.repository.DeliveryRepository;
+import com.herbaciarnia.repository.TeaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,6 +21,8 @@ public class DeliveryService {
     @Autowired
     private DeliveryRepository repository;
 
+    @Autowired
+    private TeaRepository teaRepository;
     
     public List<Delivery> findAllByUsername(String username) {
 
@@ -43,8 +48,13 @@ public class DeliveryService {
         }
         return false;
     }
-    public void insertOne(Delivery Delivery) {
+    @Transactional
+    public void insertOne(Delivery delivery) {
 
-        repository.save(Delivery);
+        Tea tea = delivery.getTea();
+        tea = teaRepository.findOne(tea.getId_tea());
+        tea.setAvailable_quantity(tea.getAvailable_quantity() + delivery.getAmount());
+        teaRepository.save(tea);
+        repository.save(delivery);
     }
 }
