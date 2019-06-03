@@ -5,19 +5,14 @@
  */
 package com.herbaciarnia.service;
 
-import com.herbaciarnia.bean.Customer;
-import com.herbaciarnia.bean.Employee;
-import com.herbaciarnia.bean.Purchase;
-import com.herbaciarnia.bean.TransactionStatus;
-import com.herbaciarnia.repository.CustomerRepository;
-import com.herbaciarnia.repository.EmployeeRepository;
-import com.herbaciarnia.repository.PurchaseRepository;
+import com.herbaciarnia.bean.*;
+import com.herbaciarnia.repository.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-import com.herbaciarnia.repository.TransactionStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,6 +22,9 @@ public class PurchaseService {
 
     @Autowired
     private PurchaseRepository repository;
+
+    @Autowired
+    private TeaRepository teaRepository;
 
     @Autowired
     private CustomerRepository customerRepository;
@@ -52,10 +50,14 @@ public class PurchaseService {
 
         repository.delete(id);
     }
-    public void updateOne(Purchase purchase) {
+    public boolean updateOne(Purchase purchase) {
         Purchase updatingPurchase = repository.findOne(purchase.getId_purchase());
-        updatingPurchase.setStatus(purchase.getStatus());
-        repository.save(updatingPurchase);
+        if(updatingPurchase.getStatus().getId_status() < purchase.getStatus().getId_status()) {
+            updatingPurchase.setStatus(purchase.getStatus());
+            repository.save(updatingPurchase);
+            return true;
+        }
+        return false;
     }
     public void insertOne(Purchase purchase) {
 
@@ -63,7 +65,8 @@ public class PurchaseService {
     }
 
     @Transactional
-    public void insertAll(List<Purchase> purchases,String username) {
+    public List<Tea> insertAll(List<Purchase> purchases, String username) {
+        List<Tea> unavaibleTea = new ArrayList<Tea>();
         Customer customer = customerRepository.findOneByUsername(username);
         List<Employee> le = employeeRepository.findAllEnable();
         Random random = new Random();
@@ -72,12 +75,28 @@ public class PurchaseService {
         TransactionStatus status = transactionStatusRepository.findOne((long)1);
         for(Purchase purchase : purchases)
         {
-            purchase.setStatus(status);
-            purchase.setDate_of_purchases(date);
-            purchase.setCustomer(customer);
-            purchase.setEmployee(employee);
-            repository.save(purchase);
+            Tea tea = purchase.getTea();
+            tea = teaRepository.findOne(tea.getId_tea());
+            if(purchase.getAmount() > tea.getAvailable_quantity())
+            {
+                unavaibleTea.add(tea);
+            }
         }
+        if(unavaibleTea.size() == 0) {
+            for (Purchase purchase : purchases) {
 
+                Tea tea = purchase.getTea();
+                tea = teaRepository.findOne(tea.getId_tea());
+                tea.setAvailable_quantity(tea.getAvailable_quantity() - purchase.getAmount());
+                teaRepository.save(tea);
+
+                purchase.setStatus(status);
+                purchase.setDate_of_purchases(date);
+                purchase.setCustomer(customer);
+                purchase.setEmployee(employee);
+                repository.save(purchase);
+            }
+        }
+        return unavaibleTea;
     }
 }
