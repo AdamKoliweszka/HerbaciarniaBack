@@ -1,16 +1,13 @@
 package com.herbaciarnia.bean;
 
+import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
@@ -36,6 +33,11 @@ public class Tea {
     private int price_of_delivery;
 
     private int available_quantity;
+
+    @Lob
+    @Column(name="image")
+    @Type(type = "org.hibernate.type.ImageType")
+    private byte[] image;
 
     @NotNull(message = "Herbata musi mieć przypisany kraj pochodzenia!")
     @ManyToOne
@@ -111,6 +113,14 @@ public class Tea {
         this.tea_species = tea_species;
     }
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -122,13 +132,16 @@ public class Tea {
                 available_quantity == tea.available_quantity &&
                 Objects.equals(name, tea.name) &&
                 Objects.equals(description, tea.description) &&
+                Objects.equals(image, tea.image) &&
                 Objects.equals(country_of_origin, tea.country_of_origin) &&
                 Objects.equals(tea_species, tea.tea_species);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_tea, name, description, price_of_selling, price_of_delivery, available_quantity, country_of_origin, tea_species);
+        int result = Objects.hash(id_tea, name, description, price_of_selling, price_of_delivery, available_quantity, country_of_origin, tea_species);
+        result = 31 * result + Objects.hashCode(image);
+        return result;
     }
 
     @Override
@@ -140,6 +153,7 @@ public class Tea {
                 ", price_of_selling=" + price_of_selling +
                 ", price_of_delivery=" + price_of_delivery +
                 ", available_quantity=" + available_quantity +
+                ", image=" + image +
                 ", country_of_origin=" + country_of_origin +
                 ", tea_species=" + tea_species +
                 '}';

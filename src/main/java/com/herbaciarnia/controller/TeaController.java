@@ -37,6 +37,7 @@ public class TeaController {
     @RequestMapping(path = "/Dostepne",method = RequestMethod.GET)
     public Collection<Tea> getAllAvaibleTea(){
         List<Tea> tea = (List<Tea>) teaService.findAllAvaible();
+        System.out.println(tea.get(0).getImage().length);
         return tea;
         
     }
