@@ -153,16 +153,17 @@ price_of_delivery INT,
 available_quantity INT,
 id_species INT DEFAULT 1,
 id_country INT DEFAULT 1,
+image bytea,
 CONSTRAINT FK_TEA_SPECIES FOREIGN KEY (id_species)
 REFERENCES tea_species(id_species) ON DELETE SET DEFAULT,
 CONSTRAINT FK_TEA_COUNTRY FOREIGN KEY (id_country)
 REFERENCES country_of_origin(id_country) ON DELETE SET DEFAULT
 );
-INSERT INTO tea(name,description,price_of_selling,price_of_delivery,available_quantity,id_species,id_country) VALUES ('Lipton','Herbata odświerzająca',35,30,72,2,4);
-INSERT INTO tea(name,description,price_of_selling,price_of_delivery,available_quantity,id_species,id_country) VALUES ('Pajarito','Herbata o piorującym smaku.',95,80,0,1,6);
-INSERT INTO tea(name,description,price_of_selling,price_of_delivery,available_quantity,id_species,id_country) VALUES ('Minutka','Herbata o delikatnym smaku',15,12,0,3,2);
-INSERT INTO tea(name,description,price_of_selling,price_of_delivery,available_quantity,id_species,id_country) VALUES ('Basilur','Herbata o orzeźwiającym smaku z posmakiem ananasu.',115,100,0,1,2);
-INSERT INTO tea(name,description,price_of_selling,price_of_delivery,available_quantity,id_species,id_country) VALUES ('Lipton Earl Grey','Herbata o delikatnym smaku.',25,23,5,5,4);
+INSERT INTO tea(name,description,price_of_selling,price_of_delivery,available_quantity,id_species,id_country,image) VALUES ('Lipton','Herbata odświerzająca',35,30,72,2,4,bytea('image1.jpg'));
+INSERT INTO tea(name,description,price_of_selling,price_of_delivery,available_quantity,id_species,id_country,image) VALUES ('Pajarito','Herbata o piorującym smaku.',95,80,0,1,6,bytea('image2.jpg'));
+INSERT INTO tea(name,description,price_of_selling,price_of_delivery,available_quantity,id_species,id_country,image) VALUES ('Minutka','Herbata o delikatnym smaku',15,12,0,3,2,bytea('image3.jpg'));
+INSERT INTO tea(name,description,price_of_selling,price_of_delivery,available_quantity,id_species,id_country,image) VALUES ('Basilur','Herbata o orzeźwiającym smaku z posmakiem ananasu.',115,100,0,1,2,bytea('image4.jpg'));
+INSERT INTO tea(name,description,price_of_selling,price_of_delivery,available_quantity,id_species,id_country,image) VALUES ('Lipton Earl Grey','Herbata o delikatnym smaku.',25,23,5,5,4,bytea('image5.jpg'));
 --TWORZENIE TABELI Z HISTORI• DOSTAW
 
 CREATE TABLE deliveries
