@@ -6,13 +6,18 @@
 package com.herbaciarnia.service;
 
 import com.herbaciarnia.bean.Delivery;
+import com.herbaciarnia.bean.Employee;
 import com.herbaciarnia.bean.Tea;
+import com.herbaciarnia.bean.TransactionStatus;
 import com.herbaciarnia.repository.DeliveryRepository;
+import com.herbaciarnia.repository.EmployeeRepository;
 import com.herbaciarnia.repository.TeaRepository;
+import com.herbaciarnia.repository.TransactionStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -23,6 +28,12 @@ public class DeliveryService {
 
     @Autowired
     private TeaRepository teaRepository;
+
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private TransactionStatusRepository statusRepository;
     
     public List<Delivery> findAllByUsername(String username) {
 
@@ -49,12 +60,17 @@ public class DeliveryService {
         return false;
     }
     @Transactional
-    public void insertOne(Delivery delivery) {
+    public void insertOne(Delivery delivery,String username) {
 
         Tea tea = delivery.getTea();
         tea = teaRepository.findOne(tea.getId_tea());
         tea.setAvailable_quantity(tea.getAvailable_quantity() + delivery.getAmount());
         teaRepository.save(tea);
+        delivery.setDate_of_delivery(new Date());
+        TransactionStatus status = statusRepository.findOne((long) 1);
+        delivery.setStatus(status);
+        Employee employee = employeeRepository.findOneByUsername(username);
+        delivery.setEmployee(employee);
         repository.save(delivery);
     }
 }

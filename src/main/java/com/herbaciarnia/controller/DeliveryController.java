@@ -63,8 +63,11 @@ public class DeliveryController {
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertDelivery(@RequestBody Delivery delivery){
-        deliveryService.insertOne(delivery);
+    public ResponseEntity<String> insertDelivery(@RequestBody Delivery delivery){
+        org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        deliveryService.insertOne(delivery,username);
+        return new ResponseEntity<String>( "Dostawa została dodana!", HttpStatus.OK);
     }
 
 }
