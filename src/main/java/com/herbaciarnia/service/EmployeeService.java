@@ -5,10 +5,16 @@
  */
 package com.herbaciarnia.service;
 
+import com.herbaciarnia.bean.Authority;
 import com.herbaciarnia.bean.Employee;
+import com.herbaciarnia.bean.User;
+import com.herbaciarnia.repository.AuthorityRepository;
 import com.herbaciarnia.repository.EmployeeRepository;
 import java.util.List;
+
+import com.herbaciarnia.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,9 +22,17 @@ import org.springframework.transaction.annotation.Transactional;
 public class EmployeeService {
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     private EmployeeRepository repository;
 
-    
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private AuthorityRepository authorityRepository;
+
     public List<Employee> findAll() {
 
         List<Employee> employee = (List<Employee>) repository.findAll();
@@ -40,9 +54,22 @@ public class EmployeeService {
         updatingEmployee.setSurname(employee.getSurname());
         repository.save(updatingEmployee);
     }
-    public void insertOne(Employee employee) {
-
-        repository.save(employee);
+    @Transactional
+    public boolean insertOne(Employee employee) {
+        User user = employee.getUser();
+        if(repository.findOneByUsername(user.getUsername()) == null) {
+            user.setEnabled(true);
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            userRepository.save(user);
+            Authority authority = new Authority();
+            authority.setAuthority("PRACOWNIK");
+            authority.setUser(user);
+            authorityRepository.save(authority);
+            repository.save(employee);
+            return true;
+        }else{
+            return false;
+        }
     }
     public Employee findOneByUsername(String username)
     {

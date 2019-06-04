@@ -60,9 +60,12 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/Pracownicy",method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void insertEmployee(@Valid @RequestBody Employee employee){
+    public ResponseEntity insertEmployee(@Valid @RequestBody Employee employee){
 
-        employeeService.insertOne(employee);
+        if(employeeService.insertOne(employee))
+        {
+            return new ResponseEntity<String>("Rejestracja powiodła się!",HttpStatus.OK);
+        }else return new ResponseEntity<String[]>( new String[] {"Istnieje już użytkownik z takim loginem!"} ,HttpStatus.BAD_REQUEST);
     }
 
     @RequestMapping(value = "/DanePracownika", method = RequestMethod.GET)
