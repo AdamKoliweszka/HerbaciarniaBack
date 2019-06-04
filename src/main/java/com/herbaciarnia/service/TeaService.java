@@ -59,7 +59,7 @@ public class TeaService {
     }
     public String updateOne(Tea tea) {
         List<Tea> speciesWithNames = (List<Tea>) repository.findTeaByName(tea.getName());
-        if(speciesWithNames.size() > 0 && !speciesWithNames.equals(tea) )return "Istnieje już herbata o takiej nazwie!";
+        if(speciesWithNames.size() > 0 && speciesWithNames.get(0).getId_tea() !=  tea.getId_tea())return "Istnieje już herbata o takiej nazwie!";
         Tea updatingTea = repository.findOne(tea.getId_tea());
         if(updatingTea != null) {
         updatingTea.setName(tea.getName());
