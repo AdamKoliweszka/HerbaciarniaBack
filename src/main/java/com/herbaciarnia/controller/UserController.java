@@ -40,7 +40,13 @@ public class UserController {
         
     }
 
-    
+    @RequestMapping(value = "/deleteAccount",method = RequestMethod.GET)
+    public void deleteUser(){
+        org.springframework.security.core.Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        userService.deleteByUsername(username);
+    }
+
     @RequestMapping(value = "/Uzytkownicy/{username}", method = RequestMethod.DELETE)
     public void deleteUserByUsername(@PathVariable("username") String username){
         userService.deleteOne(username);

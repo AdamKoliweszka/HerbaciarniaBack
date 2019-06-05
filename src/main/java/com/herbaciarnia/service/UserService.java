@@ -57,4 +57,11 @@ public class UserService {
         return authorityRepository.findAuthorityByUsername(username);
     }
 
+    public void deleteByUsername(String username)
+    {
+        User user = repository.findOne(username);
+        user.setEnabled(false);
+        repository.save(user);
+    }
+
 }
