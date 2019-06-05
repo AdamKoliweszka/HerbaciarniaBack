@@ -9,10 +9,18 @@ import com.herbaciarnia.bean.ArgumentOfFilteringTeaForEmployee;
 import com.herbaciarnia.bean.ArgumentOfFilteringTea;
 import com.herbaciarnia.bean.Tea;
 import com.herbaciarnia.repository.TeaRepository;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 @Service
 public class TeaService {
@@ -75,12 +83,32 @@ public class TeaService {
     }
 
     @Transactional
-    public boolean insertOne(Tea tea) {
+    public Integer insertOne(Tea tea) {
 
         List<Tea> ls = (List<Tea>)repository.findTeaByName(tea.getName());
         if(ls.size() == 0) {
             repository.save(tea);
-            return true;
-        }else return false;
+            List<Tea> teaList = (List<Tea>) repository.findAll();
+            return teaList.size();
+        }else return 0;
+    }
+
+    public void setImage(long id,MultipartFile file) throws IOException {
+        String directoryName = "./files";
+        Path path = Paths.get(directoryName);
+        if (!Files.exists(path)) {
+            Files.createDirectory(path);
+        }
+        File newFile = File.createTempFile("tsp_",".txt",new File(directoryName ));
+        FileOutputStream fileOutputStream = new FileOutputStream(newFile);
+        fileOutputStream.write(file.getBytes());
+        fileOutputStream.close();
+        String newPath = newFile.getAbsolutePath();
+        byte[] bytesOfFile =Files.readAllBytes(Paths.get(newPath));
+        Tea tea = repository.findOne(id);
+        if(tea != null) {
+            tea.setImage(bytesOfFile);
+            repository.save(tea);
+        }
     }
 }

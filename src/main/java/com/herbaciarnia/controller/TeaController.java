@@ -9,18 +9,29 @@ import com.herbaciarnia.bean.ArgumentOfFilteringTea;
 import com.herbaciarnia.bean.ArgumentOfFilteringTeaForEmployee;
 import com.herbaciarnia.bean.Tea;
 import com.herbaciarnia.service.TeaService;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
 
@@ -29,11 +40,12 @@ import javax.validation.Valid;
  * @author user
  */
 @RestController
-@RequestMapping("/Herbaty")
+@RequestMapping(value = "/Herbaty")
 public class TeaController {
     @Autowired
     TeaService teaService;
-    
+
+
     @RequestMapping(path = "/Dostepne",method = RequestMethod.GET)
     public Collection<Tea> getAllAvaibleTea(){
         List<Tea> tea = (List<Tea>) teaService.findAllAvaible();
@@ -91,9 +103,9 @@ public class TeaController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity insertTea(@Valid @RequestBody Tea tea){
-
-        if (this.teaService.insertOne(tea)) {
-            return new ResponseEntity<String>("Herbata została dodana!", HttpStatus.OK);
+        Integer id = this.teaService.insertOne(tea);
+        if (id!= 0) {
+            return new ResponseEntity<Integer>(id, HttpStatus.OK);
 
         }else{
             return new ResponseEntity<String[]>( new String[] {"Istnieje już herbata z taką nazwą!"} ,HttpStatus.BAD_REQUEST);
@@ -112,4 +124,5 @@ public class TeaController {
         });
         return errors;
     }
+
 }
