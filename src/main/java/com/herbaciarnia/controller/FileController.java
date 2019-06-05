@@ -52,7 +52,6 @@ public class FileController {
 
     @RequestMapping(value = "/{id}",method = RequestMethod.POST , consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity insertFile(@PathVariable("id") long id, @RequestParam("file") MultipartFile file) throws IOException {
-        System.out.println("Jestem");
         teaService.setImage(id,file);
         return new ResponseEntity("Wysyłanie pliku powiodło się!", HttpStatus.OK);
     }
